@@ -16,6 +16,7 @@
 
 package ch.frankel.kaadin
 
+import com.vaadin.shared.ui.*
 import com.vaadin.ui.*
 
 
@@ -31,7 +32,9 @@ fun test() {
             }
             link(caption = "Click here")
             nativeButton(caption = "native")
-            textField(caption = "hello world")
+            textField(caption = "hello world") {
+                margin = MarginInfo(true)
+            }
             textField(caption = "hello jack")
             progressBar(progress = 12f).apply {
                 setHeight("12px")
