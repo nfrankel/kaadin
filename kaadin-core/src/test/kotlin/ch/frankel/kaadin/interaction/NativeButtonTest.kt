@@ -16,7 +16,7 @@
 
 package ch.frankel.kaadin.interaction
 
-import ch.frankel.kaadin.hLayout
+import ch.frankel.kaadin.horizontalLayout
 import ch.frankel.kaadin.nativeButton
 import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
@@ -26,7 +26,7 @@ class NativeButtonTest {
 
     @Test
     fun `native button should be added to layout`() {
-        val layout = hLayout {
+        val layout = horizontalLayout {
             nativeButton()
         }
         assertThat(layout.componentCount).isEqualTo(1)
@@ -37,7 +37,7 @@ class NativeButtonTest {
     @Test(dependsOnMethods = arrayOf("native button should be added to layout"))
     fun `native button should display a specific caption`() {
         val caption = "Hello world"
-        val layout = hLayout {
+        val layout = horizontalLayout {
             nativeButton(caption)
         }
         val nativeButton = layout.getComponent(0) as NativeButton
@@ -47,7 +47,7 @@ class NativeButtonTest {
     @Test(dependsOnMethods = arrayOf("native button should be added to layout"))
     fun `native button should react on a specific click listener`() {
         var clicked = false
-        val layout = hLayout {
+        val layout = horizontalLayout {
             nativeButton(clickListener = { clicked = true })
         }
         val nativeButton = layout.getComponent(0) as NativeButton
@@ -59,7 +59,7 @@ class NativeButtonTest {
     fun `native button should be configurable in the lambda`() {
         val data = "dummy"
         val caption = "Hello world"
-        val layout = hLayout {
+        val layout = horizontalLayout {
             nativeButton() {
                 this.caption = caption
                 this.data = data

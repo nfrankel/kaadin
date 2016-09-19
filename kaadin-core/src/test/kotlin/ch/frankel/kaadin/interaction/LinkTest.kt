@@ -16,7 +16,7 @@
 
 package ch.frankel.kaadin.interaction
 
-import ch.frankel.kaadin.hLayout
+import ch.frankel.kaadin.horizontalLayout
 import ch.frankel.kaadin.link
 import com.vaadin.server.FontAwesome.*
 import com.vaadin.ui.*
@@ -27,8 +27,8 @@ class LinkTest {
 
     @Test
     fun `link should be added to layout`() {
-        val layout = hLayout {
-            link()
+        val layout = horizontalLayout {
+            link("dummy")
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
@@ -38,7 +38,7 @@ class LinkTest {
     @Test(dependsOnMethods = arrayOf("link should be added to layout"))
     fun `link should display a specific caption`() {
         val caption = "Hello world"
-        val layout = hLayout {
+        val layout = horizontalLayout {
             link(caption)
         }
         val link = layout.getComponent(0) as Link
@@ -48,8 +48,8 @@ class LinkTest {
     @Test(dependsOnMethods = arrayOf("link should be added to layout"))
     fun `link should open a specific resource`() {
         val target = AMAZON
-        val layout = hLayout {
-            link(resource = target)
+        val layout = horizontalLayout {
+            link("dummy", target)
         }
         val link = layout.getComponent(0) as Link
         assertThat(link.resource).isEqualTo(target)
@@ -59,7 +59,7 @@ class LinkTest {
     fun `link should display a specific caption and open a specific resource`() {
         val caption = "Hello world"
         val target = AMAZON
-        val layout = hLayout {
+        val layout = horizontalLayout {
             link(caption, target)
         }
         val link = layout.getComponent(0) as Link
@@ -70,8 +70,8 @@ class LinkTest {
     @Test(dependsOnMethods = arrayOf("link should be added to layout"))
     fun `link should open in a specific target`() {
         val targetName = "_blank"
-        val layout = hLayout {
-            link(targetName = targetName)
+        val layout = horizontalLayout {
+            link("dummy", targetName = targetName)
         }
         val link = layout.getComponent(0) as Link
         // Not possible to simulate click, must check state
@@ -82,8 +82,8 @@ class LinkTest {
     fun `link should be configurable in the lambda`() {
         val data = "dummy"
         val caption = "Hello world"
-        val layout = hLayout {
-            link() {
+        val layout = horizontalLayout {
+            link("dummy") {
                 this.caption = caption
                 this.data = data
             }

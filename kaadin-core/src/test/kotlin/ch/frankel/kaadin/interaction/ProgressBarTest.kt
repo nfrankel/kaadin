@@ -16,7 +16,7 @@
 
 package ch.frankel.kaadin.interaction
 
-import ch.frankel.kaadin.hLayout
+import ch.frankel.kaadin.horizontalLayout
 import ch.frankel.kaadin.progressBar
 import com.vaadin.data.util.*
 import com.vaadin.ui.*
@@ -27,7 +27,7 @@ class ProgressBarTest {
 
     @Test
     fun `progress bar should be added to layout`() {
-        val layout = hLayout {
+        val layout = horizontalLayout {
             progressBar()
         }
         assertThat(layout.componentCount).isEqualTo(1)
@@ -38,7 +38,7 @@ class ProgressBarTest {
     @Test(dependsOnMethods = arrayOf("progress bar should be added to layout"))
     fun `progress bar should display a progress`() {
         val value = 0.75f
-        val layout = hLayout {
+        val layout = horizontalLayout {
             progressBar(0.75f)
         }
         val progressBar = layout.getComponent(0) as ProgressBar
@@ -48,7 +48,7 @@ class ProgressBarTest {
     @Test(dependsOnMethods = arrayOf("progress bar should be added to layout"))
     fun `progress bar should display a progress based on a property`() {
         val property = ObjectProperty<Float>(0f)
-        val layout = hLayout {
+        val layout = horizontalLayout {
             progressBar(dataSource = property)
         }
         property.value = 0.75f

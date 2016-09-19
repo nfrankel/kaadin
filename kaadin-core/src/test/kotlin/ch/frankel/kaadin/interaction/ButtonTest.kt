@@ -17,7 +17,7 @@
 package ch.frankel.kaadin.interaction
 
 import ch.frankel.kaadin.button
-import ch.frankel.kaadin.hLayout
+import ch.frankel.kaadin.horizontalLayout
 import com.vaadin.server.FontAwesome.*
 import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
@@ -27,7 +27,7 @@ class ButtonTest {
 
     @Test
     fun `button should be added to layout`() {
-        val layout = hLayout {
+        val layout = horizontalLayout {
             button()
         }
         assertThat(layout.componentCount).isEqualTo(1)
@@ -38,7 +38,7 @@ class ButtonTest {
     @Test(dependsOnMethods = arrayOf("button should be added to layout"))
     fun `button should display a specific caption`() {
         val caption = "Hello world"
-        val layout = hLayout {
+        val layout = horizontalLayout {
             button(caption)
         }
         val button = layout.getComponent(0) as Button
@@ -48,7 +48,7 @@ class ButtonTest {
     @Test(dependsOnMethods = arrayOf("button should be added to layout"))
     fun `button should display a specific icon`() {
         val icon = AMAZON
-        val layout = hLayout {
+        val layout = horizontalLayout {
             button(icon = icon)
         }
         val button = layout.getComponent(0) as Button
@@ -59,7 +59,7 @@ class ButtonTest {
     fun `button should display a specific caption and icon`() {
         val caption = "Hello world"
         val icon = AMAZON
-        val layout = hLayout {
+        val layout = horizontalLayout {
             button(caption, icon)
         }
         val button = layout.getComponent(0) as Button
@@ -70,8 +70,8 @@ class ButtonTest {
     @Test(dependsOnMethods = arrayOf("button should be added to layout"))
     fun `button should react on a specific click listener`() {
         var clicked = false
-        val layout = hLayout {
-            button(clickListener = { clicked = true })
+        val layout = horizontalLayout {
+            button(onClick = { clicked = true })
         }
         val button = layout.getComponent(0) as Button
         button.click()
@@ -82,7 +82,7 @@ class ButtonTest {
     fun `button should be configurable in the lambda`() {
         val data = "dummy"
         val caption = "Hello world"
-        val layout = hLayout {
+        val layout = horizontalLayout {
             button() {
                 this.caption = caption
                 this.data = data

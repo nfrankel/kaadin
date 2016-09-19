@@ -16,7 +16,7 @@
 
 package ch.frankel.kaadin.interaction
 
-import ch.frankel.kaadin.hLayout
+import ch.frankel.kaadin.horizontalLayout
 import ch.frankel.kaadin.menuBar
 import ch.frankel.kaadin.menuItem
 import ch.frankel.kaadin.select
@@ -29,7 +29,7 @@ class MenuBarTest {
 
     @Test
     fun `menu bar should be added to layout`() {
-        val layout = hLayout {
+        val layout = horizontalLayout {
             menuBar()
         }
         assertThat(layout.componentCount).isEqualTo(1)
@@ -40,7 +40,7 @@ class MenuBarTest {
     @Test(dependsOnMethods = arrayOf("menu bar should be added to layout"))
     fun `menu bar should be configurable`() {
         val icon = AMAZON
-        val layout = hLayout {
+        val layout = horizontalLayout {
             menuBar() {
                 this.icon = icon
             }
@@ -52,7 +52,7 @@ class MenuBarTest {
     @Test(dependsOnMethods = arrayOf("menu bar should be added to layout"))
     fun `menu items should be added to menu bar`() {
         val size = 3
-        val layout = hLayout {
+        val layout = horizontalLayout {
             menuBar() {
                 IntRange(0, size).forEach {
                     menuItem("Hello World", command = MenuBar.Command { })
@@ -66,7 +66,7 @@ class MenuBarTest {
     @Test(dependsOnMethods = arrayOf("menu items should be added to menu bar"))
     fun `menu items should be configurable`() {
         val icon = AMAZON
-        val layout = hLayout {
+        val layout = horizontalLayout {
             menuBar() {
                 menuItem("Hello World", command = MenuBar.Command { }) {
                     this.icon = icon
@@ -83,7 +83,7 @@ class MenuBarTest {
         val caption = "Hello World"
         val clicked = mutableListOf(false, false, false, false)
         val range = IntRange(0, size)
-        val layout = hLayout {
+        val layout = horizontalLayout {
             menuBar() {
                 range.forEach { i ->
                     menuItem("$caption $i", command = MenuBar.Command { clicked[i] = true })
