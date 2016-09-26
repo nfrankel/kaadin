@@ -81,15 +81,12 @@ class LinkTest {
     @Test(dependsOnMethods = arrayOf("link should be added to layout"))
     fun `link should be configurable in the lambda`() {
         val data = "dummy"
-        val caption = "Hello world"
         val layout = horizontalLayout {
-            link("dummy") {
-                this.caption = caption
+            link("caption") {
                 this.data = data
             }
         }
         val link = layout.getComponent(0) as Link
         assertThat(link.data).isEqualTo(data)
-        assertThat(link.caption).isEqualTo(caption)
     }
 }

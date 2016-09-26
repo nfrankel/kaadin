@@ -204,7 +204,7 @@ class KaadinSampler() : UI() {
                             }
                         }
                         tab("Twin columns select", TH_LIST) {
-                            horizontalLayout(true, true) {
+                            gridLayout(3, 2, true, true) {
                                 twinColSelect()
                                 twinColSelect(dataSource = dataSource)
                                 twinColSelect("No value")
@@ -296,6 +296,25 @@ class KaadinSampler() : UI() {
                                 browserFrame(source = ClassResource("/vaadin-logo.png"))
                                 browserFrame("Vaadin logo", ClassResource("/vaadin-logo.png"))
                             }
+                        }
+                    }
+                }
+                tab("Grid and Tree") {
+                    accordion {
+                        class Person(val name: String, val job: String, val birthDate: Date)
+                        val devs = arrayListOf(Person("John Doe", "Developer", Date()),
+                                Person("Alfred Pennyworth", "Butler", Date(10, 10, 1)),
+                                Person("Bruce Wayne", "Batman", Date(80, 0, 25)))
+                        val lead = Person("Jane Doe", "Team Leader", Date(96, 4, 15))
+                        val flatDataSource = beanItemContainer(Person::class.java) {
+                            beans(devs)
+                            bean(lead)
+                        }
+                        tab("Grid") {
+                            grid(dataSource = flatDataSource)
+                        }
+                        tab("Table") {
+                            table(dataSource = flatDataSource)
                         }
                     }
                 }

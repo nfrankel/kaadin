@@ -16,6 +16,7 @@
 package ch.frankel.kaadin
 
 import com.vaadin.data.*
+import com.vaadin.data.util.*
 import com.vaadin.ui.*
 
 /**
@@ -39,23 +40,25 @@ fun HasComponents.table(caption: String? = null,
         .process(this, caption, dataSource, init)
 
 fun HasComponents.tree(caption: String? = null,
-                       dataSource: Container? = null,
+                       dataSource: Container = HierarchicalContainer(),
                        init: Tree.() -> Unit = {}) = Tree()
         .process(this, caption, dataSource, init)
 
 fun HasComponents.treeTable(caption: String? = null,
-                            dataSource: Container? = null,
+                            dataSource: Container = HierarchicalContainer(),
                             init: TreeTable.() -> Unit = {}) = TreeTable()
         .process(this, caption, dataSource, init)
 
-fun HasComponents.grid(caption: String? = null,
-                       dataSource: Container.Indexed? = null,
-                       init: Grid.() -> Unit = {}): Grid {
-    return Grid()
-            .apply {
-                caption?.let { this.caption = caption }
-                dataSource?.let { this.containerDataSource = dataSource }
-            }
-            .apply(init)
-            .addTo(this)
-}
+fun <T> beanItemContainer(type: Class<T>, init: BeanItemContainer<T>.() -> Unit = {}): BeanItemContainer<T> = BeanItemContainer<T>(type)
+        .apply(init)
+fun <T> beanItemContainer(type: Class<T>, collection: Collection<T>, init: BeanItemContainer<T>.() -> Unit = {}) =
+        beanItemContainer(type, init)
+        .apply {
+            beans(collection)
+        }
+
+fun <T> BeanItemContainer<T>.bean(bean: T, init: BeanItem<T>.() -> Unit = {}) = addBean(bean).apply(init)
+fun <T> BeanItemContainer<T>.beanAfter(bean: T, previousBean: T, init: BeanItem<T>.() -> Unit = {}) = addItemAfter(bean, previousBean).apply(init)
+fun <T> BeanItemContainer<T>.beanAt(bean: T, index: Int, init: BeanItem<T>.() -> Unit = {}) = addItemAt(index, bean).apply(init)
+fun <T> BeanItemContainer<T>.beans(collection: Collection<T>, init: BeanItem<T>.() -> Unit = {}) = collection.forEach { bean(it, init) }
+
