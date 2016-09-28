@@ -24,6 +24,7 @@ import com.vaadin.server.Sizeable.Unit.*
 import com.vaadin.shared.ui.colorpicker.Color.*
 import com.vaadin.shared.ui.label.ContentMode.*
 import com.vaadin.ui.*
+import com.vaadin.ui.Grid.SelectionMode.*
 import com.vaadin.ui.MenuBar.*
 import com.vaadin.ui.components.calendar.event.*
 import java.io.ByteArrayOutputStream
@@ -301,20 +302,43 @@ class KaadinSampler() : UI() {
                 }
                 tab("Grid and Tree") {
                     accordion {
-                        class Person(val name: String, val job: String, val birthDate: Date)
-                        val devs = arrayListOf(Person("John Doe", "Developer", Date()),
-                                Person("Alfred Pennyworth", "Butler", Date(10, 10, 1)),
-                                Person("Bruce Wayne", "Batman", Date(80, 0, 25)))
-                        val lead = Person("Jane Doe", "Team Leader", Date(96, 4, 15))
-                        val flatDataSource = beanItemContainer(Person::class.java) {
-                            beans(devs)
-                            bean(lead)
-                        }
                         tab("Grid") {
-                            grid(dataSource = flatDataSource)
+                            val flatDataSource = beanItemContainer(Line::class.java) {
+                                beans(Line.data)
+                            }
+                            grid(dataSource = flatDataSource) {
+                                width(100f, PERCENTAGE)
+                                selectionMode(SINGLE) {
+                                    reset()
+                                }
+                                frozenColumnCount = 1
+                                cellStyleGenerator({ it.propertyId == "company" }, "align-right")
+                                headerRowAt(1) {
+                                    cell("company") {
+                                        component = TextField()
+                                        styleName = "filter-header"
+                                    }
+                                    /*
+                                    Target:
+                                    cell("company") {
+                                        textField()
+                                    }
+                                     */
+                                }
+                                footerRowAtEnd()
+                                val propertyIds = IntRange(0, 9)
+                                        .map { "year$it" }
+                                        .flatMap { arrayListOf("${it}q1", "${it}q2") }
+                                columns(propertyIds) {
+                                    this.converter = ch.frankel.kaadin.example.converter
+                                }
+                            }
                         }
                         tab("Table") {
-                            table(dataSource = flatDataSource)
+                            table(dataSource = beanItemContainer(Person::class.java) {
+                                beans(Person.devs)
+                                bean(Person.lead)
+                            })
                         }
                     }
                 }
