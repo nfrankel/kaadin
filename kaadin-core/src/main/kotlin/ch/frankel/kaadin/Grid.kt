@@ -56,27 +56,6 @@ fun Grid.cellStyleGenerator(predicate: (Grid.CellReference) -> Boolean, classNam
 fun Grid.selectionMode(selectionMode: Grid.SelectionMode, init: Grid.SelectionModel.() -> Unit = {}) =
     setSelectionMode(selectionMode).apply(init)
 
-fun Grid.height(height: String) = setHeight(height)
-fun Grid.height(height: Float, unit: Sizeable.Unit) = setHeight(height, unit)
-fun Grid.heightUndefined() = setHeightUndefined()
-fun Grid.width(width: String) = setWidth(width)
-fun Grid.width(width: Float, unit: Sizeable.Unit) = setWidth(width, unit)
-fun Grid.widthUndefined() = setWidthUndefined()
-fun Grid.size(width: String, height: String) {
-    width(width)
-    height(height)
-}
-fun Grid.size(width: Float, height: Float, unit: Sizeable.Unit) {
-    width(width, unit)
-    height(height, unit)
-}
-fun Grid.size(width: Float, widthUnit: Sizeable.Unit, height: Float, heightUnit: Sizeable.Unit) {
-    width(width, widthUnit)
-    height(height, heightUnit)
-}
-fun Grid.sizeUndefined() = setSizeUndefined()
-fun Grid.sizeFull() = setSizeFull()
-
 // Because StaticRow is not public
 fun Grid.HeaderRow.cell(propertyId: Any, init: Grid.HeaderCell.() -> Unit = {}) = getCell(propertyId).apply(init)
 fun Grid.FooterRow.cell(propertyId: Any, init: Grid.FooterCell.() -> Unit = {}) = getCell(propertyId).apply(init)
