@@ -61,4 +61,5 @@ fun <T> BeanItemContainer<T>.bean(bean: T, init: BeanItem<T>.() -> Unit = {}) = 
 fun <T> BeanItemContainer<T>.beanAfter(bean: T, previousBean: T, init: BeanItem<T>.() -> Unit = {}) = addItemAfter(bean, previousBean).apply(init)
 fun <T> BeanItemContainer<T>.beanAt(bean: T, index: Int, init: BeanItem<T>.() -> Unit = {}) = addItemAt(index, bean).apply(init)
 fun <T> BeanItemContainer<T>.beans(collection: Collection<T>, init: BeanItem<T>.() -> Unit = {}) = collection.forEach { bean(it, init) }
+fun <T> BeanItemContainer<T>.beans(vararg  bean: T, init: BeanItem<T>.() -> Unit = {}) = bean.forEach { bean(it, init) }
 
