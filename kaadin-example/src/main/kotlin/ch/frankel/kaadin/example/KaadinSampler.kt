@@ -37,7 +37,7 @@ class TestServlet() : VaadinServlet() {}
 @Theme("valo")
 class KaadinSampler() : UI() {
 
-    override fun init(request: VaadinRequest?) {
+    override fun init(request: VaadinRequest) {
         content = verticalLayout(margin = true, spacing = true) {
             tabSheet {
                 tab("Interactions") {
@@ -75,7 +75,7 @@ class KaadinSampler() : UI() {
                             horizontalLayout(true, true) {
                                 menuBar {
                                     isAutoOpen = true
-                                    menuItem("Icon and click listener", FOLDER, command = Command { Notification.show("Clicked $it") }) {
+                                    menuItem("Icon and click listener", FOLDER, command = Command { show("Clicked $it") }) {
                                         menuItem("Disabled", enabled = false)
                                         menuItem("Checkable", checkable = true, checked = true)
                                         separator()
@@ -176,7 +176,7 @@ class KaadinSampler() : UI() {
                 tab("Data Input - Multiple", LIST) {
                     accordion {
                         val list = listOf("First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth")
-                        val dataSource = IndexedContainer().apply { list.forEach { addItem(it) } }
+                        val dataSource = IndexedContainer(list)
                         tab("Combo box", LIST) {
                             formLayout {
                                 comboBox()
@@ -330,7 +330,7 @@ class KaadinSampler() : UI() {
                                         .map { "year$it" }
                                         .flatMap { arrayListOf("${it}q1", "${it}q2") }
                                 columns(propertyIds) {
-                                    this.converter = ch.frankel.kaadin.example.converter
+                                    converter = ch.frankel.kaadin.example.converter
                                 }
                             }
                         }
