@@ -21,12 +21,14 @@ import com.vaadin.ui.*
 internal fun <C : Component> C.addTo(container: HasComponents): C {
     when {
         container is SingleComponentContainer && container.componentCount > 0 -> throw IllegalArgumentException("$container can only have a single child")
+        container is CustomComponentWrapper && container.componentCount > 0 -> throw IllegalArgumentException("$container can only have a single child")
         container is TabContainer -> container.tabSheet.addTab(this, container.caption, container.icon)
         container is SingleComponentContainer -> container.content = this
         container is AbstractSplitPanel && container.componentCount == 0 -> container.firstComponent = this
         container is AbstractSplitPanel && container.componentCount == 1 -> container.secondComponent = this
         container is AbstractSplitPanel && container.componentCount > 1 -> throw IllegalArgumentException("$container can only have a 2 children")
         container is ComponentContainer -> container.addComponent(this)
+        container is CustomComponentWrapper && container.componentCount == 0 -> container.setCompositionRoot(this)
         else -> throw IllegalArgumentException("Cannot add $this to $container")
     }
     return this
