@@ -37,7 +37,7 @@
     </licenses>
     <modules>
         <module>kaadin-core</module>
-        <module>kaadin-example</module>
+        <module>kaadin-sampler</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

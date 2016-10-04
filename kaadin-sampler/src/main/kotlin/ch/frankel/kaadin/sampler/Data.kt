@@ -1,4 +1,4 @@
-package ch.frankel.kaadin.example
+package ch.frankel.kaadin.sampler
 
 import com.vaadin.data.util.converter.*
 import org.apache.commons.lang3.RandomStringUtils

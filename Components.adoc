@@ -1,0 +1,215 @@
+= Kaadin components
+Nicolas Fränkel <nicolas@frankel.ch>
+:lang: en
+:source-highlighter: highlight.js
+:sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
+:toc: macro
+:experimental:
+
+Available components are demoed in the link:{sourceDir}/sammpler/KaadinSampler.kt[sampler]. They are listed here for ease of use.
+
+toc::[]
+
+== Interactions
+
+=== Button
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=button]
+----
+
+=== Native Button
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=nativebutton]
+----
+
+=== Link
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=link]
+----
+
+=== Progress Bar
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=progressbar]
+----
+
+=== Notification
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=notification]
+----
+
+== Text Data Input
+
+=== Text Field
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=stringprop;textfield]
+----
+
+=== Text Area
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=stringprop;textarea]
+----
+
+=== Rich Text Area
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=stringprop;richtextarea]
+----
+
+=== Password Field
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=stringprop;passwordfield]
+----
+
+== Date Data Input
+
+=== Date Field
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=dateprop;datefield]
+----
+
+=== Inline Date Field
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=dateprop;inlinedatefield]
+----
+
+=== Calendar
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=dateprop;calendar]
+----
+
+== Multiple Data Input
+
+=== Combo-box
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;combo]
+----
+
+=== Native Select
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;nativeselect]
+----
+
+=== List Select
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;listselect]
+----
+
+=== Twin Columns Select
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;twinselect]
+----
+
+=== Options Group
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;options]
+----
+
+== Other Data Input
+
+=== Checkbox
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=checkbox]
+----
+
+=== Slider
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=slider]
+----
+
+=== Upload
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=upload]
+----
+
+=== Color Picker
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=colorpicker]
+----
+
+=== Color Picker Area
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=colorpickerarea]
+----
+
+== Data Presentation
+
+=== Label
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=label]
+----
+
+=== Image
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=image]
+----
+
+=== Browser Frame
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=frame]
+----
+
+== Structure and Hierarchy
+
+=== Split Panel
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=splitpanel]
+----
+
+=== Panel
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=panel]
+----
+
