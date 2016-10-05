@@ -40,6 +40,13 @@ include::{sourceDir}/sampler/KaadinSampler.kt[tags=link]
 include::{sourceDir}/sampler/KaadinSampler.kt[tags=progressbar]
 ----
 
+=== Menu Bar
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=menubar]
+----
+
 === Notification
 
 [source,kotlin,indent=0]
