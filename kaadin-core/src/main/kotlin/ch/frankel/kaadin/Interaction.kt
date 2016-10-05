@@ -93,11 +93,11 @@ fun HasComponents.menuBar(init: MenuBar.() -> Unit = {}): MenuBar {
 
 // FIXME Works only with auto-open?
 fun MenuBar.menuItem(caption: String, icon: Resource? = null,
-                     command: Command = Command { },
+                     onClick: (MenuBar.MenuItem) -> Unit = {},
                      checkable: Boolean = false,
                      checked: Boolean = false,
                      enabled: Boolean = true,
-                     init: MenuItem.() -> Unit = {}) = addItem(caption, icon, command)
+                     init: MenuItem.() -> Unit = {}) = addItem(caption, icon, onClick as Command)
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked
@@ -106,10 +106,11 @@ fun MenuBar.menuItem(caption: String, icon: Resource? = null,
         .apply(init)
 
 fun MenuItem.menuItem(caption: String, icon: Resource? = null,
+                      onClick: (MenuBar.MenuItem) -> Unit = {},
                       checkable: Boolean = false,
                       checked: Boolean = false,
                       enabled: Boolean = true,
-                      command: Command = Command { }, init: MenuItem.() -> Unit = {}) = addItem(caption, icon, command)
+                      init: MenuItem.() -> Unit = {}) = addItem(caption, icon, onClick as Command)
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked

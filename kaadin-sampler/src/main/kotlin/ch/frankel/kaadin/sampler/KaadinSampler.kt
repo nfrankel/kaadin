@@ -80,7 +80,7 @@ class KaadinSampler() : UI() {
                                 // tag::menubar[]
                                 menuBar {
                                     isAutoOpen = true
-                                    menuItem("Icon and click listener", FOLDER, command = Command { show("Clicked $it") }) {
+                                    menuItem("Icon and click listener", FOLDER, onClick = { show("Clicked $it") }) {
                                         menuItem("Disabled", enabled = false)
                                         menuItem("Checkable", checkable = true, checked = true)
                                         separator()
