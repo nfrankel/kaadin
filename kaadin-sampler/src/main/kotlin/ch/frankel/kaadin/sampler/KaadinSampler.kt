@@ -333,6 +333,8 @@ class KaadinSampler() : UI() {
                                 label("<strong>From</strong> <em>value", HTML)
                                 label(stringProp)
                                 label(stringProp, HTML)
+                                html("<strong>From</strong> <em>value")
+                                html(stringProp)
                                 // end::label[]
                             }
                         }
