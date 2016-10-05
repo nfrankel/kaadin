@@ -52,10 +52,9 @@ fun HasComponents.treeTable(caption: String? = null,
 fun <T> beanItemContainer(type: Class<T>, init: BeanItemContainer<T>.() -> Unit = {}): BeanItemContainer<T> = BeanItemContainer<T>(type)
         .apply(init)
 fun <T> beanItemContainer(type: Class<T>, collection: Collection<T>, init: BeanItemContainer<T>.() -> Unit = {}) =
-        beanItemContainer(type, init)
-        .apply {
-            beans(collection)
-        }
+        beanItemContainer(type, init).beans(collection)
+fun <T> beanItemContainer(type: Class<T>, vararg bean:T, init: BeanItemContainer<T>.() -> Unit = {}) =
+        beanItemContainer(type, init).apply { bean.forEach { bean(it) } }
 
 fun <T> BeanItemContainer<T>.bean(bean: T, init: BeanItem<T>.() -> Unit = {}) = addBean(bean).apply(init)
 fun <T> BeanItemContainer<T>.beanAfter(bean: T, previousBean: T, init: BeanItem<T>.() -> Unit = {}) = addItemAfter(bean, previousBean).apply(init)
