@@ -30,10 +30,6 @@ import com.vaadin.ui.components.calendar.event.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-@javax.servlet.annotation.WebServlet(value = "/*", asyncSupported = true)
-@VaadinServletConfiguration(productionMode = false, ui = KaadinSampler::class)
-class TestServlet() : VaadinServlet() {}
-
 @Theme("valo")
 class KaadinSampler() : UI() {
 
