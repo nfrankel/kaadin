@@ -6,7 +6,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 :toc: macro
 :experimental:
 
-Available components are demoed in the link:{sourceDir}/sammpler/KaadinSampler.kt[sampler]. They are listed here for ease of use.
+Available components are demoed in the link:{sourceDir}/sampler/KaadinSampler.kt[sampler]. They are listed here for ease of use.
 
 toc::[]
 
