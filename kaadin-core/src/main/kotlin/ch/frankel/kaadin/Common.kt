@@ -16,6 +16,7 @@
 package ch.frankel.kaadin
 
 import com.vaadin.server.*
+import java.net.URI
 
 fun Sizeable.height(height: String) = setHeight(height)
 fun Sizeable.height(height: Float, unit: Sizeable.Unit) = setHeight(height, unit)
@@ -47,3 +48,9 @@ fun Sizeable.sizeFull() = setSizeFull()
 open class Size(val size: Float, val unit: Sizeable.Unit)
 class Height(size: Float, unit: Sizeable.Unit) : Size(size, unit)
 class Width(size: Float, unit: Sizeable.Unit) : Size(size, unit)
+
+fun page(init: Page.() -> Unit) = Page.getCurrent().apply(init)
+fun location(uri: String) = page { setLocation(uri) }
+fun location(uri: URI) = page { setLocation(uri) }
+fun title(title: String) = page { setTitle(title) }
+fun uriFragment(newUriFragment: String = "", fireEvents: Boolean = true) = page { setUriFragment(newUriFragment, fireEvents) }
