@@ -20,6 +20,7 @@ import com.vaadin.server.*
 import com.vaadin.shared.ui.label.*
 import com.vaadin.shared.ui.label.ContentMode.*
 import com.vaadin.ui.*
+import java.io.File
 
 /**
  * see http://demo.vaadin.com/sampler/#ui/data-presentation
@@ -85,13 +86,31 @@ fun HasComponents.image(caption: String? = null,
                         source: Resource? = null,
                         init: Image.() -> Unit = {}) = Image()
         .process(this, caption, source, init)
+fun HasComponents.classpathImage(caption: String? = null,
+                        source: String,
+                        init: Image.() -> Unit = {}) = image(caption, ClassResource(source), init)
+fun HasComponents.themeImage(caption: String? = null,
+                                 source: String,
+                                 init: Image.() -> Unit = {}) = image(caption, ThemeResource(source), init)
+fun HasComponents.fileImage(caption: String? = null,
+                             source: String,
+                             init: Image.() -> Unit = {}) = image(caption, FileResource(File(source)), init)
 
 fun HasComponents.flash(caption: String? = null,
                         source: Resource? = null,
                         init: Flash.() -> Unit = {}) = Flash()
         .process(this, caption, source, init)
 
-fun HasComponents.browserFrame(caption: String? = null,
-                               source: Resource? = null,
-                               init: BrowserFrame.() -> Unit = {}) = BrowserFrame()
+fun HasComponents.frame(caption: String? = null,
+                        source: Resource? = null,
+                        init: BrowserFrame.() -> Unit = {}) = BrowserFrame()
         .process(this, caption, source, init)
+fun HasComponents.classpathFrame(caption: String? = null,
+                                 source: String,
+                                 init: BrowserFrame.() -> Unit = {}) = frame(caption, ClassResource(source), init)
+fun HasComponents.themeFrame(caption: String? = null,
+                                 source: String,
+                                 init: BrowserFrame.() -> Unit = {}) = frame(caption, ThemeResource(source), init)
+fun HasComponents.fileFrame(caption: String? = null,
+                             source: String,
+                             init: BrowserFrame.() -> Unit = {}) = frame(caption, FileResource(File(source)), init)

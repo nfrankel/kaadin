@@ -339,18 +339,18 @@ class KaadinSampler() : UI() {
                                 // tag::image[]
                                 image()
                                 image("No image")
-                                image(source = ClassResource("/vaadin-logo.png"))
-                                image("Vaadin logo", ClassResource("/vaadin-logo.png"))
+                                classpathImage(source = "/vaadin-logo.png")
+                                classpathImage("Vaadin logo", "/vaadin-logo.png")
                                 // end::image[]
                             }
                         }
                         tab("Browser Frame") {
                             horizontalLayout(true, true) {
                                 // tag::frame[]
-                                browserFrame()
-                                browserFrame("No resource")
-                                browserFrame(source = ClassResource("/vaadin-logo.png"))
-                                browserFrame("Vaadin logo", ClassResource("/vaadin-logo.png"))
+                                frame()
+                                frame("No resource")
+                                classpathFrame(source = "/vaadin-logo.png")
+                                classpathFrame("Vaadin logo", "/vaadin-logo.png")
                                 // end::frame[]
                             }
                         }
