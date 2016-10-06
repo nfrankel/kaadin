@@ -16,7 +16,6 @@
 package ch.frankel.kaadin.sampler
 
 import ch.frankel.kaadin.*
-import com.vaadin.annotations.*
 import com.vaadin.data.util.*
 import com.vaadin.server.*
 import com.vaadin.server.FontAwesome.*
@@ -30,10 +29,10 @@ import com.vaadin.ui.components.calendar.event.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-@Theme("valo")
 class KaadinSampler() : UI() {
 
     override fun init(request: VaadinRequest) {
+        theme = "valo"
         verticalLayout(margin = true, spacing = true) {
             tabSheet {
                 tab("Interactions") {
