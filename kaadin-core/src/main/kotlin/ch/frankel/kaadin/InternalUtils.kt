@@ -23,6 +23,7 @@ internal fun <C : Component> C.addTo(container: HasComponents): C {
         container is SingleComponentContainer && container.componentCount > 0 -> throw IllegalArgumentException("$container can only have a single child")
         container is CustomComponentWrapper && container.componentCount > 0 -> throw IllegalArgumentException("$container can only have a single child")
         container is TabContainer -> container.tabSheet.addTab(this, container.caption, container.icon)
+        container is InternalPopupView -> container.content = InternalPopupView.createContent(container.html, this)
         container is SingleComponentContainer -> container.content = this
         container is AbstractSplitPanel && container.componentCount == 0 -> container.firstComponent = this
         container is AbstractSplitPanel && container.componentCount == 1 -> container.secondComponent = this
