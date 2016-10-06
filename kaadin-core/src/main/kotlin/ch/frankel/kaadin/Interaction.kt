@@ -97,7 +97,7 @@ fun MenuBar.menuItem(caption: String, icon: Resource? = null,
                      checkable: Boolean = false,
                      checked: Boolean = false,
                      enabled: Boolean = true,
-                     init: MenuItem.() -> Unit = {}) = addItem(caption, icon, onClick as Command)
+                     init: MenuItem.() -> Unit = {}) = addItem(caption, icon, Command(onClick))
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked
@@ -110,7 +110,7 @@ fun MenuItem.menuItem(caption: String, icon: Resource? = null,
                       checkable: Boolean = false,
                       checked: Boolean = false,
                       enabled: Boolean = true,
-                      init: MenuItem.() -> Unit = {}) = addItem(caption, icon, onClick as Command)
+                      init: MenuItem.() -> Unit = {}) = addItem(caption, icon, Command(onClick))
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked

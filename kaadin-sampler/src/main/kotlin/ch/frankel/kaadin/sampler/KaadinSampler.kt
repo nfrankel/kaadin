@@ -24,7 +24,6 @@ import com.vaadin.shared.ui.colorpicker.Color.*
 import com.vaadin.shared.ui.label.ContentMode.*
 import com.vaadin.ui.*
 import com.vaadin.ui.Grid.SelectionMode.*
-import com.vaadin.ui.MenuBar.*
 import com.vaadin.ui.components.calendar.event.*
 import java.io.ByteArrayOutputStream
 import java.util.*

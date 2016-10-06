@@ -55,7 +55,7 @@ class MenuBarTest {
         val layout = horizontalLayout {
             menuBar() {
                 IntRange(0, size).forEach {
-                    menuItem("Hello World", onClick = MenuBar.Command { })
+                    menuItem("Hello World", onClick = { })
                 }
             }
         }
@@ -68,7 +68,7 @@ class MenuBarTest {
         val icon = AMAZON
         val layout = horizontalLayout {
             menuBar() {
-                menuItem("Hello World", onClick = MenuBar.Command { }) {
+                menuItem("Hello World", onClick = { }) {
                     this.icon = icon
                 }
             }
@@ -86,7 +86,7 @@ class MenuBarTest {
         val layout = horizontalLayout {
             menuBar() {
                 range.forEach { i ->
-                    menuItem("$caption $i", onClick = MenuBar.Command { clicked[i] = true })
+                    menuItem("$caption $i", onClick = { clicked[i] = true })
                 }
             }
         }
