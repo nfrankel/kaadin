@@ -220,3 +220,9 @@ include::{sourceDir}/sampler/KaadinSampler.kt[tags=panel]
 include::{sourceDir}/sampler/KaadinSampler.kt[tags=splitpanel]
 ----
 
+=== Popup View
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=popup]
+----

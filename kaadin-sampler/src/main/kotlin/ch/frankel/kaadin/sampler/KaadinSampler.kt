@@ -405,6 +405,24 @@ class KaadinSampler() : UI() {
                             }
                             // end::panel[]
                         }
+                        tab("Popup View") {
+                            // tag::popup[]
+                            horizontalLayout(true, true) {
+                                popupView("Component defined inside the body") {
+                                    verticalLayout {
+                                        textField("Component defined inside the body")
+                                    }
+                                }
+                                val content = object: PopupView.Content {
+                                    override fun getPopupComponent() = VerticalLayout(
+                                            TextField("Component defined outside the body")
+                                    )
+                                    override fun getMinimizedValueAsHTML() = "Component defined outside the body"
+                                }
+                                popupView(content)
+                            }
+                            // end::popup[]
+                        }
                         tab("Split panel", COLUMNS) {
                             // tag::splitpanel[]
                             horizontalSplitPanel {
