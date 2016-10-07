@@ -16,6 +16,7 @@
 package ch.frankel.kaadin
 
 import com.vaadin.server.*
+import com.vaadin.ui.*
 import java.net.URI
 
 fun page(init: Page.() -> Unit) = Page.getCurrent().apply(init)
@@ -23,3 +24,6 @@ fun location(uri: String) = page { setLocation(uri) }
 fun location(uri: URI) = page { setLocation(uri) }
 fun title(title: String) = page { setTitle(title) }
 fun uriFragment(newUriFragment: String = "", fireEvents: Boolean = true) = page { setUriFragment(newUriFragment, fireEvents) }
+
+fun ui(init: UI.() -> Unit) = UI.getCurrent().apply(init)
+fun theme(theme: String) = ui { setTheme(theme) }
