@@ -26,10 +26,12 @@ private fun <S : AbstractSelect> S.process(container: HasComponents,
                                            caption: String?,
                                            options: Collection<Any>,
                                            dataSource: Container,
+                                           onValueChange: (event: Property.ValueChangeEvent) -> Unit,
                                            init: S.() -> Unit): S {
     return apply {
         caption?.let { this.caption = caption }
         options.forEach { dataSource.addItem(it) }
+        addValueChangeListener(onValueChange)
         this.containerDataSource = dataSource
     }
             .apply(init)
@@ -38,55 +40,66 @@ private fun <S : AbstractSelect> S.process(container: HasComponents,
 
 fun HasComponents.comboBox(caption: String? = null,
                            options: Collection<Any> = emptyList(),
+                           onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                            init: ComboBox.() -> Unit = {}) = ComboBox()
-        .process(this, caption, options, IndexedContainer(), init)
+        .process(this, caption, options, IndexedContainer(), onValueChange, init)
 
 fun HasComponents.comboBox(caption: String? = null,
                            dataSource: Container,
+                           onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                            init: ComboBox.() -> Unit = {}) = ComboBox()
-        .process(this, caption, emptyList(), dataSource, init)
+        .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
 fun HasComponents.nativeSelect(caption: String? = null,
                                options: Collection<Any> = emptyList(),
+                               onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                                init: NativeSelect.() -> Unit = {}) = NativeSelect()
-        .process(this, caption, options, IndexedContainer(), init)
+        .process(this, caption, options, IndexedContainer(), onValueChange, init)
 
 fun HasComponents.nativeSelect(caption: String? = null,
                                dataSource: Container,
+                               onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                                init: NativeSelect.() -> Unit = {}) = NativeSelect()
-        .process(this, caption, emptyList(), dataSource, init)
+        .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
 fun HasComponents.listSelect(caption: String? = null,
                              options: Collection<Any> = emptyList(),
+                             onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                              init: ListSelect.() -> Unit = {}) = ListSelect()
-        .process(this, caption, options, IndexedContainer(), init)
+        .process(this, caption, options, IndexedContainer(), onValueChange, init)
 
 fun HasComponents.listSelect(caption: String? = null,
                              dataSource: Container,
+                             onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                              init: ListSelect.() -> Unit = {}) = ListSelect()
-        .process(this, caption, emptyList(), dataSource, init)
+        .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
 fun HasComponents.twinColSelect(caption: String? = null,
                                 options: Collection<Any> = emptyList(),
+                                onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                                 init: TwinColSelect.() -> Unit = {}) = TwinColSelect()
-        .process(this, caption, options, IndexedContainer(), init)
+        .process(this, caption, options, IndexedContainer(), onValueChange, init)
 
 fun HasComponents.twinColSelect(caption: String? = null,
                                 dataSource: Container,
+                                onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                                 init: TwinColSelect.() -> Unit = {}) = TwinColSelect()
-        .process(this, caption, emptyList(), dataSource, init)
+        .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
 fun HasComponents.optionGroup(caption: String? = null,
                               options: Collection<Any> = emptyList(),
+                              onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
-        .process(this, caption, options, IndexedContainer(), init)
+        .process(this, caption, options, IndexedContainer(), onValueChange, init)
 
 fun HasComponents.optionGroup(caption: String? = null,
                               vararg options: String,
+                              onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
-        .process(this, caption, options.asList(), IndexedContainer(), init)
+        .process(this, caption, options.asList(), IndexedContainer(), onValueChange, init)
 
 fun HasComponents.optionGroup(caption: String? = null,
                               dataSource: Container,
+                              onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
-        .process(this, caption, emptyList(), dataSource, init)
+        .process(this, caption, emptyList(), dataSource, onValueChange, init)
