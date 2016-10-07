@@ -220,6 +220,40 @@ include::{sourceDir}/sampler/KaadinSampler.kt[tags=panel]
 include::{sourceDir}/sampler/KaadinSampler.kt[tags=splitpanel]
 ----
 
+=== Tab Sheet
+
+[source,kotlin,indent=0]
+----
+tabSheet {
+    tab("Button", HAND_O_RIGHT) {
+        button("Click me")
+    }
+    tab("Native button", HAND_O_RIGHT) {
+        nativeButton("Click me")
+    }
+    tab("Link", LINK) {
+        link("Click me")
+    }
+}
+----
+
+=== Accordion
+
+[source,kotlin,indent=0]
+----
+accordion {
+    tab("Button", HAND_O_RIGHT) {
+        button("Click me")
+    }
+    tab("Native button", HAND_O_RIGHT) {
+        nativeButton("Click me")
+    }
+    tab("Link", LINK) {
+        link("Click me")
+    }
+}
+----
+
 === Popup View
 
 [source,kotlin,indent=0]
