@@ -29,7 +29,7 @@ Here's a sample displaying a label inside a vertical layout:
 
 [source,kotlin]
 ----
-include::{sourceDir}/doc/SimpleUsageUI.kt[tags=simpleusageui]
+include::{sourceDir}/doc/FirstStepUIt[tags=simpleusageui]
 ----
 
 == User manual
