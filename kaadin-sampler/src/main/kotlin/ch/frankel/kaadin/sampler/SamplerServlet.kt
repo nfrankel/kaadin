@@ -15,10 +15,11 @@
  */
 package ch.frankel.kaadin.sampler
 
+import ch.frankel.kaadin.doc.SetThemeUI
 import com.vaadin.annotations.*
 import com.vaadin.server.*
 import javax.servlet.annotation.*
 
 @WebServlet(value = "/*", asyncSupported = true)
-@VaadinServletConfiguration(productionMode = false, ui = KaadinSampler::class)
+@VaadinServletConfiguration(productionMode = false, ui = SetThemeUI::class)
 class SamplerServlet() : VaadinServlet()

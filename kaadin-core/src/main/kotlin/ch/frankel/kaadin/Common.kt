@@ -18,6 +18,7 @@ package ch.frankel.kaadin
 import com.vaadin.server.*
 import com.vaadin.ui.*
 import java.net.URI
+import java.util.*
 
 fun page(init: Page.() -> Unit) = Page.getCurrent().apply(init)
 fun location(uri: String) = page { setLocation(uri) }
@@ -27,3 +28,10 @@ fun uriFragment(newUriFragment: String = "", fireEvents: Boolean = true) = page 
 
 fun ui(init: UI.() -> Unit) = UI.getCurrent().apply(init)
 fun theme(theme: String) = ui { setTheme(theme) }
+
+fun session(configure: VaadinSession.() -> Unit = {}) = VaadinSession.getCurrent().apply(configure)
+fun <T> sessionAttribute(type: Class<T>, value: T) = session {setAttribute(type, value) }
+fun sessionAttribute(name: String, value: Any) = session { setAttribute(name, value) }
+fun locale(locale: Locale) = session { setLocale(locale) }
+
+fun service(configure: VaadinService.() -> Unit = {}) = VaadinService.getCurrent().apply(configure)

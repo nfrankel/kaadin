@@ -6,6 +6,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 :sectnums:
 :toc: macro
 :experimental:
+:common-subs-in-code: +verbatim,macros+
 
 Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
 
@@ -20,7 +21,27 @@ toc::[]
 
 An example is worth a thousand words:
 
-[source,kotlin]
+[source,kotlin,subs='normal']
+----
+include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
+----
+
+[source,kotlin,subs='+macros']
+----
+include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
+----
+
+[source,kotlin,subs='macros+']
+----
+include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
+----
+
+[source,kotlin,subs='+macros,+verbatim']
+----
+include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
+----
+
+[source,kotlin,subs='+verbatim,+macros']
 ----
 include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
 ----
