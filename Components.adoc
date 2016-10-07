@@ -206,17 +206,17 @@ include::{sourceDir}/sampler/KaadinSampler.kt[tags=frame]
 
 == Structure and Hierarchy
 
-=== Split Panel
-
-[source,kotlin,indent=0]
-----
-include::{sourceDir}/sampler/KaadinSampler.kt[tags=splitpanel]
-----
-
 === Panel
 
 [source,kotlin,indent=0]
 ----
 include::{sourceDir}/sampler/KaadinSampler.kt[tags=panel]
+----
+
+=== Split Panel
+
+[source,kotlin,indent=0]
+----
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=splitpanel]
 ----
 

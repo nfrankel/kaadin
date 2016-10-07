@@ -398,6 +398,13 @@ class KaadinSampler() : UI() {
                 }
                 tab("Structure & Hierarchy") {
                     accordion {
+                        tab("Panel") {
+                            // tag::panel[]
+                            panel {
+                                horizontalLayout(margin = true) { label("Inside a panel") }
+                            }
+                            // end::panel[]
+                        }
                         tab("Split panel", COLUMNS) {
                             // tag::splitpanel[]
                             horizontalSplitPanel {
@@ -412,13 +419,6 @@ class KaadinSampler() : UI() {
                                 }
                             }
                             // end::splitpanel[]
-                        }
-                        tab("Panel") {
-                            // tag::panel[]
-                            panel {
-                                horizontalLayout(margin = true) { label("Inside a panel") }
-                            }
-                            // end::panel[]
                         }
                     }
                 }
