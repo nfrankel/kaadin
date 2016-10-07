@@ -29,7 +29,7 @@ Here's a sample displaying a label inside a vertical layout:
 
 [source,kotlin]
 ----
-include::{sourceDir}/doc/FirstStepUIt[tags=simpleusageui]
+include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
 ----
 
 == User manual
@@ -44,6 +44,35 @@ mvn install
 cd kaadin-sampler
 mvn package org.apache.tomcat.maven:tomcat7-maven-plugin:run
 ----
+
+== Features
+
+=== Set the theme
+
+Theme setting is common to all Vaadin applications.
+
+Beside the `@Theme` annotation, Kotlin's syntax allows for a straightforward code:
+
+[source,kotlin]
+----
+class SetThemeUI() : UI() {
+    override fun init(request: VaadinRequest) {
+        theme = "valo" <1>
+    }
+}
+----
+<1> Use Kotlin's properties syntactic sugar, equivalent of `setTheme("valo")`
+
+In addition, Kaadin provides a `theme(theme: String)` function to set the theme. This allows for dynamic behavior:
+
+[source,kotlin]
+----
+include::{sourceDir}/doc/SetThemeUI.kt[tags=setthemeui]
+----
+
+<1> Define the listener function as a lambda function
+<2> Set the theme, taken from the radio button value
+<3> Create the option group, passing along the lambda
 
 == Available components
 
