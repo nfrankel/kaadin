@@ -18,19 +18,17 @@ toc::[]
 
 == Two-minutes tutorial
 
-In order to directly start using Kaadin, follow the next steps:
-
-1. Import the namespace `ch.frankel.kaadin.*`
-1. There's one Kaadin function for each Vaadin component _e.g._ `button()` maps `Button()`
-1. In `UI.init()`, call the parent component function, it will automatically be added as the `UI` content
-1. Use nested block to add and configure components
-
-Here's a sample displaying a label inside a vertical layout:
+An example is worth a thousand words:
 
 [source,kotlin]
 ----
 include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
 ----
+
+<1> Import the namespace `ch.frankel.kaadin.*`
+1. There's one Kaadin function for each Vaadin component _e.g._ `button()` maps `Button()`
+<2> The topmost component will automatically be added as the `UI` content. There's one such function per link:Components.adoc[common Vaadin component].
+<3> Nested blocks allow to add children components and configure them
 
 == User manual
 

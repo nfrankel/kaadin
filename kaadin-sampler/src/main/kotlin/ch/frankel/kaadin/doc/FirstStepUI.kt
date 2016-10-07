@@ -16,14 +16,14 @@
 package ch.frankel.kaadin.doc
 
 // tag::simpleusageui[]
-import ch.frankel.kaadin.*
+import ch.frankel.kaadin.* //<1>
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
 class FirstStepUI(): UI() {
     override fun init(request: VaadinRequest) {
-        verticalLayout(margin = true, spacing = true) {
-            label("Welcome to Vaadin")
+        verticalLayout(margin = true, spacing = true) { //<2>
+            label("Welcome to Vaadin") //<3>
         }
     }
 }
