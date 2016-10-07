@@ -81,6 +81,10 @@ fun HasComponents.optionGroup(caption: String? = null,
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
         .process(this, caption, options, IndexedContainer(), init)
 
+fun HasComponents.optionGroup(caption: String? = null,
+                              vararg options: String,
+                              init: OptionGroup.() -> Unit = {}) = OptionGroup()
+        .process(this, caption, options.asList(), IndexedContainer(), init)
 
 fun HasComponents.optionGroup(caption: String? = null,
                               dataSource: Container,
