@@ -29,3 +29,6 @@ fun uriFragment(newUriFragment: String = "", fireEvents: Boolean = true) = page 
 fun ui(init: UI.() -> Unit) = UI.getCurrent().apply(init)
 fun theme(theme: String) = ui { setTheme(theme) }
 fun uiLocale(locale: Locale) = ui { setLocale(locale) }
+
+fun session(init: VaadinSession.() -> Unit) = VaadinSession.getCurrent().apply(init)
+fun sessionLocale(locale: Locale) = session { setLocale(locale) }
