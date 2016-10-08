@@ -39,6 +39,9 @@ fun HasComponents.button(caption: String? = null,
             onClick?.let { addClickListener(onClick) }
         }
 
+fun Button.enable() = setEnabled(true)
+fun Button.disable() = setEnabled(false)
+
 fun HasComponents.nativeButton(caption: String? = null,
                                clickListener: ((Button.ClickEvent) -> Unit)? = null,
                                init: NativeButton.() -> Unit = {}) = NativeButton()
