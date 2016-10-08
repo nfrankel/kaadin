@@ -103,3 +103,8 @@ fun HasComponents.optionGroup(caption: String? = null,
                               onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
+
+fun OptionGroup.allowHtml() = setHtmlContentAllowed(true)
+fun OptionGroup.disallowHtml() = setHtmlContentAllowed(false)
+fun OptionGroup.enableItem(itemId: Any) = setItemEnabled(itemId, true)
+fun OptionGroup.disableItem(itemId: Any) = setItemEnabled(itemId, false)
