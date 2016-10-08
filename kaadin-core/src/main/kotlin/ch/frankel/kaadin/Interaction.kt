@@ -123,6 +123,8 @@ fun MenuItem.menuItem(caption: String, icon: Resource? = null,
 
 fun MenuItem.separator() = addSeparator()
 
+fun MenuItem.select() = command?.menuSelected(this)
+
 private fun Notification.process(init: Notification.() -> Unit) { apply(init).show(Page.getCurrent()) }
 fun show(message: String, description: String? = null, html: Boolean = false, init: Notification.() -> Unit = {}) = Notification(message, description, HUMANIZED_MESSAGE, html)
         .process(init)
