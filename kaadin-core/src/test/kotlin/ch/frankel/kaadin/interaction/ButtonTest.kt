@@ -17,6 +17,8 @@
 package ch.frankel.kaadin.interaction
 
 import ch.frankel.kaadin.button
+import ch.frankel.kaadin.disable
+import ch.frankel.kaadin.enable
 import ch.frankel.kaadin.horizontalLayout
 import com.vaadin.server.FontAwesome.*
 import com.vaadin.ui.*
@@ -41,7 +43,7 @@ class ButtonTest {
         val layout = horizontalLayout {
             button(caption)
         }
-        val button = layout.getComponent(0) as Button
+        val button = getButton(layout)
         assertThat(button.caption).isEqualTo(caption)
     }
 
@@ -51,7 +53,7 @@ class ButtonTest {
         val layout = horizontalLayout {
             button(icon = icon)
         }
-        val button = layout.getComponent(0) as Button
+        val button = getButton(layout)
         assertThat(button.icon).isSameAs(icon)
     }
 
@@ -62,7 +64,7 @@ class ButtonTest {
         val layout = horizontalLayout {
             button(caption, icon)
         }
-        val button = layout.getComponent(0) as Button
+        val button = getButton(layout)
         assertThat(button.caption).isEqualTo(caption)
         assertThat(button.icon).isSameAs(icon)
     }
@@ -73,7 +75,7 @@ class ButtonTest {
         val layout = horizontalLayout {
             button(onClick = { clicked = true })
         }
-        val button = layout.getComponent(0) as Button
+        val button = getButton(layout)
         button.click()
         assertThat(clicked).isTrue()
     }
@@ -88,8 +90,33 @@ class ButtonTest {
                 this.data = data
             }
         }
-        val button = layout.getComponent(0) as Button
+        val button = getButton(layout)
         assertThat(button.data).isEqualTo(data)
         assertThat(button.caption).isEqualTo(caption)
     }
+
+    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    fun `disable button should set its enabled property to false`() {
+        val layout = horizontalLayout {
+            button() {
+                disable()
+            }
+        }
+        val button = getButton(layout)
+        assertThat(button.isEnabled).isEqualTo(false)
+    }
+
+    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    fun `enable button should set its enabled property to true()`() {
+        val layout = horizontalLayout {
+            button() {
+                isEnabled = false
+                enable()
+            }
+        }
+        val button = getButton(layout)
+        assertThat(button.isEnabled).isEqualTo(true)
+    }
+
+    private fun getButton(layout: HorizontalLayout) = layout.getComponent(0) as Button
 }
