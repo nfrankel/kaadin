@@ -7,6 +7,11 @@ Nicolas Fränkel <nicolas@frankel.ch>
 :toc: macro
 :experimental:
 
+[WARNING]
+====
+At the moment, Github doesn't render HTML files and doesn't properly render Asciidoctor files. In order to display the full documentation, please go to the link:https://htmlpreview.github.io/?https://github.com/nfrankel/kaadin/blob/master/README.html[HTML preview].
+====
+
 Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
 
 [NOTE]
