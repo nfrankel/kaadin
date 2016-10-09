@@ -22,6 +22,13 @@ import java.io.InputStream
 /**
  * see http://demo.vaadin.com/sampler/#ui/layout
  */
+class HorizontalLayoutView() : HorizontalLayout(), NoopView
+class VerticalLayoutView() : VerticalLayout(), NoopView
+class FormLayoutView() : FormLayout(), NoopView
+class GridLayoutView(columns: Int, rows: Int) : GridLayout(columns, rows), NoopView
+class AbsoluteLayoutView() : AbsoluteLayout(), NoopView
+class CssLayoutView() : CssLayout(), NoopView
+
 private fun <L : AbstractOrderedLayout> L.process(spacing: Boolean, margin: Boolean, init: L.() -> Unit) =
         apply {
             this.isSpacing = spacing
@@ -29,25 +36,25 @@ private fun <L : AbstractOrderedLayout> L.process(spacing: Boolean, margin: Bool
         }.apply(init)
 
 fun horizontalLayout(spacing: Boolean = false, margin: Boolean = false, init: HorizontalLayout.() -> Unit = {}) =
-        HorizontalLayout().process(spacing, margin, init)
+        HorizontalLayoutView().process(spacing, margin, init)
 
 fun HasComponents.horizontalLayout(spacing: Boolean = false, margin: Boolean = false, init: HorizontalLayout.() -> Unit = {}) =
         ch.frankel.kaadin.horizontalLayout(spacing, margin, init).addTo(this)
 
 fun verticalLayout(spacing: Boolean = false, margin: Boolean = false, init: VerticalLayout.() -> Unit = {}) =
-        VerticalLayout().process(spacing, margin, init)
+        VerticalLayoutView().process(spacing, margin, init)
 
 fun HasComponents.verticalLayout(spacing: Boolean = false, margin: Boolean = false, init: VerticalLayout.() -> Unit = {}) =
         ch.frankel.kaadin.verticalLayout(spacing, margin, init).addTo(this)
 
 fun formLayout(spacing: Boolean = true, margin: Boolean = true, init: FormLayout.() -> Unit = {}) =
-        FormLayout().process(spacing, margin, init)
+        FormLayoutView().process(spacing, margin, init)
 
 fun HasComponents.formLayout(spacing: Boolean = true, margin: Boolean = true, init: FormLayout.() -> Unit = {}) =
         ch.frankel.kaadin.formLayout(spacing, margin, init).addTo(this)
 
 fun gridLayout(columns: Int = 1, rows: Int = 1, spacing: Boolean = false, margin: Boolean = false, init: GridLayout.() -> Unit = {}) =
-        GridLayout(columns, rows)
+        GridLayoutView(columns, rows)
                 .apply {
                     this.isSpacing = spacing
                     this.margin = MarginInfo(margin)
@@ -60,9 +67,9 @@ fun customLayout(init: CustomLayout.() -> Unit = {}) = CustomLayout().apply(init
 fun customLayout(template: String, init: CustomLayout.() -> Unit = {}) = CustomLayout(template).apply(init)
 fun customLayout(templateStream: InputStream, init: CustomLayout.() -> Unit = {}) = CustomLayout(templateStream).apply(init)
 
-fun absoluteLayout(init: AbsoluteLayout.() -> Unit = {}) = AbsoluteLayout().apply(init)
+fun absoluteLayout(init: AbsoluteLayout.() -> Unit = {}) = AbsoluteLayoutView().apply(init)
 
-fun cssLayout(vararg components: Component, init: CssLayout.() -> Unit = {}) = CssLayout()
+fun cssLayout(vararg components: Component, init: CssLayout.() -> Unit = {}) = CssLayoutView()
         .apply {
             components.forEach { it.addTo(this) }
         }

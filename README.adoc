@@ -72,6 +72,23 @@ include::{sourceDir}/doc/SetThemeUI.kt[tags=setthemeui]
 <2> Set the theme, taken from the radio button value
 <3> Create the option group, passing along the lambda
 
+=== Use the Navigator API
+
+Vaadin Navigator's API requires components added as views to implement the `View` interface. Most of the time, this is only boilerplate since the `enter()` method is empty.
+
+Kaadin allows to use any of the existing layout as views - provided one of Kaadin's method to create them is used.
+
+[source,kotlin]
+----
+include::{sourceDir}/doc/NavigatorUI.kt[tags=navigatorui]
+----
+
+<1> Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI
+<2> Configure the default view in the navigator
+<3> Configure an additional view in the navigator
+<4> Navigate to the second view using the navigator's API on the click of the button
+<5> Navigate to the default view
+
 == Available components
 
 Please refer to the link:Components.adoc[components list].
