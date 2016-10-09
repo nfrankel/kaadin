@@ -127,7 +127,7 @@ include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;nativeselect
 
 [source,kotlin,indent=0]
 ----
-include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;listselect]
+include::{sourceDir}/sampler/KaadinSampler.kt[tags=indexedcontainer;select]
 ----
 
 === Twin Columns Select
