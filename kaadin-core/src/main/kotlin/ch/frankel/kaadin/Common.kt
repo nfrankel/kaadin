@@ -20,15 +20,15 @@ import com.vaadin.ui.*
 import java.net.URI
 import java.util.*
 
-fun page(init: Page.() -> Unit) = Page.getCurrent().apply(init)
+fun page(init: Page.() -> Unit = {}) = Page.getCurrent().apply(init)
 fun location(uri: String) = page { setLocation(uri) }
 fun location(uri: URI) = page { setLocation(uri) }
 fun title(title: String) = page { setTitle(title) }
 fun uriFragment(newUriFragment: String = "", fireEvents: Boolean = true) = page { setUriFragment(newUriFragment, fireEvents) }
 
-fun ui(init: UI.() -> Unit) = UI.getCurrent().apply(init)
+fun ui(init: UI.() -> Unit = {}) = UI.getCurrent().apply(init)
 fun theme(theme: String) = ui { setTheme(theme) }
 fun uiLocale(locale: Locale) = ui { setLocale(locale) }
 
-fun session(init: VaadinSession.() -> Unit) = VaadinSession.getCurrent().apply(init)
+fun session(init: VaadinSession.() -> Unit = {}) = VaadinSession.getCurrent().apply(init)
 fun sessionLocale(locale: Locale) = session { setLocale(locale) }
