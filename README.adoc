@@ -5,6 +5,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 :sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
 :sectnums:
 :toc: macro
+:icons: font
 :experimental:
 
 [WARNING]

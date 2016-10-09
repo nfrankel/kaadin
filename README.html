@@ -417,6 +417,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
@@ -433,7 +434,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <table>
 <tr>
 <td class="icon">
-<div class="title">Warning</div>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -450,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -484,31 +485,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">import ch.frankel.kaadin.* <b class="conum">(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">import ch.frankel.kaadin.* <i class="conum" data-value="1"></i><b>(1)</b>
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
 class FirstStepUI(): UI() {
     override fun init(request: VaadinRequest) {
-        verticalLayout(margin = true, spacing = true) { <b class="conum">(2)</b>
-            label("Welcome to Vaadin") <b class="conum">(3)</b>
+        verticalLayout(margin = true, spacing = true) { <i class="conum" data-value="2"></i><b>(2)</b>
+            label("Welcome to Vaadin") <i class="conum" data-value="3"></i><b>(3)</b>
         }
     }
 }</code></pre>
 </div>
 </div>
 <div class="colist arabic">
-<ol>
-<li>
-<p>Import the namespace <code>ch.frankel.kaadin.*</code></p>
-</li>
-<li>
-<p>The topmost component will automatically be added as the <code>UI</code> content. There&#8217;s one such function per <a href="Components.adoc">common Vaadin component</a>.</p>
-</li>
-<li>
-<p>Nested blocks allow to add children components and configure them</p>
-</li>
-</ol>
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Import the namespace <code>ch.frankel.kaadin.*</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The topmost component will automatically be added as the <code>UI</code> content. There&#8217;s one such function per <a href="Components.adoc">common Vaadin component</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Nested blocks allow to add children components and configure them</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -545,17 +549,18 @@ mvn package org.apache.tomcat.maven:tomcat7-maven-plugin:run</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">class SetThemeUI() : UI() {
     override fun init(request: VaadinRequest) {
-        theme = "valo" <b class="conum">(1)</b>
+        theme = "valo" <i class="conum" data-value="1"></i><b>(1)</b>
     }
 }</code></pre>
 </div>
 </div>
 <div class="colist arabic">
-<ol>
-<li>
-<p>Use Kotlin&#8217;s properties syntactic sugar, equivalent of <code>setTheme("valo")</code></p>
-</li>
-</ol>
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use Kotlin&#8217;s properties syntactic sugar, equivalent of <code>setTheme("valo")</code></td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>In addition, Kaadin provides a <code>theme(theme: String)</code> function to set the theme. This allows for dynamic behavior:</p>
@@ -568,15 +573,15 @@ import com.vaadin.data.*
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
-val changeTheme: (Property.ValueChangeEvent) -&gt; Unit = { event: Property.ValueChangeEvent -&gt; <b class="conum">(1)</b>
-    ch.frankel.kaadin.theme(event.property.value.toString()) <b class="conum">(2)</b>
+val changeTheme: (Property.ValueChangeEvent) -&gt; Unit = { event: Property.ValueChangeEvent -&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+    ch.frankel.kaadin.theme(event.property.value.toString()) <i class="conum" data-value="2"></i><b>(2)</b>
 }
 
 class SetThemeUI() : UI() {
     override fun init(request: VaadinRequest) {
         val themes = arrayListOf("valo", "reindeer", "runo", "chameleon", "liferay")
         horizontalLayout(spacing = true, margin = true) {
-            optionGroup("Select theme", themes, changeTheme) { <b class="conum">(3)</b>
+            optionGroup("Select theme", themes, changeTheme) { <i class="conum" data-value="3"></i><b>(3)</b>
                 select("valo")
             }
         }
@@ -585,17 +590,20 @@ class SetThemeUI() : UI() {
 </div>
 </div>
 <div class="colist arabic">
-<ol>
-<li>
-<p>Define the listener function as a lambda function</p>
-</li>
-<li>
-<p>Set the theme, taken from the radio button value</p>
-</li>
-<li>
-<p>Create the option group, passing along the lambda</p>
-</li>
-</ol>
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define the listener function as a lambda function</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the theme, taken from the radio button value</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create the option group, passing along the lambda</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -619,7 +627,7 @@ class SetThemeUI() : UI() {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-09 21:46:52 CEST
+Last updated 2016-10-09 22:00:23 CEST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

@@ -4,6 +4,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 :source-highlighter: highlight.js
 :sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
 :toc: macro
+:icons: font
 :experimental:
 
 Available components are demoed in the link:{sourceDir}/sampler/KaadinSampler.kt[sampler]. They are listed here for ease of use.
