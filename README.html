@@ -469,6 +469,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#_set_the_theme">3.1. Set the theme</a></li>
+<li><a href="#_use_the_navigator_api">3.2. Use the Navigator API</a></li>
 </ul>
 </li>
 <li><a href="#_available_components">4. Available components</a></li>
@@ -606,6 +607,68 @@ class SetThemeUI() : UI() {
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_use_the_navigator_api">3.2. Use the Navigator API</h3>
+<div class="paragraph">
+<p>Vaadin Navigator&#8217;s API requires components added as views to implement the <code>View</code> interface. Most of the time, this is only boilerplate since the <code>enter()</code> method is empty.</p>
+</div>
+<div class="paragraph">
+<p>Kaadin allows to use any of the existing layout as views - provided one of Kaadin&#8217;s method to create them is used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">import ch.frankel.kaadin.*
+import com.vaadin.server.*
+import com.vaadin.ui.*
+
+class NavigatorUI() : UI() {
+    private val firstView = firstView()
+    private val secondView = secondView()
+    override fun init(request: VaadinRequest) {
+        navigator(verticalLayout(margin = true)) { <i class="conum" data-value="1"></i><b>(1)</b>
+            view("", firstView) <i class="conum" data-value="2"></i><b>(2)</b>
+            view("second", secondView) <i class="conum" data-value="3"></i><b>(3)</b>
+        }
+    }
+}
+
+private fun firstView() = verticalLayout {
+    html("&lt;h1&gt;Kaadin&lt;/h1&gt;")
+    label("Kaadin is a library to create Vaadin Graphical User Interface using a Kotlin DSL.")
+    button("Navigate to second view", onClick = { ui().navigator.navigateTo("second") }) <i class="conum" data-value="4"></i><b>(4)</b>
+}
+
+private fun secondView() = verticalLayout {
+    label("This is the second view, as an example.")
+    button("Navigate back to first view", onClick = { ui().navigator.navigateTo("") }) <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Configure the default view in the navigator</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Configure an additional view in the navigator</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Navigate to the second view using the navigator&#8217;s API on the click of the button</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Navigate to the default view</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -627,7 +690,7 @@ class SetThemeUI() : UI() {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-09 22:00:23 CEST
+Last updated 2016-10-09 23:47:03 CEST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
