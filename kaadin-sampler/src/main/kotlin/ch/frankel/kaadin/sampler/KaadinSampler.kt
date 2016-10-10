@@ -357,10 +357,10 @@ class KaadinSampler() : UI() {
                 tab("Grid and Tree") {
                     accordion {
                         tab("Grid") {
-                            val flatDataSource = beanItemContainer(Line::class.java) {
-                                beans(Line.data)
-                            }
-                            grid(dataSource = flatDataSource) {
+                            grid {
+                                beanItemContainer(Line::class.java) {
+                                    beans(Line.data)
+                                }
                                 width(100f, PERCENTAGE)
                                 selectionMode(SINGLE) {
                                     reset()
@@ -389,10 +389,12 @@ class KaadinSampler() : UI() {
                             }
                         }
                         tab("Table") {
-                            table(dataSource = beanItemContainer(Person::class.java) {
-                                beans(Person.devs)
-                                bean(Person.lead)
-                            })
+                            table {
+                                beanItemContainer(Person::class.java) {
+                                    beans(Person.devs)
+                                    bean(Person.lead)
+                                }
+                            }
                         }
                     }
                 }

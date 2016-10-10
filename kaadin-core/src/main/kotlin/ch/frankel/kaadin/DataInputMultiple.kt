@@ -50,9 +50,6 @@ fun AbstractSelect.unsetItemCaption(itemId: Any) = setItemCaption(itemId, null)
 fun AbstractSelect.itemIcon(itemId: Any, icon: Resource) = setItemIcon(itemId, icon)
 fun AbstractSelect.unsetItemIcon(itemId: Any) = setItemIcon(itemId, null)
 
-fun AbstractSelect.item(): Any? = addItem()
-fun AbstractSelect.item(itemId: Any) = addItem(itemId)
-
 fun HasComponents.comboBox(caption: String? = null,
                            vararg options: Any,
                            onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
