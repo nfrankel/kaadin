@@ -39,6 +39,11 @@ private fun <S : AbstractSelect> S.process(container: HasComponents,
 }
 
 fun HasComponents.comboBox(caption: String? = null,
+                           vararg options: Any,
+                           onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
+                           init: ComboBox.() -> Unit = {}) = comboBox(caption, options.toList(), onValueChange, init)
+
+fun HasComponents.comboBox(caption: String? = null,
                            options: Collection<Any> = emptyList(),
                            onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                            init: ComboBox.() -> Unit = {}) = ComboBox()
@@ -49,6 +54,11 @@ fun HasComponents.comboBox(caption: String? = null,
                            onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                            init: ComboBox.() -> Unit = {}) = ComboBox()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
+
+fun HasComponents.nativeSelect(caption: String? = null,
+                               vararg options: Any,
+                               onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
+                               init: NativeSelect.() -> Unit = {}) = nativeSelect(caption, options.toList(), onValueChange, init)
 
 fun HasComponents.nativeSelect(caption: String? = null,
                                options: Collection<Any> = emptyList(),
@@ -63,6 +73,11 @@ fun HasComponents.nativeSelect(caption: String? = null,
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
 fun HasComponents.listSelect(caption: String? = null,
+                             vararg options: Any,
+                             onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
+                             init: ListSelect.() -> Unit = {}) = listSelect(caption, options.toList(), onValueChange, init)
+
+fun HasComponents.listSelect(caption: String? = null,
                              options: Collection<Any> = emptyList(),
                              onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                              init: ListSelect.() -> Unit = {}) = ListSelect()
@@ -73,6 +88,11 @@ fun HasComponents.listSelect(caption: String? = null,
                              onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                              init: ListSelect.() -> Unit = {}) = ListSelect()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
+
+fun HasComponents.twinColSelect(caption: String? = null,
+                                vararg options: Any,
+                                onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
+                                init: TwinColSelect.() -> Unit = {}) = twinColSelect(caption, options.toList(), onValueChange, init)
 
 fun HasComponents.twinColSelect(caption: String? = null,
                                 options: Collection<Any> = emptyList(),
@@ -95,8 +115,7 @@ fun HasComponents.optionGroup(caption: String? = null,
 fun HasComponents.optionGroup(caption: String? = null,
                               vararg options: String,
                               onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
-                              init: OptionGroup.() -> Unit = {}) = OptionGroup()
-        .process(this, caption, options.asList(), IndexedContainer(), onValueChange, init)
+                              init: OptionGroup.() -> Unit = {}) = optionGroup(caption, options.toList(), onValueChange, init)
 
 fun HasComponents.optionGroup(caption: String? = null,
                               dataSource: Container,
