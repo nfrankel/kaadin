@@ -17,6 +17,7 @@ package ch.frankel.kaadin
 
 import com.vaadin.data.*
 import com.vaadin.data.util.*
+import com.vaadin.server.*
 import com.vaadin.ui.*
 
 /**
@@ -38,6 +39,20 @@ private fun <S : AbstractSelect> S.process(container: HasComponents,
             .addTo(container)
 }
 
+fun AbstractSelect.allowNewItems() = setNewItemsAllowed(true)
+fun AbstractSelect.disallowNewItems() = setNewItemsAllowed(false)
+fun AbstractSelect.allowNullSelection() = setNullSelectionAllowed(true)
+fun AbstractSelect.disallowNullSelection() = setNullSelectionAllowed(false)
+fun AbstractSelect.selectSingle() = setMultiSelect(false)
+fun AbstractSelect.selectMulti() = setMultiSelect(true)
+fun AbstractSelect.itemCaption(itemId: Any, caption: String) = setItemCaption(itemId, caption)
+fun AbstractSelect.unsetItemCaption(itemId: Any) = setItemCaption(itemId, null)
+fun AbstractSelect.itemIcon(itemId: Any, icon: Resource) = setItemIcon(itemId, icon)
+fun AbstractSelect.unsetItemIcon(itemId: Any) = setItemIcon(itemId, null)
+
+fun AbstractSelect.item(): Any? = addItem()
+fun AbstractSelect.item(itemId: Any) = addItem(itemId)
+
 fun HasComponents.comboBox(caption: String? = null,
                            vararg options: Any,
                            onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
@@ -54,6 +69,9 @@ fun HasComponents.comboBox(caption: String? = null,
                            onValueChange: (event: Property.ValueChangeEvent) -> Unit = {},
                            init: ComboBox.() -> Unit = {}) = ComboBox()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
+
+fun ComboBox.allowTextInput() = setTextInputAllowed(true)
+fun ComboBox.disallowTextInput() = setTextInputAllowed(false)
 
 fun HasComponents.nativeSelect(caption: String? = null,
                                vararg options: Any,
