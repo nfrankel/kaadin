@@ -1,4 +1,7 @@
 language: java
 jdk:
   - oraclejdk8
-script: ./mvnw clean install
+script:
+  - ./mvnw clean install
+  - chmod u+x push-gh.sh
+  - ./push-gh.sh
