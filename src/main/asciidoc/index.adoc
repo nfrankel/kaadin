@@ -39,7 +39,7 @@ Kaadin dependencies include:
 
 * Java 8
 * Vaadin 7.7.0
-* Kotlin 1.0.3
+* Kotlin 1.0.4
 
 While the Java dependency is a strict requirement, other Vaadin and Kotlin versions _might_ work successfully.
 
