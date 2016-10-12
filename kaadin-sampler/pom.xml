@@ -25,6 +25,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>kaadin-sampler</artifactId>
     <packaging>war</packaging>
+    <name>Kaadin Sampler</name>
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <plugins>

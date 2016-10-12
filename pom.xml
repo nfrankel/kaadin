@@ -22,6 +22,7 @@
     <artifactId>kaadin-parent</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>Kaadin parent</name>
     <inceptionYear>2016</inceptionYear>
     <developers>
         <developer>
