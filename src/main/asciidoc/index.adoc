@@ -1,5 +1,4 @@
 = Kaadin
-Nicolas Fränkel <nicolas@frankel.ch>
 :lang: en
 :source-highlighter: highlight.js
 :sectnums:
@@ -9,17 +8,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 
 image:https://travis-ci.org/nfrankel/kaadin.svg?branch=master["Build Status", link="https://travis-ci.org/nfrankel/kaadin"]
 
-[WARNING]
-====
-At the moment, Github doesn't render HTML files and doesn't properly render Asciidoctor files. In order to display the full documentation, please go to the link:https://htmlpreview.github.io/?https://github.com/nfrankel/kaadin/blob/master/README.html[HTML preview].
-====
-
 Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
-
-[NOTE]
-====
-At the moment, Kaadin is a _work in progress_. Contributions are always welcome.
-====
 
 toc::[]
 
@@ -37,7 +26,39 @@ include::doc/FirstStepUI.kt[tags=simpleusageui]
 <2> The topmost component will automatically be added as the `UI` content. There's one such function per link:Components.adoc[common Vaadin component].
 <3> Nested blocks allow to add children components and configure them
 
-== User manual
+== Usage
+
+=== Requirements
+
+Kaadin dependencies include:
+
+* Java 8
+* Vaadin 7.7.0
+* Kotlin 1.0.3
+
+While the Java dependency is a strict requirement, other Vaadin and Kotlin versions *might* work successfully.
+
+=== Build and use
+
+Building Kaadin only requires Java and Maven:
+
+[source,bash]
+----
+mvn install
+----
+
+To use in one's project, just add the following dependency to its POM:
+
+[source,xml]
+----
+<dependency>
+    <groupId>ch.frankel.kaadin</groupId>
+    <artifactId>kaadin-core</artifactId>
+    <version>0.1-SNAPSHOT</version>
+</dependency>
+----
+
+=== User manual
 
 The best user manual is a link:sampler/KaadinSampler.kt[sampler] demoing usage of each function.
 
@@ -50,9 +71,13 @@ cd kaadin-sampler
 mvn package org.apache.tomcat.maven:tomcat7-maven-plugin:run
 ----
 
-== Features
+=== Available components
 
-=== Set the theme
+Please refer to the link:Components.html[components list].
+
+== Featured uses-cases
+
+=== Setting the theme
 
 Theme setting is common to all Vaadin applications.
 
@@ -79,7 +104,7 @@ include::doc/SetThemeUI.kt[tags=setthemeui]
 <2> Set the theme, taken from the radio button value
 <3> Create the option group, passing along the lambda
 
-=== Use the Navigator API
+=== Navigator API
 
 Vaadin Navigator's API requires components added as views to implement the `View` interface. Most of the time, this is only boilerplate since the `enter()` method is empty.
 
@@ -96,9 +121,14 @@ include::doc/NavigatorUI.kt[tags=navigatorui]
 <4> Navigate to the second view using the navigator's API on the click of the button
 <5> Navigate to the default view
 
-== Available components
+== Contributing
 
-Please refer to the link:Components.adoc[components list].
+Kaadin is very much a work in progress. Want to help? Here's how you can contribute:
+
+* Use it!
+* Open link:https://github.com/nfrankel/kaadin/issues[issues^]
+* Open link:https://github.com/nfrankel/kaadin/pulls[pull requests^], to improve either the code or the documentation (or both!)
+* Spread the word about link:https://twitter.com/search?q=%23kaadin[#Kaadin^]
 
 == License
 

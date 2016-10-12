@@ -10,17 +10,7 @@ Nicolas Fränkel <nicolas@frankel.ch>
 
 image:https://travis-ci.org/nfrankel/kaadin.svg?branch=master["Build Status", link="https://travis-ci.org/nfrankel/kaadin"]
 
-[WARNING]
-====
-At the moment, Github doesn't render HTML files and doesn't properly render Asciidoctor files. In order to display the full documentation, please go to the link:https://htmlpreview.github.io/?https://github.com/nfrankel/kaadin/blob/master/README.html[HTML preview].
-====
-
-Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
-
-[NOTE]
-====
-At the moment, Kaadin is a _work in progress_. Contributions are always welcome.
-====
+Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin^] Domain-Specific Language .
 
 toc::[]
 
@@ -30,76 +20,47 @@ An example is worth a thousand words:
 
 [source,kotlin]
 ----
-include::{sourceDir}/doc/FirstStepUI.kt[tags=simpleusageui]
+import ch.frankel.kaadin.* //<1>
+import com.vaadin.server.*
+import com.vaadin.ui.*
+
+class FirstStepUI(): UI() {
+    override fun init(request: VaadinRequest) {
+        verticalLayout(margin = true, spacing = true) { //<2>
+            label("Welcome to Vaadin") //<3>
+        }
+    }
+}
 ----
 
 <1> Import the namespace `ch.frankel.kaadin.*`
 1. There's one Kaadin function for each Vaadin component _e.g._ `button()` maps `Button()`
-<2> The topmost component will automatically be added as the `UI` content. There's one such function per link:Components.adoc[common Vaadin component].
+<2> The topmost component will automatically be added as the `UI` content. There's one such function per common Vaadin component.
 <3> Nested blocks allow to add children components and configure them
 
-== User manual
+== Usage
 
-The best user manual is a link:{sourceDir}/sammpler/KaadinSampler.kt[sampler] demoing usage of each function.
-
-It's a full-fledged Vaadin application so it can be run either inside your own servlet-container (3.0+) or directly from the command-line:
-
+1. Build
++
 [source,bash]
 ----
 mvn install
-cd kaadin-sampler
-mvn package org.apache.tomcat.maven:tomcat7-maven-plugin:run
+----
++
+1. Use
++
+[source,xml]
+----
+<dependency>
+    <groupId>ch.frankel.kaadin</groupId>
+    <artifactId>kaadin-core</artifactId>
+    <version>0.1-SNAPSHOT</version>
+</dependency>
 ----
 
-== Features
+== Going further
 
-=== Set the theme
-
-Theme setting is common to all Vaadin applications.
-
-Beside the `@Theme` annotation, Kotlin's syntax allows for a straightforward code:
-
-[source,kotlin]
-----
-class SetThemeUI() : UI() {
-    override fun init(request: VaadinRequest) {
-        theme = "valo" <1>
-    }
-}
-----
-<1> Use Kotlin's properties syntactic sugar, equivalent of `setTheme("valo")`
-
-In addition, Kaadin provides a `theme(theme: String)` function to set the theme. This allows for dynamic behavior:
-
-[source,kotlin]
-----
-include::{sourceDir}/doc/SetThemeUI.kt[tags=setthemeui]
-----
-
-<1> Define the listener function as a lambda function
-<2> Set the theme, taken from the radio button value
-<3> Create the option group, passing along the lambda
-
-=== Use the Navigator API
-
-Vaadin Navigator's API requires components added as views to implement the `View` interface. Most of the time, this is only boilerplate since the `enter()` method is empty.
-
-Kaadin allows to use any of the existing layout as views - provided one of Kaadin's method to create them is used.
-
-[source,kotlin]
-----
-include::{sourceDir}/doc/NavigatorUI.kt[tags=navigatorui]
-----
-
-<1> Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI
-<2> Configure the default view in the navigator
-<3> Configure an additional view in the navigator
-<4> Navigate to the second view using the navigator's API on the click of the button
-<5> Navigate to the default view
-
-== Available components
-
-Please refer to the link:Components.adoc[components list].
+The full documentation is available on the link:https://nfrankel.github.io/kaadin/[Kaadin site].
 
 == License
 
