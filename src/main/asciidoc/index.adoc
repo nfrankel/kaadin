@@ -4,11 +4,16 @@
 :sectnums:
 :toc: macro
 :icons: font
+:sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
+:imagesdir: images/
 :experimental:
 
 image:https://travis-ci.org/nfrankel/kaadin.svg?branch=master["Build Status", link="https://travis-ci.org/nfrankel/kaadin"]
 
 Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
+
+image:vaadin-logo.png[Vaadin Logo, 256, 256]
+image:kotlin-logo.png[Kotlin Logo,250,250]
 
 toc::[]
 
@@ -36,7 +41,7 @@ Kaadin dependencies include:
 * Vaadin 7.7.0
 * Kotlin 1.0.3
 
-While the Java dependency is a strict requirement, other Vaadin and Kotlin versions *might* work successfully.
+While the Java dependency is a strict requirement, other Vaadin and Kotlin versions _might_ work successfully.
 
 === Build and use
 
@@ -60,7 +65,7 @@ To use in one's project, just add the following dependency to its POM:
 
 === User manual
 
-The best user manual is a link:sampler/KaadinSampler.kt[sampler] demoing usage of each function.
+The best user manual is a link:{sourcedir}/sampler/KaadinSampler.kt[sampler] demoing usage of each function.
 
 It's a full-fledged Vaadin application so it can be run either inside your own servlet-container (3.0+) or directly from the command-line:
 

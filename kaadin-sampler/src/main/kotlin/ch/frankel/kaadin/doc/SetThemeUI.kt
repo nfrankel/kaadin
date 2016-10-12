@@ -22,8 +22,8 @@ import com.vaadin.data.*
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
-val changeTheme: (Property.ValueChangeEvent) -> Unit = { event: Property.ValueChangeEvent -> //<1>
-    ch.frankel.kaadin.theme(event.property.value.toString()) //<2>
+val changeTheme: (Property.ValueChangeEvent) -> Unit = { //<1>
+    ch.frankel.kaadin.theme(it.property.value.toString()) //<2>
 }
 
 class SetThemeUI() : UI() {

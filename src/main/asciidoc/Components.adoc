@@ -1,5 +1,4 @@
 = Kaadin components
-Nicolas Fränkel <nicolas@frankel.ch>
 :lang: en
 :source-highlighter: highlight.js
 :sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
