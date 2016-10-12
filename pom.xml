@@ -102,6 +102,7 @@
                 <configuration>
                     <backend>html5</backend>
                     <baseDir>kaadin-sampler/src/main/kotlin/ch/frankel/kaadin</baseDir>
+                    <imagesDir>src/main/asciidoc/images</imagesDir>
                 </configuration>
                 <executions>
                     <execution>
