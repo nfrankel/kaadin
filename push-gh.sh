@@ -32,7 +32,8 @@ fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git commit -am "Deploy to GitHub Pages: ${SHA}"
+git add *.html
+git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 git remote add pages https://nfrankel:${GH_PAGE}@github.com/nfrankel/kaadin.git
 
