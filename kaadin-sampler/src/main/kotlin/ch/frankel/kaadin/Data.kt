@@ -23,10 +23,10 @@ import java.util.*
 
 class Person(val name: String, val job: String, val birthDate: Date) {
     companion object {
-        internal val devs = arrayListOf(Person("John Doe", "Developer", Date()),
+        internal val all = arrayListOf(Person("John Doe", "Developer", Date()),
                 Person("Alfred Pennyworth", "Butler", Date(10, 10, 1)),
                 Person("Bruce Wayne", "Batman", Date(80, 0, 25)))
-        internal val lead = Person("Jane Doe", "Team Leader", Date(96, 4, 15))
+        internal val single = Person("Jane Doe", "Team Leader", Date(96, 4, 15))
     }
 }
 

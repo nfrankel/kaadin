@@ -391,8 +391,8 @@ class KaadinSampler() : UI() {
                         tab("Table") {
                             table {
                                 beanItemContainer(Person::class.java) {
-                                    beans(Person.devs)
-                                    bean(Person.lead)
+                                    beans(Person.all)
+                                    bean(Person.single)
                                 }
                             }
                         }
