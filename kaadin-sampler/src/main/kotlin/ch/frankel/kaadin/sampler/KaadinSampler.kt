@@ -384,7 +384,7 @@ class KaadinSampler() : UI() {
                                         .map { "year$it" }
                                         .flatMap { arrayListOf("${it}q1", "${it}q2") }
                                 columns(propertyIds) {
-                                    converter = ch.frankel.kaadin.sampler.converter
+                                    converter = ch.frankel.kaadin.converter
                                 }
                             }
                         }

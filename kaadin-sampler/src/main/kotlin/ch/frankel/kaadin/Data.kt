@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.frankel.kaadin.sampler
+package ch.frankel.kaadin
 
 import com.vaadin.data.util.converter.*
 import org.apache.commons.lang3.RandomStringUtils
@@ -21,7 +21,7 @@ import org.apache.commons.lang3.RandomUtils
 import java.text.NumberFormat
 import java.util.*
 
-internal class Person(val name: String, val job: String, val birthDate: Date) {
+class Person(val name: String, val job: String, val birthDate: Date) {
     companion object {
         internal val devs = arrayListOf(Person("John Doe", "Developer", Date()),
                 Person("Alfred Pennyworth", "Butler", Date(10, 10, 1)),
