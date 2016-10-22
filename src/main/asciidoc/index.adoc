@@ -4,7 +4,7 @@
 :sectnums:
 :toc: macro
 :icons: font
-:sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
+:sourcedir: ../../../kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
 :imagesdir: images/
 :experimental:
 
@@ -117,7 +117,7 @@ In addition, Kaadin provides a `theme(theme: String)` function to set the theme.
 
 [source,kotlin]
 ----
-include::doc/SetThemeUI.kt[tags=setthemeui]
+include::{sourcedir}/doc/SetThemeUI.kt[tags=setthemeui]
 ----
 
 <1> Define the listener function as a lambda function
@@ -132,7 +132,7 @@ Kaadin allows to use any of the existing layout as views - provided one of Kaadi
 
 [source,kotlin]
 ----
-include::doc/NavigatorUI.kt[tags=navigatorui]
+include::{sourcedir}/doc/NavigatorUI.kt[tags=navigatorui]
 ----
 
 <1> Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI
