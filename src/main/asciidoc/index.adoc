@@ -18,7 +18,7 @@
 ++++
 
 image:https://travis-ci.org/nfrankel/kaadin.svg?branch=master["Build Status", link="https://travis-ci.org/nfrankel/kaadin"]
-image:https://img.shields.io/codecov/c/github/kaadin/kaadin.svg["Code coverage", link="https://codecov.io/gh/nfrankel/kaadin"]
+image:https://codecov.io/gh/nfrankel/kaadin/branch/master/graph/badge.svg["Code coverage", link="https://codecov.io/gh/nfrankel/kaadin"]
 
 Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin] Domain-Specific Language .
 
