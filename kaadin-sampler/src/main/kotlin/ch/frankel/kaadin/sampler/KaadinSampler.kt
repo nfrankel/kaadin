@@ -366,7 +366,7 @@ class KaadinSampler() : UI() {
                                     reset()
                                 }
                                 frozenColumnCount = 1
-                                cellStyleGenerator({ it.propertyId == "company" }, "align-right")
+                                cellStyleGenerator("align-right", { it.propertyId == "company" })
                                 headerRowAt(1) {
                                     cell("company") {
                                         component = TextField()

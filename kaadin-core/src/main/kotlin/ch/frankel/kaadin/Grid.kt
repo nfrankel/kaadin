@@ -44,6 +44,7 @@ fun HasComponents.grid(caption: String? = null,
 fun Grid.column(propertyId: Any, init: Column.() -> Unit = {}): Column = getColumn(propertyId).apply(init)
 fun Grid.columns(propertyIds: List<Any>, init: Column.() -> Unit = {}): Unit =
         propertyIds.forEach { column(it).apply(init) }
+fun Grid.columns(vararg propertyIds: Any, init: Column.() -> Unit = {}): Unit = columns(propertyIds.toList(), init)
 
 fun Grid.footerRowAtStart(init: Grid.FooterRow.() -> Unit = {}): FooterRow = prependFooterRow().apply(init)
 fun Grid.footerRowAtEnd(init: Grid.FooterRow.() -> Unit = {}): FooterRow = appendFooterRow().apply(init)
@@ -54,7 +55,7 @@ fun Grid.headerRowAtEnd(init: Grid.HeaderRow.() -> Unit = {}): HeaderRow = appen
 fun Grid.headerRowAt(index: Int, init: Grid.HeaderRow.() -> Unit = {}): HeaderRow = addHeaderRowAt(index).apply(init)
 
 fun Grid.cellStyleGenerator(generator: (Grid.CellReference) -> String?) = setCellStyleGenerator(generator)
-fun Grid.cellStyleGenerator(predicate: (Grid.CellReference) -> Boolean, className: String) {
+fun Grid.cellStyleGenerator(className: String, predicate: (Grid.CellReference) -> Boolean) {
     val computeClassName: (Boolean) -> String? = { if (it) className else null }
     setCellStyleGenerator { computeClassName(predicate(it)) }
 }
@@ -84,10 +85,13 @@ private class KaadinConverter<P, M>(modelClass: Class<M>,
 }
 
 fun <P, M> Column.converter(modelClass: Class<M>, presentationClass: Class<P>, convert: (value: M, locale: Locale) -> P): Converter<P, M> =
-        KaadinLocaleConverter(modelClass, presentationClass, convert)
+    KaadinLocaleConverter(modelClass, presentationClass, convert).apply {
+        converter = this
+    }
 fun <P, M> Column.converter(modelClass: Class<M>, presentationClass: Class<P>, convert: (value: M) -> P): Converter<P, M> =
-        KaadinConverter(modelClass, presentationClass, convert)
-
+    KaadinConverter(modelClass, presentationClass, convert).apply {
+        converter = this
+    }
 fun Column.bigDecimalConverter(): Unit {
     converter = StringToBigDecimalConverter()
 }
@@ -124,7 +128,6 @@ fun Column.longConverter(): Unit {
 fun Column.shortConverter(): Unit {
     converter = StringToShortConverter()
 }
-
 fun <P, M> Column.converter(converter: Converter<P, M>): Unit {
     this.converter = converter
 }
