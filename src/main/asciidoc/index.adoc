@@ -93,7 +93,7 @@ Please refer to the link:Components.html[components list].
 
 === Dokka
 
-Please refer to the generated link:dokka/index.html[Dokka].
+Please refer to the generated link:dokka/kaadin-core/index.html[Dokka].
 
 == Featured uses-cases
 

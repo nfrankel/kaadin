@@ -14,7 +14,7 @@ fi
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
 mv target/generated-docs/* .
-mv kaadin-core/target/dokka/kaadin-core dokka
+mv kaadin-core/target/dokka .
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if ! [[ `git status --porcelain` ]]; then
