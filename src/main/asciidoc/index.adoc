@@ -4,7 +4,6 @@
 :sectnums:
 :toc: macro
 :icons: font
-:sourcedir: ../../../kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
 :imagesdir: images/
 :experimental:
 
@@ -76,7 +75,7 @@ To use in one's project, just add the following dependency to its POM:
 
 === User manual
 
-The best user manual is a link:{sourcedir}/sampler/KaadinSampler.kt[sampler] demoing usage of each function.
+The best user manual is a link:sampler/KaadinSampler.kt[sampler] demoing usage of each function.
 
 It's a full-fledged Vaadin application so it can be run either inside your own servlet-container (3.0+) or directly from the command-line:
 
@@ -117,7 +116,7 @@ In addition, Kaadin provides a `theme(theme: String)` function to set the theme.
 
 [source,kotlin]
 ----
-include::{sourcedir}/doc/SetThemeUI.kt[tags=setthemeui]
+include::doc/SetThemeUI.kt[tags=setthemeui]
 ----
 
 <1> Define the listener function as a lambda function
@@ -132,7 +131,7 @@ Kaadin allows to use any of the existing layout as views - provided one of Kaadi
 
 [source,kotlin]
 ----
-include::{sourcedir}/doc/NavigatorUI.kt[tags=navigatorui]
+include::doc/NavigatorUI.kt[tags=navigatorui]
 ----
 
 <1> Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI
@@ -151,21 +150,21 @@ There are several ways to declare a grid with a data source.
 +
 [source,kotlin]
 ----
-include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;simplegridui]
+include::doc/GridUIs.kt[tags=importgrid;simplegridui]
 ----
 +
 * Alternatively, the container can be declared within a nested `beanItemContainer()` function:
 +
 [source,kotlin]
 ----
-include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;gridnestedcontainerui]
+include::doc/GridUIs.kt[tags=importgrid;gridnestedcontainerui]
 ----
 +
 * Finally, beans can be added either individually or from a collection:
 +
 [source,kotlin]
 ----
-include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;gridwithbeansui]
+include::doc/GridUIs.kt[tags=importgrid;gridwithbeansui]
 ----
 
 <1> Add a single element to the container
@@ -177,28 +176,28 @@ To get a hold of a column, use the `column()` function with the desired bean pro
 
 [source,kotlin]
 ----
-include::{sourcedir}/doc/GridColumnUIs.kt[tags=importgrid;gridcolumnui]
+include::doc/GridColumnUIs.kt[tags=importgrid;gridcolumnui]
 ----
 
 Shortcut are availabe for existing renderers:
 
 [source,kotlin,indent=0]
 ----
-include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumnrenderui]
+include::doc/GridColumnUIs.kt[tags=gridcolumnrenderui]
 ----
 
 And for existing converters as well:
 
 [source,kotlin,indent=0]
 ----
-include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumnconvertui]
+include::doc/GridColumnUIs.kt[tags=gridcolumnconvertui]
 ----
 
 If no existing converter meets the requirements, Kaadin allows to pass the conversion function as a lambda:
 
 [source,kotlin,indent=0]
 ----
-include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumncustomconvertui]
+include::doc/GridColumnUIs.kt[tags=gridcolumncustomconvertui]
 ----
 
 <1> Source type
