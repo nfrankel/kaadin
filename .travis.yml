@@ -15,7 +15,7 @@ before_script:
 
 script:
   - ./mvnw clean install
-  - ./push-gh.sh
+  - src/main/bin/push-gh.sh
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
