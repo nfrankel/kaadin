@@ -15,7 +15,17 @@ before_script:
 
 script:
   - ./mvnw clean install
-  - ./push-gh.sh
-  
-after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+after_success:
+  - src/main/bin/push-gh.sh
+
+deploy:
+  -
+    on:
+      branch: release
+    provider: bintray
+    skip_cleanup: true
+    file: target/bin/bintray.json
+    user: nfrankel
+    key: $BINTRAY_API_KEY

@@ -44,6 +44,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>7.7.0</vaadin.version>
         <kotlin.version>1.0.4</kotlin.version>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
     </properties>
     <build>
         <pluginManagement>
@@ -139,15 +141,56 @@
                 <executions>
                     <execution>
                         <id>generate-html</id>
-                        <phase>generate-resources</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jetbrains.dokka</groupId>
+                <artifactId>dokka-maven-plugin</artifactId>
+                <version>0.9.9</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <outputDirectory>${basedir}/target/bin</outputDirectory>
+                    <resources>
+                        <resource>
+                            <directory>src/main/bin</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>https://jcenter.bintray.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
     <dependencyManagement>
         <dependencies>
             <dependency>

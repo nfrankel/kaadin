@@ -1,0 +1,25 @@
+{
+  "package": {
+    "name": "kaadin",
+    "repo": "maven",
+    "subject": "nfrankel",
+    "website_url": "https://nfrankel.github.io/",
+    "issue_tracker_url": "https://github.com/nfrankel/kaadin/issues",
+    "vcs_url": "https://github.com/nfrankel/kaadin",
+    "licenses": ["Apache-2.0"],
+    "labels": ["vaadin", "kotlin"],
+    "public_download_numbers": false,
+    "public_stats": false
+  },
+  "version": {
+    "name": "${project.version}",
+    "released": "${build.timestamp}",
+    "vcs_tag": "v${project.version}"
+  },
+  "files":
+  [
+    {"includePattern": "kaadin-core/target/(.*\.jar)", "uploadPattern": "ch/frankel/kaadin/kaadin-core/${project.version}/$1"},
+    {"includePattern": "kaadin-core/pom.xml", "uploadPattern": "ch/frankel/kaadin/kaadin-core/${project.version}/kaadin-core-${project.version}.pom"}
+  ],
+  "publish": true
+}
