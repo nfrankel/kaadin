@@ -139,7 +139,7 @@
                 <executions>
                     <execution>
                         <id>generate-html</id>
-                        <phase>generate-resources</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
