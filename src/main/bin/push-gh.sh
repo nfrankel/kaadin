@@ -24,7 +24,7 @@ fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add *.html *.css
+git add *.html dokka images
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 git remote add pages https://nfrankel:${GH_PAGE}@github.com/nfrankel/kaadin.git

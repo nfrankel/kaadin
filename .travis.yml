@@ -18,7 +18,8 @@ script:
   - bash <(curl -s https://codecov.io/bash)
 
 after_success:
-  - src/main/bin/push-gh.sh
+  - chmod u+x target/bin/push-gh.sh
+  - target/bin/push-gh.sh
 
 deploy:
   -
