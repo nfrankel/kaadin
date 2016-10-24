@@ -13,8 +13,9 @@ before_script:
  - git config user.email "$COMMIT_AUTHOR_EMAIL"
  - export COMMIT_MESSAGE=`git log -1 --oneline`
 
-script: ./mvnw clean install
+script:
+  - ./mvnw clean install
+  - bash <(curl -s https://codecov.io/bash)
 
 after_success:
   - src/main/bin/push-gh.sh
-  - bash <(curl -s https://codecov.io/bash)
