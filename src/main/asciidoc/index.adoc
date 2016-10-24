@@ -91,6 +91,10 @@ mvn package org.apache.tomcat.maven:tomcat7-maven-plugin:run
 
 Please refer to the link:Components.html[components list].
 
+=== Dokka
+
+Please refer to the generated link:dokka/index.html[Dokka].
+
 == Featured uses-cases
 
 === Setting the theme

@@ -14,6 +14,7 @@ fi
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
 mv target/generated-docs/* .
+mv kaadin-core/target/dokka/kaadin-core dokka
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if ! [[ `git status --porcelain` ]]; then
@@ -23,7 +24,7 @@ fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add *.html
+git add *.html *.css
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 git remote add pages https://nfrankel:${GH_PAGE}@github.com/nfrankel/kaadin.git
