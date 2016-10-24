@@ -366,7 +366,7 @@ class KaadinSampler() : UI() {
                                     reset()
                                 }
                                 frozenColumnCount = 1
-                                cellStyleGenerator({ it.propertyId == "company" }, "align-right")
+                                cellStyleGenerator("align-right", { it.propertyId == "company" })
                                 headerRowAt(1) {
                                     cell("company") {
                                         component = TextField()
@@ -384,15 +384,15 @@ class KaadinSampler() : UI() {
                                         .map { "year$it" }
                                         .flatMap { arrayListOf("${it}q1", "${it}q2") }
                                 columns(propertyIds) {
-                                    converter = ch.frankel.kaadin.sampler.converter
+                                    converter = ch.frankel.kaadin.converter
                                 }
                             }
                         }
                         tab("Table") {
                             table {
                                 beanItemContainer(Person::class.java) {
-                                    beans(Person.devs)
-                                    bean(Person.lead)
+                                    beans(Person.all)
+                                    bean(Person.single)
                                 }
                             }
                         }

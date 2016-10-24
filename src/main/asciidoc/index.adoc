@@ -4,7 +4,7 @@
 :sectnums:
 :toc: macro
 :icons: font
-:sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
+:sourcedir: ../../../kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
 :imagesdir: images/
 :experimental:
 
@@ -117,7 +117,7 @@ In addition, Kaadin provides a `theme(theme: String)` function to set the theme.
 
 [source,kotlin]
 ----
-include::doc/SetThemeUI.kt[tags=setthemeui]
+include::{sourcedir}/doc/SetThemeUI.kt[tags=setthemeui]
 ----
 
 <1> Define the listener function as a lambda function
@@ -132,7 +132,7 @@ Kaadin allows to use any of the existing layout as views - provided one of Kaadi
 
 [source,kotlin]
 ----
-include::doc/NavigatorUI.kt[tags=navigatorui]
+include::{sourcedir}/doc/NavigatorUI.kt[tags=navigatorui]
 ----
 
 <1> Configure the navigator with a placeholder layout. This also sets the layout as the content of the UI
@@ -140,6 +140,70 @@ include::doc/NavigatorUI.kt[tags=navigatorui]
 <3> Configure an additional view in the navigator
 <4> Navigate to the second view using the navigator's API on the click of the button
 <5> Navigate to the default view
+
+=== Grid
+
+==== Data source
+
+There are several ways to declare a grid with a data source.
+
+* The most direct way is to use the `grid()` function with the `dataSource` parameter:
++
+[source,kotlin]
+----
+include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;simplegridui]
+----
++
+* Alternatively, the container can be declared within a nested `beanItemContainer()` function:
++
+[source,kotlin]
+----
+include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;gridnestedcontainerui]
+----
++
+* Finally, beans can be added either individually or from a collection:
++
+[source,kotlin]
+----
+include::{sourcedir}/doc/GridUIs.kt[tags=importgrid;gridwithbeansui]
+----
+
+<1> Add a single element to the container
+<2> Add a collection to the container
+
+==== Columns
+
+To get a hold of a column, use the `column()` function with the desired bean property name as the parameter. Once a column has been referenced, it can be managed in the lambda block:
+
+[source,kotlin]
+----
+include::{sourcedir}/doc/GridColumnUIs.kt[tags=importgrid;gridcolumnui]
+----
+
+Shortcut are availabe for existing renderers:
+
+[source,kotlin,indent=0]
+----
+include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumnrenderui]
+----
+
+And for existing converters as well:
+
+[source,kotlin,indent=0]
+----
+include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumnconvertui]
+----
+
+If no existing converter meets the requirements, Kaadin allows to pass the conversion function as a lambda:
+
+[source,kotlin,indent=0]
+----
+include::{sourcedir}/doc/GridColumnUIs.kt[tags=gridcolumncustomconvertui]
+----
+
+<1> Source type
+<2> Target type
+<3> Conversion function
 
 == Contributing
 
