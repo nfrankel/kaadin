@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ch.frankel.kaadin.interaction
+package ch.frankel.kaadin.interaction.interaction
 
 import ch.frankel.kaadin.horizontalLayout
 import ch.frankel.kaadin.progressBar
