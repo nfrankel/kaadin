@@ -45,7 +45,7 @@ fun HasComponents.label(contentSource: Property<out String>,
         .apply(init)
         .addTo(this)
 
-fun HasComponents.html(content: String, init: Label.() -> Unit = {}) = label(content, HTML, init)
+fun HasComponents.html(content: String? = null, init: Label.() -> Unit = {}) = label(content, HTML, init)
 fun HasComponents.html(contentSource: Property<out String>, init: Label.() -> Unit = {}) = label(contentSource, HTML, init)
 
 private fun <M : AbstractMedia> M.process(container: HasComponents,
