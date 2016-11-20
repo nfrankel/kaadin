@@ -1,6 +1,8 @@
-package ch.frankel.kaadin.interaction.grid
+package ch.frankel.kaadin.grid
 
 import ch.frankel.kaadin.*
+import ch.frankel.kaadin.grid.GridTestData
+import ch.frankel.kaadin.grid.getGrid
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
 
@@ -10,7 +12,7 @@ class GridHeaderFooterTest {
     @Test
     fun `grid should add header rows`() {
         val layout = horizontalLayout {
-            grid(dataSource = GridTestData.Companion.container) {
+            grid(dataSource = GridTestData.container) {
                 headerRowAtStart()
                 headerRowAtEnd()
                 headerRowAt(1)
@@ -24,7 +26,7 @@ class GridHeaderFooterTest {
     fun `header row should manage cell`() {
         val cellValue = "foo"
         val layout = horizontalLayout {
-            grid(dataSource = GridTestData.Companion.container) {
+            grid(dataSource = GridTestData.container) {
                 headerRowAtStart() {
                     cell("string").text = cellValue
                 }
@@ -37,7 +39,7 @@ class GridHeaderFooterTest {
     @Test
     fun `grid should add footer rows`() {
         val layout = horizontalLayout {
-            grid(dataSource = GridTestData.Companion.container) {
+            grid(dataSource = GridTestData.container) {
                 footerRowAtStart()
                 footerRowAtEnd()
                 footerRowAt(1)
@@ -51,7 +53,7 @@ class GridHeaderFooterTest {
     fun `footer row should manage cell`() {
         val cellValue = "foo"
         val layout = horizontalLayout {
-            grid(dataSource = GridTestData.Companion.container) {
+            grid(dataSource = GridTestData.container) {
                 footerRowAtStart() {
                     cell("string").text = cellValue
                 }

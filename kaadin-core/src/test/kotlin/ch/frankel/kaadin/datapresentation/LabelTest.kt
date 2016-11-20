@@ -1,4 +1,4 @@
-package ch.frankel.kaadin.interaction.datapresentation
+package ch.frankel.kaadin.datapresentation
 
 import ch.frankel.kaadin.*
 import com.vaadin.data.util.*

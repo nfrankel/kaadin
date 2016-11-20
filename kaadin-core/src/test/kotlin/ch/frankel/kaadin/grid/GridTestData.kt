@@ -1,4 +1,4 @@
-package ch.frankel.kaadin.interaction.grid
+package ch.frankel.kaadin.grid
 
 import com.vaadin.data.util.*
 import com.vaadin.ui.*

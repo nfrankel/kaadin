@@ -1,4 +1,4 @@
-package ch.frankel.kaadin.interaction.datainput
+package ch.frankel.kaadin.datainput
 
 import ch.frankel.kaadin.*
 import com.vaadin.data.util.*

@@ -1,7 +1,7 @@
-package ch.frankel.kaadin.interaction.grid
+package ch.frankel.kaadin.grid
 
 import ch.frankel.kaadin.*
-import ch.frankel.kaadin.interaction.grid.GridTestData.Companion.container
+import ch.frankel.kaadin.grid.GridTestData.Companion.container
 import com.vaadin.ui.*
 import com.vaadin.ui.Grid.SelectionMode.*
 import org.assertj.core.api.Assertions.assertThat

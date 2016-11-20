@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ch.frankel.kaadin.interaction.interaction
+package ch.frankel.kaadin.interaction
 
 import ch.frankel.kaadin.button
 import ch.frankel.kaadin.disable
