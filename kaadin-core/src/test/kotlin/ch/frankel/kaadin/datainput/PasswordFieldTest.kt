@@ -40,7 +40,7 @@ class PasswordFieldTest {
             passwordField(value = password)
         }
         val component = layout.getComponent(0) as PasswordField
-        assertThat(component).hasFieldOrPropertyWithValue("value", password)
+        assertThat(component.value).isEqualTo(password)
     }
 
     @Test(dependsOnMethods = arrayOf("password should be added to layout"))
@@ -51,7 +51,7 @@ class PasswordFieldTest {
             passwordField(dataSource = property)
         }
         val component = layout.getComponent(0) as PasswordField
-        assertThat(component).hasFieldOrPropertyWithValue("value", password)
+        assertThat(component.value).isEqualTo(password)
     }
 
     @Test(dependsOnMethods = arrayOf("password should be added to layout"))
@@ -63,6 +63,6 @@ class PasswordFieldTest {
             }
         }
         val component = layout.getComponent(0) as PasswordField
-        assertThat(component).hasFieldOrPropertyWithValue("value", password)
+        assertThat(component.value).isEqualTo(password)
     }
 }

@@ -41,7 +41,7 @@ class InlineDateFieldTest {
             inlineDateField(value = date)
         }
         val component = layout.getComponent(0) as InlineDateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 
     @Test(dependsOnMethods = arrayOf("inline date field should be added to layout"))
@@ -52,7 +52,7 @@ class InlineDateFieldTest {
             inlineDateField(dataSource = property)
         }
         val component = layout.getComponent(0) as InlineDateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 
     @Test(dependsOnMethods = arrayOf("inline date field should be added to layout"))
@@ -64,6 +64,6 @@ class InlineDateFieldTest {
             }
         }
         val component = layout.getComponent(0) as InlineDateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 }

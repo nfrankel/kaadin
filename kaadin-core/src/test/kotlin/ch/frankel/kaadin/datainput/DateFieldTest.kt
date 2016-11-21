@@ -41,7 +41,7 @@ class DateFieldTest {
             dateField(value = date)
         }
         val component = layout.getComponent(0) as DateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 
     @Test(dependsOnMethods = arrayOf("date field should be added to layout"))
@@ -52,7 +52,7 @@ class DateFieldTest {
             dateField(dataSource = property)
         }
         val component = layout.getComponent(0) as DateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 
     @Test(dependsOnMethods = arrayOf("date field should be added to layout"))
@@ -64,6 +64,6 @@ class DateFieldTest {
             }
         }
         val component = layout.getComponent(0) as DateField
-        assertThat(component).hasFieldOrPropertyWithValue("value", date)
+        assertThat(component.value).isEqualTo(date)
     }
 }

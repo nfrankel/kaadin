@@ -40,7 +40,7 @@ class TextAreaTest {
             textArea(value = text)
         }
         val component = layout.getComponent(0) as TextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("text area should be added to layout"))
@@ -51,7 +51,7 @@ class TextAreaTest {
             textArea(dataSource = property)
         }
         val component = layout.getComponent(0) as TextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("text area should be added to layout"))
@@ -63,6 +63,6 @@ class TextAreaTest {
             }
         }
         val component = layout.getComponent(0) as TextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 }

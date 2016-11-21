@@ -39,7 +39,7 @@ class MediaTest {
             audio(caption)
         }
         val component = layout.getComponent(0) as Audio
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test

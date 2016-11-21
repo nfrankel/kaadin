@@ -41,7 +41,7 @@ class LabelTest {
             label(text)
         }
         val component = layout.getComponent(0) as Label
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test
@@ -60,7 +60,7 @@ class LabelTest {
             html()
         }
         val component = layout.getComponent(0) as Label
-        assertThat(component).hasFieldOrPropertyWithValue("contentMode", HTML)
+        assertThat(component.contentMode).isSameAs(HTML)
     }
 
     @Test(dependsOnMethods = arrayOf("html label should be added to layout"))
@@ -71,7 +71,7 @@ class LabelTest {
             html(property)
         }
         val component = layout.getComponent(0) as Label
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("html label should be added to layout"))
@@ -83,6 +83,6 @@ class LabelTest {
             }
         }
         val component = layout.getComponent(0) as Label
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 }

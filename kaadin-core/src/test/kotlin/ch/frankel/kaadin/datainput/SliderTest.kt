@@ -41,9 +41,9 @@ class SliderTest {
             slider(min = min.toInt(), max = max.toInt(), resolution = resolution)
         }
         val component = layout.getComponent(0) as Slider
-        assertThat(component).hasFieldOrPropertyWithValue("min", min)
-        assertThat(component).hasFieldOrPropertyWithValue("max", max)
-        assertThat(component).hasFieldOrPropertyWithValue("resolution", resolution)
+        assertThat(component.min).isEqualTo(min)
+        assertThat(component.max).isEqualTo(max)
+        assertThat(component.resolution).isEqualTo(resolution)
     }
 
     @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
@@ -54,8 +54,8 @@ class SliderTest {
             slider(min = min, max = max)
         }
         val component = layout.getComponent(0) as Slider
-        assertThat(component).hasFieldOrPropertyWithValue("min", min)
-        assertThat(component).hasFieldOrPropertyWithValue("max", max)
+        assertThat(component.min).isEqualTo(min)
+        assertThat(component.max).isEqualTo(max)
     }
 
     @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
@@ -65,7 +65,7 @@ class SliderTest {
             slider(caption, 0.0, 2.0)
         }
         val component = layout.getComponent(0) as Slider
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
@@ -77,6 +77,6 @@ class SliderTest {
             }
         }
         val component = layout.getComponent(0) as Slider
-        assertThat(component).hasFieldOrPropertyWithValue("value", value)
+        assertThat(component.value).isEqualTo(value)
     }
 }

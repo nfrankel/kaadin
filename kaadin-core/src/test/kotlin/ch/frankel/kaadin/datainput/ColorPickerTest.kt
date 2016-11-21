@@ -40,7 +40,7 @@ class ColorPickerTest {
             colorPicker(caption)
         }
         val component = layout.getComponent(0) as ColorPicker
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("color picker should be added to layout"))
@@ -49,7 +49,7 @@ class ColorPickerTest {
             colorPicker(initialColor = BLACK)
         }
         val component = layout.getComponent(0) as ColorPicker
-        assertThat(component).hasFieldOrPropertyWithValue("color", BLACK)
+        assertThat(component.color).isSameAs(BLACK)
     }
 
     @Test(dependsOnMethods = arrayOf("color picker should be added to layout"))
@@ -60,6 +60,6 @@ class ColorPickerTest {
             }
         }
         val component = layout.getComponent(0) as ColorPicker
-        assertThat(component).hasFieldOrPropertyWithValue("color", BLUE)
+        assertThat(component.color).isSameAs(BLUE)
     }
 }

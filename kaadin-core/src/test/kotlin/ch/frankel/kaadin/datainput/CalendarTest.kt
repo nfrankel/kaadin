@@ -40,7 +40,7 @@ class CalendarTest {
             calendar(caption)
         }
         val component = layout.getComponent(0) as Calendar
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("calendar should be added to layout"))
@@ -52,6 +52,6 @@ class CalendarTest {
             }
         }
         val component = layout.getComponent(0) as Calendar
-        assertThat(component).hasFieldOrPropertyWithValue("startDate", date)
+        assertThat(component.startDate).isEqualTo(date)
     }
 }

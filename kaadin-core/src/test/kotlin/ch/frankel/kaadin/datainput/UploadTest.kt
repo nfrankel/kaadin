@@ -41,7 +41,7 @@ class UploadTest {
             upload(caption, FakeReceiver())
         }
         val component = layout.getComponent(0) as Upload
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("upload should be added to layout"))
@@ -52,7 +52,7 @@ class UploadTest {
             }
         }
         val component = layout.getComponent(0) as Upload
-        assertThat(component).hasFieldOrPropertyWithValue("icon", ADJUST)
+        assertThat(component.icon).isSameAs(ADJUST)
     }
 }
 

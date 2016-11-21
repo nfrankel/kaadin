@@ -40,7 +40,7 @@ class TextFieldTest {
             textField(value = text)
         }
         val component = layout.getComponent(0) as TextField
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("text should be added to layout"))
@@ -50,7 +50,7 @@ class TextFieldTest {
             textField(caption)
         }
         val component = layout.getComponent(0) as TextField
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("text should be added to layout"))
@@ -61,7 +61,7 @@ class TextFieldTest {
             textField(dataSource = property)
         }
         val component = layout.getComponent(0) as TextField
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("text should be added to layout"))
@@ -73,6 +73,6 @@ class TextFieldTest {
             }
         }
         val component = layout.getComponent(0) as TextField
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 }

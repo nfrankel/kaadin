@@ -40,7 +40,7 @@ class RichTextAreaTest {
             richTextArea(value = text)
         }
         val component = layout.getComponent(0) as RichTextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("rich text area should be added to layout"))
@@ -51,7 +51,7 @@ class RichTextAreaTest {
             richTextArea(dataSource = property)
         }
         val component = layout.getComponent(0) as RichTextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 
     @Test(dependsOnMethods = arrayOf("rich text area should be added to layout"))
@@ -63,6 +63,6 @@ class RichTextAreaTest {
             }
         }
         val component = layout.getComponent(0) as RichTextArea
-        assertThat(component).hasFieldOrPropertyWithValue("value", text)
+        assertThat(component.value).isEqualTo(text)
     }
 }

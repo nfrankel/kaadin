@@ -41,7 +41,7 @@ class CheckBoxTest {
             checkBox(caption)
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component).hasFieldOrPropertyWithValue("caption", caption)
+        assertThat(component.caption).isEqualTo(caption)
     }
 
     @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
@@ -50,7 +50,7 @@ class CheckBoxTest {
             checkBox(value = true)
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component).hasFieldOrPropertyWithValue("value", true)
+        assertThat(component.value).isTrue()
     }
 
     @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
@@ -60,7 +60,7 @@ class CheckBoxTest {
             checkBox(dataSource = property)
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component).hasFieldOrPropertyWithValue("value", true)
+        assertThat(component.value).isTrue()
     }
 
     @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
@@ -72,6 +72,6 @@ class CheckBoxTest {
             }
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component).hasFieldOrPropertyWithValue("id", id)
+        assertThat(component.id).isEqualTo(id)
     }
 }

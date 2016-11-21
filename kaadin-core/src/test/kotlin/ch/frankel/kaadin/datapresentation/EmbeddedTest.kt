@@ -77,8 +77,8 @@ class EmbeddedTest {
             }
         }
         val component = layout.getComponent(0) as Image
-        assertThat(component).hasFieldOrPropertyWithValue("width", width)
-        assertThat(component).hasFieldOrPropertyWithValue("height", height)
+        assertThat(component.width).isEqualTo(width)
+        assertThat(component.height).isEqualTo(height)
     }
 
     @Test
