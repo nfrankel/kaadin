@@ -53,7 +53,7 @@ class TabContainer(internal val tabSheet: TabSheet,
                    internal val icon: Resource?) : AbstractSingleComponentContainer()
 
 fun HasComponents.popupView(content: PopupView.Content, init: PopupView.() -> Unit = {}) = PopupView(content).addTo(this).apply(init)
-fun HasComponents.popupView(html: String, init: PopupView.() -> Unit = {}): PopupView = InternalPopupView(html).addTo(this).apply(init)
+fun HasComponents.popupView(html: String, init: PopupView.() -> Unit): PopupView = InternalPopupView(html).addTo(this).apply(init)
 
 /** Just to be able to call static createContent from super class */
 internal class InternalPopupView(val html: String): PopupView() {
