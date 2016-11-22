@@ -69,10 +69,8 @@ fun customLayout(templateStream: InputStream, init: CustomLayout.() -> Unit = {}
 
 fun absoluteLayout(init: AbsoluteLayout.() -> Unit = {}) = AbsoluteLayoutView().apply(init)
 
-fun cssLayout(vararg components: Component, init: CssLayout.() -> Unit = {}) = CssLayoutView()
-        .apply {
-            components.forEach { it.addTo(this) }
-        }
-        .apply(init)
+fun cssLayout(init: CssLayout.() -> Unit = {}) = CssLayoutView().apply(init)
+
+fun HasComponents.cssLayout(init: CssLayout.() -> Unit = {}) = ch.frankel.kaadin.cssLayout(init).addTo(this)
 
 // TODO LayoutClickNotifier.onClick(onClick: (LayoutClickEvent) -> Unit) = onClick
