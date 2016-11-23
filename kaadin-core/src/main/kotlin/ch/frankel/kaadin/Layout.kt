@@ -67,7 +67,13 @@ fun customLayout(init: CustomLayout.() -> Unit = {}) = CustomLayout().apply(init
 fun customLayout(template: String, init: CustomLayout.() -> Unit = {}) = CustomLayout(template).apply(init)
 fun customLayout(templateStream: InputStream, init: CustomLayout.() -> Unit = {}) = CustomLayout(templateStream).apply(init)
 
+class Position(internal val layout: AbsoluteLayout, internal val cssPosition: String)
+fun AbsoluteLayout.at(position: String) = Position(this, position)
+infix fun Position.put(component: Component) = layout.addComponent(component, cssPosition)
+
 fun absoluteLayout(init: AbsoluteLayout.() -> Unit = {}) = AbsoluteLayoutView().apply(init)
+
+fun HasComponents.absoluteLayout(init: AbsoluteLayout.() -> Unit = {}) = ch.frankel.kaadin.absoluteLayout(init).addTo(this)
 
 fun cssLayout(init: CssLayout.() -> Unit = {}) = CssLayoutView().apply(init)
 
