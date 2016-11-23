@@ -19,12 +19,12 @@ import com.vaadin.navigator.*
 import com.vaadin.ui.*
 
 interface NoopView : View {
-    override fun enter(event: ViewChangeListener.ViewChangeEvent?) {}
+    override fun enter(event: ViewChangeListener.ViewChangeEvent) {}
 }
 
-fun UI.navigator(container: ComponentContainer, init: Navigator.() -> Unit) = Navigator(this, container).apply(init)
-fun UI.navigator(container: SingleComponentContainer, init: Navigator.() -> Unit) = Navigator(this, container).apply(init)
-fun UI.navigator(display: (view: View) -> Unit, init: Navigator.() -> Unit) = Navigator(this, display).apply(init)
+fun UI.navigator(container: ComponentContainer, init: Navigator.() -> Unit = {}) = Navigator(this, container).apply(init)
+fun UI.navigator(container: SingleComponentContainer, init: Navigator.() -> Unit = {}) = Navigator(this, container).apply(init)
+fun UI.navigator(display: (view: View) -> Unit, init: Navigator.() -> Unit = {}) = Navigator(this, display).apply(init)
 
 class NamedView(val name: String, val view: View)
 
