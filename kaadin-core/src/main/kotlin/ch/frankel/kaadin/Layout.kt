@@ -63,9 +63,19 @@ fun gridLayout(columns: Int = 1, rows: Int = 1, spacing: Boolean = false, margin
 fun HasComponents.gridLayout(columns: Int = 1, rows: Int = 1, spacing: Boolean = false, margin: Boolean = false, init: GridLayout.() -> Unit = {}) =
         ch.frankel.kaadin.gridLayout(columns, rows, spacing, margin, init).addTo(this)
 
+class Slot(internal val layout: CustomLayout, internal val location: String)
+fun CustomLayout.on(location: String) = Slot(this, location)
+infix fun Slot.set(component: Component) = layout.addComponent(component, location)
+
 fun customLayout(init: CustomLayout.() -> Unit = {}) = CustomLayout().apply(init)
 fun customLayout(template: String, init: CustomLayout.() -> Unit = {}) = CustomLayout(template).apply(init)
 fun customLayout(templateStream: InputStream, init: CustomLayout.() -> Unit = {}) = CustomLayout(templateStream).apply(init)
+
+fun HasComponents.customLayout(init: CustomLayout.() -> Unit = {}) = ch.frankel.kaadin.customLayout(init).addTo(this)
+fun HasComponents.customLayout(template: String, init: CustomLayout.() -> Unit = {}) =
+        ch.frankel.kaadin.customLayout(template, init).addTo(this)
+fun HasComponents.customLayout(templateStream: InputStream, init: CustomLayout.() -> Unit = {}) =
+        ch.frankel.kaadin.customLayout(templateStream, init).addTo(this)
 
 class Position(internal val layout: AbsoluteLayout, internal val cssPosition: String)
 fun AbsoluteLayout.at(position: String) = Position(this, position)
