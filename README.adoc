@@ -1,0 +1,70 @@
+= Kaadin
+Nicolas Fränkel <nicolas@frankel.ch>
+:lang: en
+:source-highlighter: highlight.js
+:sourcedir: kaadin-sampler/src/main/kotlin/ch/frankel/kaadin
+:sectnums:
+:toc: macro
+:icons: font
+:experimental:
+
+image:https://travis-ci.org/nfrankel/kaadin.svg?branch=master["Build Status", link="https://travis-ci.org/nfrankel/kaadin"]
+image:https://codecov.io/gh/nfrankel/kaadin/branch/master/graph/badge.svg["Code coverage", link="https://codecov.io/gh/nfrankel/kaadin"]
+image:https://api.bintray.com/packages/nfrankel/maven/kaadin/images/download.svg[link="https://bintray.com/nfrankel/maven/kaadin/_latestVersion"]
+
+Kaadin is a library to create link:https://vaadin.com/[Vaadin] Graphical User Interface using a link:https://kotlinlang.org/[Kotlin^] Domain-Specific Language .
+
+toc::[]
+
+== Two-minutes tutorial
+
+An example is worth a thousand words:
+
+[source,kotlin]
+----
+import ch.frankel.kaadin.* //<1>
+import com.vaadin.server.*
+import com.vaadin.ui.*
+
+class FirstStepUI(): UI() {
+    override fun init(request: VaadinRequest) {
+        verticalLayout(margin = true, spacing = true) { //<2>
+            label("Welcome to Vaadin") //<3>
+        }
+    }
+}
+----
+
+<1> Import the namespace `ch.frankel.kaadin.*`
+1. There's one Kaadin function for each Vaadin component _e.g._ `button()` maps `Button()`
+<2> The topmost component will automatically be added as the `UI` content. There's one such function per common Vaadin component.
+<3> Nested blocks allow to add children components and configure them
+
+== Usage
+
+1. Build
++
+[source,bash]
+----
+mvn install
+----
++
+1. Use
++
+[source,xml]
+----
+<dependency>
+    <groupId>ch.frankel.kaadin</groupId>
+    <artifactId>kaadin-core</artifactId>
+    <version>0.1-SNAPSHOT</version>
+</dependency>
+----
+
+== Going further
+
+The full documentation is available on the link:https://nfrankel.github.io/kaadin/[Kaadin site].
+
+== License
+
+Kaadin is distributed under the friendly link:LICENSE[Apache 2.0 License].
+

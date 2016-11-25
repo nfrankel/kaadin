@@ -1,0 +1,32 @@
+language: java
+
+jdk: oraclejdk8
+
+install: true
+
+cache:
+  directories:
+  - $HOME/.m2
+
+before_script:
+ - git config user.name "$COMMIT_AUTHOR_NAME"
+ - git config user.email "$COMMIT_AUTHOR_EMAIL"
+ - export COMMIT_MESSAGE=`git log -1 --oneline`
+
+script:
+  - ./mvnw clean install
+  - bash <(curl -s https://codecov.io/bash)
+
+after_success:
+  - chmod u+x target/bin/push-gh.sh
+  - target/bin/push-gh.sh
+
+deploy:
+  -
+    on:
+      branch: release
+    provider: bintray
+    skip_cleanup: true
+    file: target/bin/bintray.json
+    user: nfrankel
+    key: $BINTRAY_API_KEY

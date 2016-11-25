@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<title>ch.frankel.kaadin.com.vaadin.ui.Grid.Column - kaadin-core</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">kaadin-core</a>&nbsp;/&nbsp;<a href="../index.html">ch.frankel.kaadin</a>&nbsp;/&nbsp;<a href=".">com.vaadin.ui.Grid.Column</a><br/>
+<br/>
+<h3>Extensions for com.vaadin.ui.Grid.Column</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="big-decimal-converter.html">bigDecimalConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">bigDecimalConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="big-integer-converter.html">bigIntegerConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">bigIntegerConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="boolean-converter.html">booleanConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">booleanConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="button-renderer.html">buttonRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">buttonRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$buttonRenderer(com.vaadin.ui.Grid.Column, kotlin.String, kotlin.Function1((com.vaadin.ui.renderers.ClickableRenderer.RendererClickEvent, kotlin.Unit)))/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$buttonRenderer(com.vaadin.ui.Grid.Column, kotlin.String, kotlin.Function1((com.vaadin.ui.renderers.ClickableRenderer.RendererClickEvent, kotlin.Unit)))/onClick">onClick</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">RendererClickEvent</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="byte-converter.html">byteConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">byteConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="collection-converter.html">collectionConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">collectionConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="converter.html">converter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">M</span><span class="symbol">&gt;</span> <span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">converter</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function2((ch.frankel.kaadin.converter.M, java.util.Locale, ch.frankel.kaadin.converter.P)))/modelClass">modelClass</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">M</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function2((ch.frankel.kaadin.converter.M, java.util.Locale, ch.frankel.kaadin.converter.P)))/presentationClass">presentationClass</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function2((ch.frankel.kaadin.converter.M, java.util.Locale, ch.frankel.kaadin.converter.P)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">M</span><span class="symbol">,</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Converter</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">M</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">M</span><span class="symbol">&gt;</span> <span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">converter</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function1((ch.frankel.kaadin.converter.M, ch.frankel.kaadin.converter.P)))/modelClass">modelClass</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">M</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function1((ch.frankel.kaadin.converter.M, ch.frankel.kaadin.converter.P)))/presentationClass">presentationClass</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, java.lang.Class((ch.frankel.kaadin.converter.M)), java.lang.Class((ch.frankel.kaadin.converter.P)), kotlin.Function1((ch.frankel.kaadin.converter.M, ch.frankel.kaadin.converter.P)))/convert">convert</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">M</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Converter</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">M</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">M</span><span class="symbol">&gt;</span> <span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">converter</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$converter(com.vaadin.ui.Grid.Column, com.vaadin.data.util.converter.Converter((ch.frankel.kaadin.converter.P, ch.frankel.kaadin.converter.M)))/converter">converter</span><span class="symbol">:</span>&nbsp;<span class="identifier">Converter</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">M</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="date-converter.html">dateConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">dateConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="date-renderer.html">dateRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">dateRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$dateRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/formatString">formatString</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;"%s"<span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$dateRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Locale.getDefault()<span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$dateRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">dateRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$dateRenderer(com.vaadin.ui.Grid.Column, java.text.DateFormat, kotlin.String)/format">format</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/text/DateFormat.html"><span class="identifier">DateFormat</span></a><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$dateRenderer(com.vaadin.ui.Grid.Column, java.text.DateFormat, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="double-converter.html">doubleConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">doubleConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="enum-converter.html">enumConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">enumConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="float-converter.html">floatConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">floatConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="html-renderer.html">htmlRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">htmlRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$htmlRenderer(com.vaadin.ui.Grid.Column, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="image-renderer.html">imageRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">imageRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$imageRenderer(com.vaadin.ui.Grid.Column, kotlin.Function1((com.vaadin.ui.renderers.ClickableRenderer.RendererClickEvent, kotlin.Unit)))/onClick">onClick</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">RendererClickEvent</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span>&nbsp;<span class="symbol">=</span>&nbsp;{}<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="int-converter.html">intConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">intConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="long-converter.html">longConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">longConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="number-renderer.html">numberRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">numberRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$numberRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/formatString">formatString</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;"%s"<span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$numberRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/locale">locale</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html"><span class="identifier">Locale</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Locale.getDefault()<span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$numberRenderer(com.vaadin.ui.Grid.Column, kotlin.String, java.util.Locale, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">numberRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$numberRenderer(com.vaadin.ui.Grid.Column, java.text.NumberFormat, kotlin.String)/format">format</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/text/NumberFormat.html"><span class="identifier">NumberFormat</span></a><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$numberRenderer(com.vaadin.ui.Grid.Column, java.text.NumberFormat, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="progress-bar-renderer.html">progressBarRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">progressBarRenderer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="renderer.html">renderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">renderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$renderer(com.vaadin.ui.Grid.Column, com.vaadin.ui.renderers.Renderer((ch.frankel.kaadin.renderer.T)))/renderer">renderer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Renderer</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">renderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$renderer(com.vaadin.ui.Grid.Column, com.vaadin.ui.renderers.Renderer((ch.frankel.kaadin.renderer.T)), com.vaadin.data.util.converter.Converter((ch.frankel.kaadin.renderer.T, kotlin.Any)))/renderer">renderer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Renderer</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ch.frankel.kaadin$renderer(com.vaadin.ui.Grid.Column, com.vaadin.ui.renderers.Renderer((ch.frankel.kaadin.renderer.T)), com.vaadin.data.util.converter.Converter((ch.frankel.kaadin.renderer.T, kotlin.Any)))/converter">converter</span><span class="symbol">:</span>&nbsp;<span class="identifier">Converter</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="short-converter.html">shortConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">shortConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="text-renderer.html">textRenderer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">textRenderer</span><span class="symbol">(</span><span class="identifier" id="ch.frankel.kaadin$textRenderer(com.vaadin.ui.Grid.Column, kotlin.String)/nullRepresentation">nullRepresentation</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unset-converter.html">unsetConverter</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Column</span><span class="symbol">.</span><span class="identifier">unsetConverter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
