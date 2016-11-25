@@ -21,6 +21,8 @@ import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.*
 
+internal const val NAVIGATOR_GROUP = "navigator"
+
 @Test(groups = arrayOf(NAVIGATOR_GROUP))
 class NavigatorTest {
 

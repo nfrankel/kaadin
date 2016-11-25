@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.frankel.kaadin.navigator
+package ch.frankel.kaadin
 
 import com.vaadin.server.*
 import com.vaadin.ui.*
 import org.mockito.Mockito.*
-
-internal const val NAVIGATOR_GROUP = "navigator"
 
 /**
  * Initialize an empty UI and prevents NPE when switching views with a Navigator regarding the Page's location.
