@@ -21,7 +21,7 @@ import com.vaadin.data.util.*
 import com.vaadin.ui.*
 
 fun IndexedContainer.item(): Any = addItem()
-fun IndexedContainer.item(vararg itemId: Any, init: Item.() -> Unit = {}) = item(itemId.toList())
+fun IndexedContainer.item(vararg itemId: Any, init: Item.() -> Unit = {}) = item(itemId.toList(), init)
 fun IndexedContainer.item(itemIds: Collection<Any>, init: Item.() -> Unit = {}) = itemIds.forEach { addItem(it).apply(init) }
 fun IndexedContainer.property(propertyId: Any, type: Class<*>, defaultValue: Any) = addContainerProperty(propertyId, type, defaultValue)
 
