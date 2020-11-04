@@ -31,7 +31,7 @@ class FrameTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(BrowserFrame::class.java)
+        assertThat(component).isNotNull.isInstanceOf(BrowserFrame::class.java)
     }
 
     @Test
@@ -41,7 +41,7 @@ class FrameTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(BrowserFrame::class.java)
+        assertThat(component).isNotNull.isInstanceOf(BrowserFrame::class.java)
     }
 
     @Test
@@ -51,7 +51,7 @@ class FrameTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(BrowserFrame::class.java)
+        assertThat(component).isNotNull.isInstanceOf(BrowserFrame::class.java)
     }
 
     @Test
@@ -63,7 +63,7 @@ class FrameTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(BrowserFrame::class.java)
+        assertThat(component).isNotNull.isInstanceOf(BrowserFrame::class.java)
     }
 
     @Test

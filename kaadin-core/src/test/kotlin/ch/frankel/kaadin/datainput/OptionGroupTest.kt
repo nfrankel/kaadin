@@ -30,10 +30,10 @@ class OptionGroupTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(OptionGroup::class.java)
+        assertThat(component).isNotNull.isInstanceOf(OptionGroup::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("option group should be added to layout"))
+    @Test(dependsOnMethods = ["option group should be added to layout"])
     fun `option group elements can be initialized via varargs`() {
         val layout = horizontalLayout {
             optionGroup("caption", "One", "Two", "Three")
@@ -42,7 +42,7 @@ class OptionGroupTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("option group should be added to layout"))
+    @Test(dependsOnMethods = ["option group should be added to layout"])
     fun `option group elements can be initialized via collection`() {
         val layout = horizontalLayout {
             optionGroup(options = arrayListOf("One", "Two", "Three"))
@@ -51,7 +51,7 @@ class OptionGroupTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("option group should be added to layout"))
+    @Test(dependsOnMethods = ["option group should be added to layout"])
     fun `option group elements can be initialized via property`() {
         val container = BeanItemContainer(String::class.java).apply {
             addAll(arrayListOf("One", "Two", "Three"))
@@ -63,7 +63,7 @@ class OptionGroupTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("option group should be added to layout"))
+    @Test(dependsOnMethods = ["option group should be added to layout"])
     fun `option group caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -73,7 +73,7 @@ class OptionGroupTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("option group should be added to layout"))
+    @Test(dependsOnMethods = ["option group should be added to layout"])
     fun `option group should be configurable`() {
         val layout = horizontalLayout {
             optionGroup {
@@ -81,10 +81,10 @@ class OptionGroupTest {
             }
         }
         val component = layout.getComponent(0) as OptionGroup
-        assertThat(component.isHtmlContentAllowed).isTrue()
+        assertThat(component.isHtmlContentAllowed).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("option group elements can be initialized via varargs", "option group should be configurable"))
+    @Test(dependsOnMethods = ["option group elements can be initialized via varargs", "option group should be configurable"])
     fun `option group items can be disabled`() {
         val layout = horizontalLayout {
             optionGroup("caption", "One", "Two", "Three") {
@@ -95,8 +95,8 @@ class OptionGroupTest {
             }
         }
         val component = layout.getComponent(0) as OptionGroup
-        assertThat(component.isItemEnabled("One")).isTrue()
-        assertThat(component.isItemEnabled("Two")).isFalse()
-        assertThat(component.isItemEnabled("Three")).isFalse()
+        assertThat(component.isItemEnabled("One")).isTrue
+        assertThat(component.isItemEnabled("Two")).isFalse
+        assertThat(component.isItemEnabled("Three")).isFalse
     }
 }

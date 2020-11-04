@@ -21,4 +21,4 @@ import javax.servlet.annotation.*
 
 @WebServlet(value = ["/*"], asyncSupported = true)
 @VaadinServletConfiguration(productionMode = false, ui = KaadinSampler::class)
-class SamplerServlet() : VaadinServlet()
+class SamplerServlet : VaadinServlet()

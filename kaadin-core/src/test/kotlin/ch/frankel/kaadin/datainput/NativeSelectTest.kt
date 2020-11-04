@@ -30,10 +30,10 @@ class NativeSelectTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(NativeSelect::class.java)
+        assertThat(component).isNotNull.isInstanceOf(NativeSelect::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select elements can be initialized via varargs`() {
         val layout = horizontalLayout {
             nativeSelect("caption", "One", "Two", "Three")
@@ -42,7 +42,7 @@ class NativeSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select elements can be initialized via collection`() {
         val layout = horizontalLayout {
             nativeSelect(options = arrayListOf("One", "Two", "Three"))
@@ -51,7 +51,7 @@ class NativeSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select elements can be initialized via property`() {
         val container = BeanItemContainer(String::class.java).apply {
             addAll(arrayListOf("One", "Two", "Three"))
@@ -63,7 +63,7 @@ class NativeSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -73,7 +73,7 @@ class NativeSelectTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select should be configurable`() {
         val layout = horizontalLayout {
             nativeSelect {
@@ -82,11 +82,11 @@ class NativeSelectTest {
             }
         }
         val component = layout.getComponent(0) as NativeSelect
-        assertThat(component.isNewItemsAllowed).isFalse()
-        assertThat(component.isNullSelectionAllowed).isFalse()
+        assertThat(component.isNewItemsAllowed).isFalse
+        assertThat(component.isNullSelectionAllowed).isFalse
     }
 
-    @Test(dependsOnMethods = arrayOf("native select should be added to layout"))
+    @Test(dependsOnMethods = ["native select should be added to layout"])
     fun `native select value change listener can be initialized`() {
         val data = "dummy"
         val layout = horizontalLayout {

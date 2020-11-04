@@ -16,10 +16,9 @@
 package ch.frankel.kaadin.datainput
 
 import ch.frankel.kaadin.*
-import com.vaadin.data.util.*
-import com.vaadin.server.*
+import com.vaadin.data.util.BeanItemContainer
 import com.vaadin.server.FontAwesome.*
-import com.vaadin.ui.*
+import com.vaadin.ui.ListSelect
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
 
@@ -32,10 +31,10 @@ class ListSelectTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(ListSelect::class.java)
+        assertThat(component).isNotNull.isInstanceOf(ListSelect::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select elements can be initialized via varargs`() {
         val layout = horizontalLayout {
             listSelect("caption", "One", "Two", "Three")
@@ -44,7 +43,7 @@ class ListSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select elements can be initialized via collection`() {
         val layout = horizontalLayout {
             listSelect(options = arrayListOf("One", "Two", "Three"))
@@ -53,7 +52,7 @@ class ListSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select elements can be initialized via property`() {
         val container = BeanItemContainer(String::class.java).apply {
             addAll(arrayListOf("One", "Two", "Three"))
@@ -65,7 +64,7 @@ class ListSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -75,7 +74,7 @@ class ListSelectTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select should be configurable`() {
         val layout = horizontalLayout {
             listSelect {
@@ -84,10 +83,10 @@ class ListSelectTest {
             }
         }
         val component = layout.getComponent(0) as ListSelect
-        assertThat(component.isMultiSelect).isFalse()
+        assertThat(component.isMultiSelect).isFalse
     }
 
-    @Test(dependsOnMethods = arrayOf("list select should be added to layout"))
+    @Test(dependsOnMethods = ["list select should be added to layout"])
     fun `list select value change listener can be initialized`() {
         val tag = "dummy"
         val layout = horizontalLayout {
@@ -99,7 +98,7 @@ class ListSelectTest {
         assertThat(layout.id).isEqualTo(tag)
     }
 
-    @Test(dependsOnMethods = arrayOf("list select elements can be initialized via varargs", "list select should be configurable"))
+    @Test(dependsOnMethods = ["list select elements can be initialized via varargs", "list select should be configurable"])
     fun `list select item icon can be set`() {
         val layout = horizontalLayout {
             listSelect("caption", "One", "Two", "Three") {

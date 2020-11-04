@@ -30,10 +30,10 @@ class CalendarTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Calendar::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Calendar::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("calendar should be added to layout"))
+    @Test(dependsOnMethods = ["calendar should be added to layout"])
     fun `calendar caption can be initialized`() {
         val caption = "dummy caption"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class CalendarTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("calendar should be added to layout"))
+    @Test(dependsOnMethods = ["calendar should be added to layout"])
     fun `calendar should be configurable`() {
         val date = Date()
         val layout = horizontalLayout {

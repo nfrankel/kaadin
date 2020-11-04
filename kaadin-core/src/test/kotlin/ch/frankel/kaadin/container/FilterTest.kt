@@ -21,7 +21,7 @@ import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.*
 
-@Test(dependsOnGroups = arrayOf("bean"))
+@Test(dependsOnGroups = ["bean"])
 class FilterTest {
 
     private lateinit var comboBox: ComboBox
@@ -36,7 +36,7 @@ class FilterTest {
         val persons = arrayOf("John", "Jack", "William", "Averell").map(::Person)
         comboBox.beanItemContainer(Person::class.java) {
             beans(persons)
-            filter("name","J",false, false)
+            filter("name","J", ignoreCase = false, onlyMatchPrefix = false)
         }
         val itemIds = comboBox.visibleItemIds
         assertThat(itemIds.size).isEqualTo(2)

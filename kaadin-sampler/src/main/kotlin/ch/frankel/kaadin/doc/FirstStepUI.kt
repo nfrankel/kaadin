@@ -20,7 +20,7 @@ import ch.frankel.kaadin.* //<1>
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
-class FirstStepUI(): UI() {
+class FirstStepUI : UI() {
     override fun init(request: VaadinRequest) {
         verticalLayout(margin = true, spacing = true) { //<2>
             label("Welcome to Vaadin") //<3>

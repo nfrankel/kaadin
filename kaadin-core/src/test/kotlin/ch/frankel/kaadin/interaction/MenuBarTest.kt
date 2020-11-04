@@ -34,57 +34,57 @@ class MenuBarTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(MenuBar::class.java)
+        assertThat(component).isNotNull.isInstanceOf(MenuBar::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("menu bar should be added to layout"))
+    @Test(dependsOnMethods = ["menu bar should be added to layout"])
     fun `menu bar should be configurable`() {
         val icon = AMAZON
         val layout = horizontalLayout {
-            menuBar() {
+            menuBar {
                 this.icon = icon
             }
         }
         val menuBar = layout.getComponent(0) as MenuBar
-        assertThat(menuBar.icon).isNotNull().isSameAs(icon)
+        assertThat(menuBar.icon).isNotNull.isSameAs(icon)
     }
 
-    @Test(dependsOnMethods = arrayOf("menu bar should be added to layout"))
+    @Test(dependsOnMethods = ["menu bar should be added to layout"])
     fun `menu items should be added to menu bar`() {
         val size = 3
         val layout = horizontalLayout {
-            menuBar() {
-                IntRange(0, size).forEach {
+            menuBar {
+                repeat(size + 1) {
                     menuItem("Hello World", onClick = { })
                 }
             }
         }
         val menuBar = layout.getComponent(0) as MenuBar
-        assertThat(menuBar.items).isNotNull().isNotEmpty().hasSize(size + 1)
+        assertThat(menuBar.items).isNotNull.isNotEmpty.hasSize(size + 1)
     }
 
-    @Test(dependsOnMethods = arrayOf("menu items should be added to menu bar"))
+    @Test(dependsOnMethods = ["menu items should be added to menu bar"])
     fun `menu items should be configurable`() {
         val icon = AMAZON
         val layout = horizontalLayout {
-            menuBar() {
+            menuBar {
                 menuItem("Hello World", onClick = { }) {
                     this.icon = icon
                 }
             }
         }
         val menuBar = layout.getComponent(0) as MenuBar
-        assertThat(menuBar.items[0].icon).isNotNull().isSameAs(icon)
+        assertThat(menuBar.items[0].icon).isNotNull.isSameAs(icon)
     }
 
-    @Test(dependsOnMethods = arrayOf("menu items should be added to menu bar"))
+    @Test(dependsOnMethods = ["menu items should be added to menu bar"])
     fun `menu items should display text and react on click`() {
         val size = 3
         val caption = "Hello World"
         val clicked = mutableListOf(false, false, false, false)
         val range = IntRange(0, size)
         val layout = horizontalLayout {
-            menuBar() {
+            menuBar {
                 range.forEach { i ->
                     menuItem("$caption $i", onClick = { clicked[i] = true })
                 }

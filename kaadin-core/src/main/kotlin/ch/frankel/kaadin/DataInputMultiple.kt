@@ -39,12 +39,24 @@ private fun <S : AbstractSelect> S.process(container: HasComponents,
             .addTo(container)
 }
 
-fun AbstractSelect.allowNewItems() = setNewItemsAllowed(true)
-fun AbstractSelect.disallowNewItems() = setNewItemsAllowed(false)
-fun AbstractSelect.allowNullSelection() = setNullSelectionAllowed(true)
-fun AbstractSelect.disallowNullSelection() = setNullSelectionAllowed(false)
-fun AbstractSelect.selectSingle() = setMultiSelect(false)
-fun AbstractSelect.selectMulti() = setMultiSelect(true)
+fun AbstractSelect.allowNewItems() {
+    isNewItemsAllowed = true
+}
+fun AbstractSelect.disallowNewItems() {
+    isNewItemsAllowed = false
+}
+fun AbstractSelect.allowNullSelection() {
+    isNullSelectionAllowed = true
+}
+fun AbstractSelect.disallowNullSelection() {
+    isNullSelectionAllowed = false
+}
+fun AbstractSelect.selectSingle() {
+    isMultiSelect = false
+}
+fun AbstractSelect.selectMulti() {
+    isMultiSelect = true
+}
 fun AbstractSelect.itemCaption(itemId: Any, caption: String) = setItemCaption(itemId, caption)
 fun AbstractSelect.unsetItemCaption(itemId: Any) = setItemCaption(itemId, null)
 fun AbstractSelect.itemIcon(itemId: Any, icon: Resource) = setItemIcon(itemId, icon)
@@ -67,8 +79,12 @@ fun HasComponents.comboBox(caption: String? = null,
                            init: ComboBox.() -> Unit = {}) = ComboBox()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
-fun ComboBox.allowTextInput() = setTextInputAllowed(true)
-fun ComboBox.disallowTextInput() = setTextInputAllowed(false)
+fun ComboBox.allowTextInput() {
+    isTextInputAllowed = true
+}
+fun ComboBox.disallowTextInput() {
+    isTextInputAllowed = false
+}
 
 fun HasComponents.nativeSelect(caption: String? = null,
                                vararg options: Any,
@@ -138,7 +154,11 @@ fun HasComponents.optionGroup(caption: String? = null,
                               init: OptionGroup.() -> Unit = {}) = OptionGroup()
         .process(this, caption, emptyList(), dataSource, onValueChange, init)
 
-fun OptionGroup.allowHtml() = setHtmlContentAllowed(true)
-fun OptionGroup.disallowHtml() = setHtmlContentAllowed(false)
+fun OptionGroup.allowHtml() {
+    isHtmlContentAllowed = true
+}
+fun OptionGroup.disallowHtml() {
+    isHtmlContentAllowed = false
+}
 fun OptionGroup.enableItem(itemId: Any) = setItemEnabled(itemId, true)
 fun OptionGroup.disableItem(itemId: Any) = setItemEnabled(itemId, false)

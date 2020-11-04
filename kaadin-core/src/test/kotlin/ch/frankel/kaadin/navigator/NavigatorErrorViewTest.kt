@@ -21,7 +21,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-@Test(dependsOnGroups = arrayOf(NAVIGATOR_GROUP))
+@Test(dependsOnGroups = [NAVIGATOR_GROUP])
 class NavigatorErrorViewTest {
 
     @BeforeMethod
@@ -38,7 +38,7 @@ class NavigatorErrorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo("does not exist")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -51,7 +51,7 @@ class NavigatorErrorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo("does not exist")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(errorViewClass)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(errorViewClass)
     }
 
     @Test
@@ -67,6 +67,6 @@ class NavigatorErrorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo("does not exist")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(CssLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(CssLayoutView::class.java)
     }
 }

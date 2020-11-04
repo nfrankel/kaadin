@@ -30,10 +30,10 @@ class TextFieldTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(TextField::class.java)
+        assertThat(component).isNotNull.isInstanceOf(TextField::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("text should be added to layout"))
+    @Test(dependsOnMethods = ["text should be added to layout"])
     fun `text value can be initialized`() {
         val text = "Hello world"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class TextFieldTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("text should be added to layout"))
+    @Test(dependsOnMethods = ["text should be added to layout"])
     fun `text caption can be initialized`() {
         val caption = "Hello world"
         val layout = horizontalLayout {
@@ -53,7 +53,7 @@ class TextFieldTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("text should be added to layout"))
+    @Test(dependsOnMethods = ["text should be added to layout"])
     fun `text value can be initialized via property`() {
         val text = "Hello world"
         val property = ObjectProperty(text)
@@ -64,7 +64,7 @@ class TextFieldTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("text should be added to layout"))
+    @Test(dependsOnMethods = ["text should be added to layout"])
     fun `text should be configurable`() {
         val text = "Hello world"
         val layout = horizontalLayout {

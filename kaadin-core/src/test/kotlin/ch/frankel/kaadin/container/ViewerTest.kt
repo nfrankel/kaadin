@@ -21,7 +21,7 @@ import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.*
 
-@Test(groups = arrayOf("viewer"))
+@Test(groups = ["viewer"])
 class ViewerTest {
 
     private lateinit var comboBox: ComboBox
@@ -34,22 +34,22 @@ class ViewerTest {
     @Test
     fun `bean item container can be added to viewer`() {
         comboBox.beanItemContainer(String::class.java)
-        assertThat(comboBox.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(comboBox.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("bean item container can be added to viewer"))
+    @Test(dependsOnMethods = ["bean item container can be added to viewer"])
     fun `bean item container can be initialized with collection`() {
         val items = arrayListOf("One", "Two", "Three")
         comboBox.beanItemContainer(String::class.java, items)
-        assertThat(comboBox.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(comboBox.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
         assertThat(comboBox.size()).isEqualTo(items.size)
     }
 
-    @Test(dependsOnMethods = arrayOf("bean item container can be added to viewer"))
+    @Test(dependsOnMethods = ["bean item container can be added to viewer"])
     fun `bean item container can be initialized with varargs`() {
         val items = arrayOf("One", "Two", "Three")
         comboBox.beanItemContainer(String::class.java, * items)
-        assertThat(comboBox.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(comboBox.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
         assertThat(comboBox.size()).isEqualTo(items.size)
     }
 }

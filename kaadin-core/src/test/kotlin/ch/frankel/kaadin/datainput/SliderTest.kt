@@ -29,10 +29,10 @@ class SliderTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Slider::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Slider::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
+    @Test(dependsOnMethods = ["slider should be added to layout"])
     fun `slider mix and max can be initialized through ints`() {
         val min = 0.0
         val max = 2.0
@@ -46,7 +46,7 @@ class SliderTest {
         assertThat(component.resolution).isEqualTo(resolution)
     }
 
-    @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
+    @Test(dependsOnMethods = ["slider should be added to layout"])
     fun `slider mix and max can be initialized through doubles`() {
         val min = 0.0
         val max = 2.0
@@ -58,7 +58,7 @@ class SliderTest {
         assertThat(component.max).isEqualTo(max)
     }
 
-    @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
+    @Test(dependsOnMethods = ["slider should be added to layout"])
     fun `slider caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -68,7 +68,7 @@ class SliderTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("slider should be added to layout"))
+    @Test(dependsOnMethods = ["slider should be added to layout"])
     fun `slider caption should be configurable`() {
         val value = 2.0
         val layout = horizontalLayout {

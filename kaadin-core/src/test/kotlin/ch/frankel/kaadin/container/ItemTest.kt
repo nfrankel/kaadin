@@ -36,13 +36,13 @@ class ItemTest {
     fun `container can add item`() {
         val id = container.item()
         assertThat(container.size()).isEqualTo(1)
-        assertThat(id).isNotNull()
+        assertThat(id).isNotNull
     }
 
     @Test
     fun `container can add multiple items`() {
         with(container) {
-            IntRange(0, 9).forEach {
+            repeat(10) {
                 item()
             }
         }
@@ -95,7 +95,7 @@ class ItemTest {
         container.item()
         val idByIndex = container.getIdByIndex(0)
         val property = container.getContainerProperty(idByIndex, propertyId)
-        assertThat(property).isNotNull()
+        assertThat(property).isNotNull
         assertThat(property.type).isEqualTo(String::class.java)
         assertThat(property.value).isEqualTo(defaultValue)
     }

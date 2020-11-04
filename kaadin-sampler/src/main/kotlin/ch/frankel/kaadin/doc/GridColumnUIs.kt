@@ -8,8 +8,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 // tag::gridcolumnui[]
-class GridColumnLambdaUI() : UI() {
-    val data = BeanItemContainer<Person>(Person::class.java, Person.all)
+class GridColumnLambdaUI : UI() {
+    private val data = BeanItemContainer(Person::class.java, Person.all)
     override fun init(request: VaadinRequest) {
         grid(dataSource = data) {
             column("firstName") {
@@ -21,8 +21,8 @@ class GridColumnLambdaUI() : UI() {
 }
 // end::gridcolumnui[]
 
-class GridColumnRendererUI() : UI() {
-    val data = BeanItemContainer<Person>(Person::class.java, Person.all)
+class GridColumnRendererUI : UI() {
+    private val data = BeanItemContainer(Person::class.java, Person.all)
     override fun init(request: VaadinRequest) {
         // tag::gridcolumnrenderui[]
         grid(dataSource = data) {
@@ -32,8 +32,8 @@ class GridColumnRendererUI() : UI() {
     }
 }
 
-class GridColumnConverterUI() : UI() {
-    val data = BeanItemContainer<Person>(Person::class.java, Person.all)
+class GridColumnConverterUI : UI() {
+    private val data = BeanItemContainer(Person::class.java, Person.all)
     override fun init(request: VaadinRequest) {
         // tag::gridcolumnconvertui[]
         grid(dataSource = data) {
@@ -43,17 +43,17 @@ class GridColumnConverterUI() : UI() {
     }
 }
 
-class GridColumnCustomConverterUI() : UI() {
-    val data = BeanItemContainer<Person>(Person::class.java, Person.all)
+class GridColumnCustomConverterUI : UI() {
+    private val data = BeanItemContainer(Person::class.java, Person.all)
     override fun init(request: VaadinRequest) {
         // tag::gridcolumncustomconvertui[]
         val dateFormat = "dd.MM.yyyy"
         grid(dataSource = data) {
             column("birthDate").converter(
                     Date::class.java, //<1>
-                    String::class.java, //<2>
-                    { date -> SimpleDateFormat(dateFormat).format(date) } //<3>
-            )
+                    String::class.java //<2>
+                //<3>
+            ) { date -> SimpleDateFormat(dateFormat).format(date) }
         }
         // end::gridcolumncustomconvertui[]
     }

@@ -31,7 +31,7 @@ class EmbeddedTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Image::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Image::class.java)
     }
 
     @Test
@@ -41,7 +41,7 @@ class EmbeddedTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Image::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Image::class.java)
     }
 
     @Test
@@ -51,7 +51,7 @@ class EmbeddedTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Image::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Image::class.java)
     }
 
     @Test
@@ -63,7 +63,7 @@ class EmbeddedTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Image::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Image::class.java)
     }
 
     @Test
@@ -88,6 +88,6 @@ class EmbeddedTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Flash::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Flash::class.java)
     }
 }

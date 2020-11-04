@@ -31,10 +31,10 @@ class NativeButtonTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(NativeButton::class.java)
+        assertThat(component).isNotNull.isInstanceOf(NativeButton::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("native button should be added to layout"))
+    @Test(dependsOnMethods = ["native button should be added to layout"])
     fun `native button should display a specific caption`() {
         val caption = "Hello world"
         val layout = horizontalLayout {
@@ -44,7 +44,7 @@ class NativeButtonTest {
         assertThat(nativeButton.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("native button should be added to layout"))
+    @Test(dependsOnMethods = ["native button should be added to layout"])
     fun `native button should react on a specific click listener`() {
         var clicked = false
         val layout = horizontalLayout {
@@ -52,15 +52,15 @@ class NativeButtonTest {
         }
         val nativeButton = layout.getComponent(0) as NativeButton
         nativeButton.click()
-        assertThat(clicked).isTrue()
+        assertThat(clicked).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("native button should be added to layout"))
+    @Test(dependsOnMethods = ["native button should be added to layout"])
     fun `native button should be configurable in the lambda`() {
         val data = "dummy"
         val caption = "Hello world"
         val layout = horizontalLayout {
-            nativeButton() {
+            nativeButton {
                 this.caption = caption
                 this.data = data
             }

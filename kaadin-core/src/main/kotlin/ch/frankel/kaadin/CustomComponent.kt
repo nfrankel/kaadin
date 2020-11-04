@@ -17,8 +17,8 @@ package ch.frankel.kaadin
 
 import com.vaadin.ui.*
 
-class CustomComponentWrapper() : CustomComponent() {
-    override public fun setCompositionRoot(compositionRoot: Component) {
+class CustomComponentWrapper : CustomComponent() {
+    public override fun setCompositionRoot(compositionRoot: Component) {
         super.setCompositionRoot(compositionRoot)
     }
 }

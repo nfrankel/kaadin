@@ -31,10 +31,10 @@ class PopupViewTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(PopupView::class.java)
+        assertThat(component).isNotNull.isInstanceOf(PopupView::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("popup should be added to layout via nested API"))
+    @Test(dependsOnMethods = ["popup should be added to layout via nested API"])
     fun `popup should display component when clicked via nested API`() {
         val layout = horizontalLayout {
             popupView("dummy") {
@@ -43,7 +43,7 @@ class PopupViewTest {
         }
         val component = layout.getComponent(0) as PopupView
         val popupComponent = component.content?.popupComponent
-        assertThat(popupComponent).isNotNull().isInstanceOf(Label::class.java)
+        assertThat(popupComponent).isNotNull.isInstanceOf(Label::class.java)
     }
 
     @Test
@@ -57,10 +57,10 @@ class PopupViewTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(PopupView::class.java)
+        assertThat(component).isNotNull.isInstanceOf(PopupView::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("popup should be added to layout via nested API"))
+    @Test(dependsOnMethods = ["popup should be added to layout via nested API"])
     fun `popup should be configurable`() {
         val layout = horizontalLayout {
             popupView("dummy") {
@@ -69,6 +69,6 @@ class PopupViewTest {
             }
         }
         val component = layout.getComponent(0) as PopupView
-        assertThat(component.isPopupVisible).isTrue()
+        assertThat(component.isPopupVisible).isTrue
     }
 }

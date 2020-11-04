@@ -21,10 +21,10 @@ import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
 import java.util.*
 
-@Test(dependsOnGroups = arrayOf("baseGrid"))
+@Test(dependsOnGroups = ["baseGrid"])
 class GridConverterTest {
 
-    @Test(expectedExceptions = arrayOf(IllegalArgumentException::class))
+    @Test(expectedExceptions = [IllegalArgumentException::class])
     fun `column should throw exception if converter type mismatch`() {
         horizontalLayout {
             grid(dataSource = GridTestData.container) {
@@ -42,7 +42,7 @@ class GridConverterTest {
         }
         val grid = layout.getGrid()
         assertThat(grid.getIntColumn().converter)
-                .isNotNull()
+                .isNotNull
                 .isInstanceOf(StringToIntegerConverter::class.java)
     }
 
@@ -55,7 +55,7 @@ class GridConverterTest {
         }
         val grid = layout.getGrid()
         assertThat(grid.getDateColumn().converter)
-                .isNotNull()
+                .isNotNull
                 .isInstanceOf(StringToDateConverter::class.java)
     }
 
@@ -67,7 +67,7 @@ class GridConverterTest {
             }
         }
         val grid = layout.getGrid()
-        assertThat(grid.getDateColumn().converter).isNotNull()
+        assertThat(grid.getDateColumn().converter).isNotNull
     }
 
     @Test

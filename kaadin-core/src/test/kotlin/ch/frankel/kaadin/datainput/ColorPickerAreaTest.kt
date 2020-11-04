@@ -30,10 +30,10 @@ class ColorPickerAreaTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(ColorPickerArea::class.java)
+        assertThat(component).isNotNull.isInstanceOf(ColorPickerArea::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("color picker area should be added to layout"))
+    @Test(dependsOnMethods = ["color picker area should be added to layout"])
     fun `color picker area caption can be configured`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class ColorPickerAreaTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("color picker area should be added to layout"))
+    @Test(dependsOnMethods = ["color picker area should be added to layout"])
     fun `color picker area color can be configured`() {
         val layout = horizontalLayout {
             colorPickerArea(initialColor = BLACK)
@@ -52,7 +52,7 @@ class ColorPickerAreaTest {
         assertThat(component.color).isSameAs(BLACK)
     }
 
-    @Test(dependsOnMethods = arrayOf("color picker area should be added to layout"))
+    @Test(dependsOnMethods = ["color picker area should be added to layout"])
     fun `color picker area should be configurable`() {
         val layout = horizontalLayout {
             colorPickerArea {

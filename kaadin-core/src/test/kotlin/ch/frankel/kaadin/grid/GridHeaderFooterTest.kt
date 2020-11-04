@@ -16,12 +16,10 @@
 package ch.frankel.kaadin.grid
 
 import ch.frankel.kaadin.*
-import ch.frankel.kaadin.grid.GridTestData
-import ch.frankel.kaadin.grid.getGrid
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
 
-@Test(dependsOnGroups = arrayOf("baseGrid"))
+@Test(dependsOnGroups = ["baseGrid"])
 class GridHeaderFooterTest {
 
     @Test
@@ -37,12 +35,12 @@ class GridHeaderFooterTest {
         assertThat(grid.headerRowCount).isEqualTo(3 + 1) // There's one default header row
     }
 
-    @Test(dependsOnMethods = arrayOf("grid should add header rows"))
+    @Test(dependsOnMethods = ["grid should add header rows"])
     fun `header row should manage cell`() {
         val cellValue = "foo"
         val layout = horizontalLayout {
             grid(dataSource = GridTestData.container) {
-                headerRowAtStart() {
+                headerRowAtStart {
                     cell("string").text = cellValue
                 }
             }
@@ -64,12 +62,12 @@ class GridHeaderFooterTest {
         assertThat(grid.footerRowCount).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("grid should add footer rows"))
+    @Test(dependsOnMethods = ["grid should add footer rows"])
     fun `footer row should manage cell`() {
         val cellValue = "foo"
         val layout = horizontalLayout {
             grid(dataSource = GridTestData.container) {
-                footerRowAtStart() {
+                footerRowAtStart {
                     cell("string").text = cellValue
                 }
             }

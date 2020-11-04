@@ -34,10 +34,10 @@ class ButtonTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Button::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Button::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `button should display a specific caption`() {
         val caption = "Hello world"
         val layout = horizontalLayout {
@@ -47,7 +47,7 @@ class ButtonTest {
         assertThat(button.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `button should display a specific icon`() {
         val icon = AMAZON
         val layout = horizontalLayout {
@@ -57,7 +57,7 @@ class ButtonTest {
         assertThat(button.icon).isSameAs(icon)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `button should display a specific caption and icon`() {
         val caption = "Hello world"
         val icon = AMAZON
@@ -69,7 +69,7 @@ class ButtonTest {
         assertThat(button.icon).isSameAs(icon)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `button should react on a specific click listener`() {
         var clicked = false
         val layout = horizontalLayout {
@@ -77,15 +77,15 @@ class ButtonTest {
         }
         val button = getButton(layout)
         button.click()
-        assertThat(clicked).isTrue()
+        assertThat(clicked).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `button should be configurable in the lambda`() {
         val data = "dummy"
         val caption = "Hello world"
         val layout = horizontalLayout {
-            button() {
+            button {
                 this.caption = caption
                 this.data = data
             }
@@ -95,10 +95,10 @@ class ButtonTest {
         assertThat(button.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `disable button should set its enabled property to false`() {
         val layout = horizontalLayout {
-            button() {
+            button {
                 disable()
             }
         }
@@ -106,10 +106,10 @@ class ButtonTest {
         assertThat(button.isEnabled).isEqualTo(false)
     }
 
-    @Test(dependsOnMethods = arrayOf("button should be added to layout"))
+    @Test(dependsOnMethods = ["button should be added to layout"])
     fun `enable button should set its enabled property to true()`() {
         val layout = horizontalLayout {
-            button() {
+            button {
                 isEnabled = false
                 enable()
             }

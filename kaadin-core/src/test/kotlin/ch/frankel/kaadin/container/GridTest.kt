@@ -25,7 +25,7 @@ import org.testng.annotations.*
 
 class GridTest {
 
-    lateinit var grid: Grid
+    private lateinit var grid: Grid
 
     @BeforeMethod
     private fun setUp() {
@@ -35,25 +35,25 @@ class GridTest {
     @Test
     fun `bean item container can be added to grid`() {
         grid.beanItemContainer(String::class.java)
-        assertThat(grid.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(grid.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("bean item container can be added to grid"))
+    @Test(dependsOnMethods = ["bean item container can be added to grid"])
     fun `bean item container can be initialized with collection`() {
         val items = arrayListOf("One", "Two", "Three")
         grid.beanItemContainer(String::class.java, items)
-        assertThat(grid.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(grid.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
         grid.setSelectionMode(MULTI)
         val selection = grid.selectionModel as Multi
         selection.selectAll()
         assertThat(grid.selectedRows.size).isEqualTo(items.size)
     }
 
-    @Test(dependsOnMethods = arrayOf("bean item container can be added to grid"))
+    @Test(dependsOnMethods = ["bean item container can be added to grid"])
     fun `bean item container can be initialized with varargs`() {
         val items = arrayOf("One", "Two", "Three")
         grid.beanItemContainer(String::class.java, * items)
-        assertThat(grid.containerDataSource).isNotNull().isInstanceOf(BeanItemContainer::class.java)
+        assertThat(grid.containerDataSource).isNotNull.isInstanceOf(BeanItemContainer::class.java)
         grid.setSelectionMode(MULTI)
         val selection = grid.selectionModel as Multi
         selection.selectAll()

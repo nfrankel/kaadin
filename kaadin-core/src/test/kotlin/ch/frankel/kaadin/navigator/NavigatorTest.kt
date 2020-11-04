@@ -23,7 +23,7 @@ import org.testng.annotations.*
 
 internal const val NAVIGATOR_GROUP = "navigator"
 
-@Test(groups = arrayOf(NAVIGATOR_GROUP))
+@Test(groups = [NAVIGATOR_GROUP])
 class NavigatorTest {
 
     @BeforeMethod
@@ -83,7 +83,7 @@ class NavigatorTest {
         assertThat(displayedView!!).isInstanceOf(HorizontalLayoutView::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("navigator can be initialized with a view display"))
+    @Test(dependsOnMethods = ["navigator can be initialized with a view display"])
     fun `navigator can be configurable`() {
         var displayedView: View? = null
         ui {

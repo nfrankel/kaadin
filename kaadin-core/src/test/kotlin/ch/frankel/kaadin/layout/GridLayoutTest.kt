@@ -29,28 +29,28 @@ class GridLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(GridLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(GridLayout::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("grid layout should be added to layout"))
+    @Test(dependsOnMethods = ["grid layout should be added to layout"])
     fun `grid layout rows and columns can be initialized`() {
         val layout = gridLayout(2, 3)
         assertThat(layout.columns).isEqualTo(2)
         assertThat(layout.rows).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("grid layout should be added to layout"))
+    @Test(dependsOnMethods = ["grid layout should be added to layout"])
     fun `grid layout spacing and margin can be initialized`() {
         val layout = gridLayout(spacing = true, margin = true)
-        assertThat(layout.isSpacing).isTrue()
-        assertThat(layout.margin).isNotNull()
-        assertThat(layout.margin.hasBottom()).isTrue()
-        assertThat(layout.margin.hasTop()).isTrue()
-        assertThat(layout.margin.hasLeft()).isTrue()
-        assertThat(layout.margin.hasRight()).isTrue()
+        assertThat(layout.isSpacing).isTrue
+        assertThat(layout.margin).isNotNull
+        assertThat(layout.margin.hasBottom()).isTrue
+        assertThat(layout.margin.hasTop()).isTrue
+        assertThat(layout.margin.hasLeft()).isTrue
+        assertThat(layout.margin.hasRight()).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("grid layout should be added to layout"))
+    @Test(dependsOnMethods = ["grid layout should be added to layout"])
     fun `grid layout should accept one child component`() {
         val layout = verticalLayout {
             label()
@@ -58,10 +58,10 @@ class GridLayoutTest {
         assertThat(layout.componentCount).isEqualTo(1)
     }
 
-    @Test(dependsOnMethods = arrayOf("grid layout should accept one child component"))
+    @Test(dependsOnMethods = ["grid layout should accept one child component"])
     fun `grid layout should accept many child components`() {
         val layout = gridLayout {
-            IntRange(0, 9).forEach {
+            repeat(10) {
                 label()
             }
         }

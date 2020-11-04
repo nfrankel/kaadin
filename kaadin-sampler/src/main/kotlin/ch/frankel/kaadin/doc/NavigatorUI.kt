@@ -20,7 +20,7 @@ import ch.frankel.kaadin.*
 import com.vaadin.server.*
 import com.vaadin.ui.*
 
-class NavigatorUI() : UI() {
+class NavigatorUI : UI() {
     private val firstView = firstView()
     private val secondView = secondView()
     override fun init(request: VaadinRequest) {

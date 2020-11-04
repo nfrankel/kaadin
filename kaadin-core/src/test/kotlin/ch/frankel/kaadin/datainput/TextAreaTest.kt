@@ -30,10 +30,10 @@ class TextAreaTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(TextArea::class.java)
+        assertThat(component).isNotNull.isInstanceOf(TextArea::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("text area should be added to layout"))
+    @Test(dependsOnMethods = ["text area should be added to layout"])
     fun `text area value can be initialized`() {
         val text = "Hello world"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class TextAreaTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("text area should be added to layout"))
+    @Test(dependsOnMethods = ["text area should be added to layout"])
     fun `text area value can be initialized via property`() {
         val text = "Hello world"
         val property = ObjectProperty(text)
@@ -54,7 +54,7 @@ class TextAreaTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("text area should be added to layout"))
+    @Test(dependsOnMethods = ["text area should be added to layout"])
     fun `text area should be configurable`() {
         val text = "Hello world"
         val layout = horizontalLayout {

@@ -39,8 +39,12 @@ fun HasComponents.button(caption: String? = null,
             onClick?.let { addClickListener(onClick) }
         }
 
-fun Button.enable() = setEnabled(true)
-fun Button.disable() = setEnabled(false)
+fun Button.enable() {
+    isEnabled = true
+}
+fun Button.disable() {
+    isEnabled = false
+}
 
 fun HasComponents.nativeButton(caption: String? = null,
                                clickListener: ((Button.ClickEvent) -> Unit)? = null,
@@ -100,7 +104,7 @@ fun MenuBar.menuItem(caption: String, icon: Resource? = null,
                      checkable: Boolean = false,
                      checked: Boolean = false,
                      enabled: Boolean = true,
-                     init: MenuItem.() -> Unit = {}) = addItem(caption, icon, Command(onClick))
+                     init: MenuItem.() -> Unit = {}): MenuItem? = addItem(caption, icon, Command(onClick))
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked
@@ -113,7 +117,7 @@ fun MenuItem.menuItem(caption: String, icon: Resource? = null,
                       checkable: Boolean = false,
                       checked: Boolean = false,
                       enabled: Boolean = true,
-                      init: MenuItem.() -> Unit = {}) = addItem(caption, icon, Command(onClick))
+                      init: MenuItem.() -> Unit = {}): MenuItem? = addItem(caption, icon, Command(onClick))
         .apply {
             this.isCheckable = checkable
             this.isChecked = checked
@@ -121,7 +125,7 @@ fun MenuItem.menuItem(caption: String, icon: Resource? = null,
         }
         .apply(init)
 
-fun MenuItem.separator() = addSeparator()
+fun MenuItem.separator(): MenuItem? = addSeparator()
 
 fun MenuItem.select() = command?.menuSelected(this)
 

@@ -9,8 +9,8 @@ import com.vaadin.ui.*
 // end::importgrid[]
 
 // tag::simplegridui[]
-class SimpleGridUI() : UI() {
-    val data = BeanItemContainer<Person>(Person::class.java, Person.all)
+class SimpleGridUI : UI() {
+    private val data = BeanItemContainer(Person::class.java, Person.all)
     override fun init(request: VaadinRequest) {
         grid(dataSource = data)
     }
@@ -18,7 +18,7 @@ class SimpleGridUI() : UI() {
 // end::simplegridui[]
 
 // tag::gridnestedcontainerui[]
-class GridNestedContainerUI() : UI() {
+class GridNestedContainerUI : UI() {
     override fun init(request: VaadinRequest) {
         grid {
             beanItemContainer(Person::class.java, Person.all)
@@ -28,7 +28,7 @@ class GridNestedContainerUI() : UI() {
 // end::gridnestedcontainerui[]
 
 // tag::gridwithbeansui[]
-class GridWitBeansUI() : UI() {
+class GridWitBeansUI : UI() {
     override fun init(request: VaadinRequest) {
         grid {
             beanItemContainer(Person::class.java) {

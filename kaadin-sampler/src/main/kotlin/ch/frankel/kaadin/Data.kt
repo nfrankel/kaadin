@@ -49,7 +49,7 @@ internal class Line(val company: String,
             else -> randomConsonant() + randomVowel()
         }
 
-        private fun randomCompany() = IntRange(0, RandomUtils.nextInt(2, 4)).map { randomSyllable() }.joinToString("").capitalize()
+        private fun randomCompany() = IntRange(0, RandomUtils.nextInt(2, 4)).joinToString("") { randomSyllable() }.capitalize()
         private fun randomFigure() = RandomUtils.nextDouble(1000.0, 9999.0)
         private fun randomLine() = Line(randomCompany(),
                 randomFigure(), randomFigure(), randomFigure(), randomFigure(),

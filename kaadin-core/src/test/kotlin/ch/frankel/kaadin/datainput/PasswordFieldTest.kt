@@ -30,10 +30,10 @@ class PasswordFieldTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(PasswordField::class.java)
+        assertThat(component).isNotNull.isInstanceOf(PasswordField::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("password should be added to layout"))
+    @Test(dependsOnMethods = ["password should be added to layout"])
     fun `password value can be initialized`() {
         val password = "Hello world"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class PasswordFieldTest {
         assertThat(component.value).isEqualTo(password)
     }
 
-    @Test(dependsOnMethods = arrayOf("password should be added to layout"))
+    @Test(dependsOnMethods = ["password should be added to layout"])
     fun `password value can be initialized via property`() {
         val password = "Hello world"
         val property = ObjectProperty(password)
@@ -54,7 +54,7 @@ class PasswordFieldTest {
         assertThat(component.value).isEqualTo(password)
     }
 
-    @Test(dependsOnMethods = arrayOf("password should be added to layout"))
+    @Test(dependsOnMethods = ["password should be added to layout"])
     fun `password should be configurable`() {
         val password = "Hello world"
         val layout = horizontalLayout {

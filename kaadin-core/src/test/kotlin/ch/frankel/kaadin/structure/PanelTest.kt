@@ -29,10 +29,10 @@ class PanelTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Panel::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Panel::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("panel should be added to layout"))
+    @Test(dependsOnMethods = ["panel should be added to layout"])
     fun `panel caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -42,7 +42,7 @@ class PanelTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("panel should be added to layout"))
+    @Test(dependsOnMethods = ["panel should be added to layout"])
     fun `panel should accept one child component`() {
         val layout = horizontalLayout {
             panel {
@@ -53,7 +53,7 @@ class PanelTest {
         assertThat(component.componentCount).isEqualTo(1)
     }
 
-    @Test(expectedExceptions = arrayOf(IllegalArgumentException::class))
+    @Test(expectedExceptions = [IllegalArgumentException::class])
     fun `panel should not accept more than one child component`() {
         horizontalLayout {
             panel {

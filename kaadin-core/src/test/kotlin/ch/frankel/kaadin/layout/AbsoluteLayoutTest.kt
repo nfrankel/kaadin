@@ -29,10 +29,10 @@ class AbsoluteLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(AbsoluteLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(AbsoluteLayout::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("absolute layout should be added to layout"))
+    @Test(dependsOnMethods = ["absolute layout should be added to layout"])
     fun `absolute layout should accept one child component`() {
         val layout = absoluteLayout {
             at("left: 50px; top: 50px;") put Label("a label")
@@ -40,7 +40,7 @@ class AbsoluteLayoutTest {
         assertThat(layout.componentCount).isEqualTo(1)
     }
 
-    @Test(dependsOnMethods = arrayOf("absolute layout should accept one child component"))
+    @Test(dependsOnMethods = ["absolute layout should accept one child component"])
     fun `absolute layout should accept many child components`() {
         val layout = absoluteLayout {
                 at("left: 50px; top: 50px;") put Label("a label")

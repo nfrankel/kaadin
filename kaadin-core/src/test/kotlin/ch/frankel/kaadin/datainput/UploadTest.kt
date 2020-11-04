@@ -31,10 +31,10 @@ class UploadTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Upload::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Upload::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("upload should be added to layout"))
+    @Test(dependsOnMethods = ["upload should be added to layout"])
     fun `upload caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -44,7 +44,7 @@ class UploadTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("upload should be added to layout"))
+    @Test(dependsOnMethods = ["upload should be added to layout"])
     fun `upload caption should be configurable`() {
         val layout = horizontalLayout {
             upload(uploadReceiver = FakeReceiver()) {

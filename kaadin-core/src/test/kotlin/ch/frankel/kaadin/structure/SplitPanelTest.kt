@@ -29,10 +29,10 @@ class SplitPanelTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(AbstractSplitPanel::class.java)
+        assertThat(component).isNotNull.isInstanceOf(AbstractSplitPanel::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("split panel should be added to layout"))
+    @Test(dependsOnMethods = ["split panel should be added to layout"])
     fun `split panel should accept one child component`() {
         val layout = horizontalLayout {
             horizontalSplitPanel {
@@ -44,7 +44,7 @@ class SplitPanelTest {
         assertThat(component.iterator().next()).isExactlyInstanceOf(Label::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("split panel should be added to layout"))
+    @Test(dependsOnMethods = ["split panel should be added to layout"])
     fun `split panel should accept 2 child components`() {
         val layout = horizontalLayout {
             horizontalSplitPanel {
@@ -59,7 +59,7 @@ class SplitPanelTest {
         assertThat(components.next()).isExactlyInstanceOf(TextField::class.java)
     }
 
-    @Test(expectedExceptions = arrayOf(IllegalArgumentException::class))
+    @Test(expectedExceptions = [IllegalArgumentException::class])
     fun `panel should not accept more than 2 child components`() {
         horizontalLayout {
             horizontalSplitPanel {

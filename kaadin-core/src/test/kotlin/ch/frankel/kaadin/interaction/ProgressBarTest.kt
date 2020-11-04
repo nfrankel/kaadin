@@ -32,10 +32,10 @@ class ProgressBarTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(ProgressBar::class.java)
+        assertThat(component).isNotNull.isInstanceOf(ProgressBar::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("progress bar should be added to layout"))
+    @Test(dependsOnMethods = ["progress bar should be added to layout"])
     fun `progress bar should display a progress`() {
         val value = 0.75f
         val layout = horizontalLayout {
@@ -45,9 +45,9 @@ class ProgressBarTest {
         assertThat(progressBar.value).isEqualTo(value)
     }
 
-    @Test(dependsOnMethods = arrayOf("progress bar should be added to layout"))
+    @Test(dependsOnMethods = ["progress bar should be added to layout"])
     fun `progress bar should display a progress based on a property`() {
-        val property = ObjectProperty<Float>(0f)
+        val property = ObjectProperty(0f)
         val layout = horizontalLayout {
             progressBar(dataSource = property)
         }

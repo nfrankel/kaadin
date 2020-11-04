@@ -20,7 +20,7 @@ import com.vaadin.ui.*
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.*
 
-@Test(groups = arrayOf("bean"), dependsOnGroups = arrayOf("viewer"))
+@Test(groups = ["bean"], dependsOnGroups = ["viewer"])
 class BeanTest {
 
     private lateinit var comboBox: ComboBox

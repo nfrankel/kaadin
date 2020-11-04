@@ -31,10 +31,10 @@ class InlineDateFieldTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(InlineDateField::class.java)
+        assertThat(component).isNotNull.isInstanceOf(InlineDateField::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("inline date field should be added to layout"))
+    @Test(dependsOnMethods = ["inline date field should be added to layout"])
     fun `inline date field value can be initialized`() {
         val date = Date()
         val layout = horizontalLayout {
@@ -44,7 +44,7 @@ class InlineDateFieldTest {
         assertThat(component.value).isEqualTo(date)
     }
 
-    @Test(dependsOnMethods = arrayOf("inline date field should be added to layout"))
+    @Test(dependsOnMethods = ["inline date field should be added to layout"])
     fun `inline date field value can be initialized via property`() {
         val date = Date()
         val property = ObjectProperty(date)
@@ -55,7 +55,7 @@ class InlineDateFieldTest {
         assertThat(component.value).isEqualTo(date)
     }
 
-    @Test(dependsOnMethods = arrayOf("inline date field should be added to layout"))
+    @Test(dependsOnMethods = ["inline date field should be added to layout"])
     fun `inline date field should be configurable`() {
         val date = Date()
         val layout = horizontalLayout {

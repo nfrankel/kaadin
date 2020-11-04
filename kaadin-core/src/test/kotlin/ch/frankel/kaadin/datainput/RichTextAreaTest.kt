@@ -30,10 +30,10 @@ class RichTextAreaTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(RichTextArea::class.java)
+        assertThat(component).isNotNull.isInstanceOf(RichTextArea::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("rich text area should be added to layout"))
+    @Test(dependsOnMethods = ["rich text area should be added to layout"])
     fun `rich text area value can be initialized`() {
         val text = "Hello world"
         val layout = horizontalLayout {
@@ -43,7 +43,7 @@ class RichTextAreaTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("rich text area should be added to layout"))
+    @Test(dependsOnMethods = ["rich text area should be added to layout"])
     fun `rich text area value can be initialized via property`() {
         val text = "Hello world"
         val property = ObjectProperty(text)
@@ -54,7 +54,7 @@ class RichTextAreaTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("rich text area should be added to layout"))
+    @Test(dependsOnMethods = ["rich text area should be added to layout"])
     fun `rich text area should be configurable`() {
         val text = "Hello world"
         val layout = horizontalLayout {

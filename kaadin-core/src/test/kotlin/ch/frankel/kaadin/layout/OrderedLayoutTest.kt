@@ -29,7 +29,7 @@ class OrderedLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(VerticalLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(VerticalLayout::class.java)
     }
 
     @Test
@@ -39,7 +39,7 @@ class OrderedLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(HorizontalLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(HorizontalLayout::class.java)
     }
 
     @Test
@@ -49,18 +49,18 @@ class OrderedLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(FormLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(FormLayout::class.java)
     }
 
     @Test
     fun `vertical layout spacing can be initialized`() {
-        val layout = verticalLayout(true, true)
-        assertThat(layout.isSpacing).isTrue()
-        assertThat(layout.margin).isNotNull()
-        assertThat(layout.margin.hasBottom()).isTrue()
-        assertThat(layout.margin.hasTop()).isTrue()
-        assertThat(layout.margin.hasLeft()).isTrue()
-        assertThat(layout.margin.hasRight()).isTrue()
+        val layout = verticalLayout(spacing = true, margin = true)
+        assertThat(layout.isSpacing).isTrue
+        assertThat(layout.margin).isNotNull
+        assertThat(layout.margin.hasBottom()).isTrue
+        assertThat(layout.margin.hasTop()).isTrue
+        assertThat(layout.margin.hasLeft()).isTrue
+        assertThat(layout.margin.hasRight()).isTrue
     }
 
     @Test
@@ -74,7 +74,7 @@ class OrderedLayoutTest {
     @Test
     fun `form layout should accept many child components`() {
         val layout = formLayout {
-            IntRange(0, 9).forEach {
+            repeat(10) {
                 label()
             }
         }

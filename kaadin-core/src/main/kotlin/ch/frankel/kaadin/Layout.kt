@@ -22,12 +22,12 @@ import java.io.InputStream
 /**
  * see http://demo.vaadin.com/sampler/#ui/layout
  */
-class HorizontalLayoutView() : HorizontalLayout(), NoopView
-class VerticalLayoutView() : VerticalLayout(), NoopView
-class FormLayoutView() : FormLayout(), NoopView
+class HorizontalLayoutView : HorizontalLayout(), NoopView
+class VerticalLayoutView : VerticalLayout(), NoopView
+class FormLayoutView : FormLayout(), NoopView
 class GridLayoutView(columns: Int, rows: Int) : GridLayout(columns, rows), NoopView
-class AbsoluteLayoutView() : AbsoluteLayout(), NoopView
-class CssLayoutView() : CssLayout(), NoopView
+class AbsoluteLayoutView : AbsoluteLayout(), NoopView
+class CssLayoutView : CssLayout(), NoopView
 
 private fun <L : AbstractOrderedLayout> L.process(spacing: Boolean, margin: Boolean, init: L.() -> Unit) =
         apply {

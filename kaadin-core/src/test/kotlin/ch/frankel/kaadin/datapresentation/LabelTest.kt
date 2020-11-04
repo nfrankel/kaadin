@@ -31,10 +31,10 @@ class LabelTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Label::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Label::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("label should be added to layout"))
+    @Test(dependsOnMethods = ["label should be added to layout"])
     fun `label can be initialized with text`() {
         val text = "Hello world"
         val layout = horizontalLayout {
@@ -51,10 +51,10 @@ class LabelTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Label::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Label::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("html label should be added to layout"))
+    @Test(dependsOnMethods = ["html label should be added to layout"])
     fun `html label should be added be of type html`() {
         val layout = horizontalLayout {
             html()
@@ -63,7 +63,7 @@ class LabelTest {
         assertThat(component.contentMode).isSameAs(HTML)
     }
 
-    @Test(dependsOnMethods = arrayOf("html label should be added to layout"))
+    @Test(dependsOnMethods = ["html label should be added to layout"])
     fun `html label should be initialized with property`() {
         val text = "Hello world"
         val property = ObjectProperty(text)
@@ -74,7 +74,7 @@ class LabelTest {
         assertThat(component.value).isEqualTo(text)
     }
 
-    @Test(dependsOnMethods = arrayOf("html label should be added to layout"))
+    @Test(dependsOnMethods = ["html label should be added to layout"])
     fun `html label should be configurable`() {
         val text = "Hello world"
         val layout = horizontalLayout {

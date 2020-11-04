@@ -37,7 +37,7 @@ class KaadinSampler : UI() {
                 tab("Interactions") {
                     accordion {
                         tab("Button", HAND_O_RIGHT) {
-                            horizontalLayout(true, true) {
+                            horizontalLayout(spacing = true, margin = true) {
                                 // tag::button[]
                                 button()
                                 button("Label")
@@ -69,7 +69,7 @@ class KaadinSampler : UI() {
                             horizontalLayout(true, true) {
                                 // tag::progressbar[]
                                 progressBar(0.5F)
-                                progressBar(ObjectProperty<Float>(0.5F))
+                                progressBar(ObjectProperty(0.5F))
                                 // end::progressbar[]
                             }
                         }
@@ -108,7 +108,7 @@ class KaadinSampler : UI() {
                 tab("Data Input - Text", FONT) {
                     accordion {
                         // tag::stringprop[]
-                                val stringProp = ObjectProperty<String>("From property")
+                                val stringProp = ObjectProperty("From property")
                         // end::stringprop[]
                         tab("Text Field", FONT) {
                             formLayout {
@@ -159,7 +159,7 @@ class KaadinSampler : UI() {
                 tab("Data Input - Date", CALENDAR) {
                     accordion {
                         // tag::dateprop[]
-                                val dateProp = ObjectProperty<Date>(Date())
+                                val dateProp = ObjectProperty(Date())
                         // end::dateprop[]
                         tab("Date Field", CALENDAR) {
                             formLayout {
@@ -268,7 +268,7 @@ class KaadinSampler : UI() {
                                 checkBox()
                                 checkBox("No value")
                                 checkBox("From value", true)
-                                checkBox("From property", ObjectProperty<Boolean>(true))
+                                checkBox("From property", ObjectProperty(true))
                                 // end::checkbox[]
                             }
                         }
@@ -322,7 +322,7 @@ class KaadinSampler : UI() {
                         tab("Label", BOLD) {
                             verticalLayout(true, true) {
                                 // tag::label[]
-                                val stringProp = ObjectProperty<String>("<strong>From</strong> <em>property")
+                                val stringProp = ObjectProperty("<strong>From</strong> <em>property")
                                 label("<strong>From</strong> <em>value")
                                 label("<strong>From</strong> <em>value", HTML)
                                 label(stringProp)
@@ -366,7 +366,7 @@ class KaadinSampler : UI() {
                                     reset()
                                 }
                                 frozenColumnCount = 1
-                                cellStyleGenerator("align-right", { it.propertyId == "company" })
+                                cellStyleGenerator("align-right") { it.propertyId == "company" }
                                 headerRowAt(1) {
                                     cell("company") {
                                         component = TextField()

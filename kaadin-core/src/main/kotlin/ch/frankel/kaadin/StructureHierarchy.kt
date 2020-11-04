@@ -58,6 +58,6 @@ fun HasComponents.popupView(html: String, init: PopupView.() -> Unit): PopupView
 /** Just to be able to call static createContent from super class */
 internal class InternalPopupView(val html: String): PopupView() {
     companion object {
-        fun createContent(minimizedValue: String, popupContent: Component) = PopupView.createContent(minimizedValue, popupContent)
+        fun createContent(minimizedValue: String, popupContent: Component): Content? = PopupView.createContent(minimizedValue, popupContent)
     }
 }

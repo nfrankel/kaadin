@@ -29,10 +29,10 @@ class CustomLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(CustomLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(CustomLayout::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("custom layout should be added to layout"))
+    @Test(dependsOnMethods = ["custom layout should be added to layout"])
     fun `custom layout name can be initialized`() {
         val name = "a name"
         val layout = horizontalLayout {
@@ -42,7 +42,7 @@ class CustomLayoutTest {
         assertThat(component.templateName).isEqualTo(name)
     }
 
-    @Test(dependsOnMethods = arrayOf("custom layout should be added to layout"))
+    @Test(dependsOnMethods = ["custom layout should be added to layout"])
     fun `custom layout content can be initialized`() {
         val stream = javaClass.getResourceAsStream("/template.html")
         val layout = horizontalLayout {
@@ -52,7 +52,7 @@ class CustomLayoutTest {
         assertThat(component.templateContents).isEqualTo("<html><body><div id=\"slot\"></div></body></html>")
     }
 
-    @Test(dependsOnMethods = arrayOf("custom layout should be added to layout"))
+    @Test(dependsOnMethods = ["custom layout should be added to layout"])
     fun `default custom layout should accept one child component`() {
         val layout = customLayout {
             on("aslot") set Label()
@@ -60,7 +60,7 @@ class CustomLayoutTest {
         assertThat(layout.componentCount).isEqualTo(1)
     }
 
-    @Test(dependsOnMethods = arrayOf("default custom layout should accept one child component"))
+    @Test(dependsOnMethods = ["default custom layout should accept one child component"])
     fun `custom layout should accept many child components`() {
         val layout = customLayout {
             IntRange(0, 9).forEach {

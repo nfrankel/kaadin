@@ -16,14 +16,12 @@
 package ch.frankel.kaadin.grid
 
 import ch.frankel.kaadin.*
-import ch.frankel.kaadin.grid.GridTestData
-import ch.frankel.kaadin.grid.getGrid
-import ch.frankel.kaadin.grid.getStringColumn
-import com.vaadin.ui.renderers.*
+import com.vaadin.ui.renderers.ButtonRenderer
+import com.vaadin.ui.renderers.TextRenderer
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
 
-@Test(dependsOnGroups = arrayOf("baseGrid"))
+@Test(dependsOnGroups = ["baseGrid"])
 class GridRendererTest {
 
     @Test
@@ -35,7 +33,7 @@ class GridRendererTest {
         }
         val grid = layout.getGrid()
         assertThat(grid.getStringColumn().renderer)
-                .isNotNull()
+                .isNotNull
                 .isInstanceOf(ButtonRenderer::class.java)
     }
 
@@ -48,7 +46,7 @@ class GridRendererTest {
         }
         val grid = layout.getGrid()
         assertThat(grid.getStringColumn().renderer)
-                .isNotNull()
+                .isNotNull
                 .isInstanceOf(TextRenderer::class.java)
     }
 }

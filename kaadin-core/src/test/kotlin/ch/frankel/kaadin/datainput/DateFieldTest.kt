@@ -31,10 +31,10 @@ class DateFieldTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(DateField::class.java)
+        assertThat(component).isNotNull.isInstanceOf(DateField::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("date field should be added to layout"))
+    @Test(dependsOnMethods = ["date field should be added to layout"])
     fun `date field value can be initialized`() {
         val date = Date()
         val layout = horizontalLayout {
@@ -44,7 +44,7 @@ class DateFieldTest {
         assertThat(component.value).isEqualTo(date)
     }
 
-    @Test(dependsOnMethods = arrayOf("date field should be added to layout"))
+    @Test(dependsOnMethods = ["date field should be added to layout"])
     fun `date field value can be initialized via property`() {
         val date = Date()
         val property = ObjectProperty(date)
@@ -55,7 +55,7 @@ class DateFieldTest {
         assertThat(component.value).isEqualTo(date)
     }
 
-    @Test(dependsOnMethods = arrayOf("date field should be added to layout"))
+    @Test(dependsOnMethods = ["date field should be added to layout"])
     fun `date field should be configurable`() {
         val date = Date()
         val layout = horizontalLayout {

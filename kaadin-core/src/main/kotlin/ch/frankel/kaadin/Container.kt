@@ -25,11 +25,11 @@ fun IndexedContainer.item(vararg itemId: Any, init: Item.() -> Unit = {}) = item
 fun IndexedContainer.item(itemIds: Collection<Any>, init: Item.() -> Unit = {}) = itemIds.forEach { addItem(it).apply(init) }
 fun IndexedContainer.property(propertyId: Any, type: Class<*>, defaultValue: Any) = addContainerProperty(propertyId, type, defaultValue)
 
-fun Ordered.itemAfter(previousItemId: Any) = addItemAfter(previousItemId)
-fun Ordered.itemAfter(previousItemId: Any, newItemId: Any) = addItemAfter(previousItemId, newItemId)
+fun Ordered.itemAfter(previousItemId: Any): Any = addItemAfter(previousItemId)
+fun Ordered.itemAfter(previousItemId: Any, newItemId: Any): Item = addItemAfter(previousItemId, newItemId)
 
-fun Indexed.itemAt(index: Int) = addItemAt(index)
-fun Indexed.itemAt(index: Int, newItemId: Any) = addItemAt(index, newItemId)
+fun Indexed.itemAt(index: Int): Any = addItemAt(index)
+fun Indexed.itemAt(index: Int, newItemId: Any): Item = addItemAt(index, newItemId)
 
 fun Hierarchical.allowChildren(itemId: Any) = setChildrenAllowed(itemId, true)
 fun Hierarchical.disallowChildren(itemId: Any) = setChildrenAllowed(itemId, false)
@@ -40,7 +40,7 @@ fun Filterable.filter(filter: Filter) = addContainerFilter(filter)
 
 // Because Grid doesn't implement Container.Viewer (it sucks)
 fun <T> Grid.beanItemContainer(type: Class<T>, init: BeanItemContainer<T>.() -> Unit = {}): BeanItemContainer<T> {
-    val beanItemContainer = BeanItemContainer<T>(type).apply(init)
+    val beanItemContainer = BeanItemContainer(type).apply(init)
     containerDataSource = beanItemContainer
     return beanItemContainer
 }
@@ -50,7 +50,7 @@ fun <T> Grid.beanItemContainer(type: Class<T>, vararg bean:T, init: BeanItemCont
         beanItemContainer(type, init).apply { bean.forEach { bean(it) } }
 
 fun <T> Viewer.beanItemContainer(type: Class<T>, init: BeanItemContainer<T>.() -> Unit = {}): BeanItemContainer<T> {
-        val beanItemContainer = BeanItemContainer<T>(type).apply(init)
+        val beanItemContainer = BeanItemContainer(type).apply(init)
         containerDataSource = beanItemContainer
         return beanItemContainer
     }

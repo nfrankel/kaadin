@@ -29,10 +29,10 @@ class MediaTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Audio::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Audio::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("audio should be added to layout"))
+    @Test(dependsOnMethods = ["audio should be added to layout"])
     fun `audio can be set caption`() {
         val caption = "dummy caption"
         val layout = horizontalLayout {
@@ -49,6 +49,6 @@ class MediaTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Video::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Video::class.java)
     }
 }

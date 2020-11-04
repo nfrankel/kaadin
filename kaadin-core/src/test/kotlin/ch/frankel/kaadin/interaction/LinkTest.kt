@@ -32,10 +32,10 @@ class LinkTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(Link::class.java)
+        assertThat(component).isNotNull.isInstanceOf(Link::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("link should be added to layout"))
+    @Test(dependsOnMethods = ["link should be added to layout"])
     fun `link should display a specific caption`() {
         val caption = "Hello world"
         val layout = horizontalLayout {
@@ -45,7 +45,7 @@ class LinkTest {
         assertThat(link.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("link should be added to layout"))
+    @Test(dependsOnMethods = ["link should be added to layout"])
     fun `link should open a specific resource`() {
         val target = AMAZON
         val layout = horizontalLayout {
@@ -55,7 +55,7 @@ class LinkTest {
         assertThat(link.resource).isEqualTo(target)
     }
 
-    @Test(dependsOnMethods = arrayOf("link should be added to layout"))
+    @Test(dependsOnMethods = ["link should be added to layout"])
     fun `link should display a specific caption and open a specific resource`() {
         val caption = "Hello world"
         val target = AMAZON
@@ -67,7 +67,7 @@ class LinkTest {
         assertThat(link.resource).isEqualTo(target)
     }
 
-    @Test(dependsOnMethods = arrayOf("link should be added to layout"))
+    @Test(dependsOnMethods = ["link should be added to layout"])
     fun `link should open in a specific target`() {
         val targetName = "_blank"
         val layout = horizontalLayout {
@@ -78,7 +78,7 @@ class LinkTest {
         assertThat(link.targetName).isEqualTo(targetName)
     }
 
-    @Test(dependsOnMethods = arrayOf("link should be added to layout"))
+    @Test(dependsOnMethods = ["link should be added to layout"])
     fun `link should be configurable in the lambda`() {
         val data = "dummy"
         val layout = horizontalLayout {

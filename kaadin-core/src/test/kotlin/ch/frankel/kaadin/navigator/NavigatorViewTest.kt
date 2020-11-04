@@ -21,7 +21,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
 
-@Test(dependsOnGroups = arrayOf(NAVIGATOR_GROUP))
+@Test(dependsOnGroups = [NAVIGATOR_GROUP])
 class NavigatorViewTest {
 
     @BeforeMethod
@@ -39,7 +39,7 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo(viewName)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -52,10 +52,10 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo(viewName)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("navigator can be set a single view"))
+    @Test(dependsOnMethods = ["navigator can be set a single view"])
     fun `navigator can be set multiple views`() {
         val viewName1 = "dummy"
         val viewName2 = "another $viewName1"
@@ -68,9 +68,9 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo(viewName2)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(VerticalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(VerticalLayoutView::class.java)
         navigator.navigateTo(viewName1)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -84,7 +84,7 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo(viewName)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -98,11 +98,11 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo("dummy1")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
         navigator.navigateTo("dummy3")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(VerticalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(VerticalLayoutView::class.java)
         navigator.navigateTo("dummy9")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -116,11 +116,11 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo("dummy1")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
         navigator.navigateTo("dummy3")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(VerticalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(VerticalLayoutView::class.java)
         navigator.navigateTo("dummy9")
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(HorizontalLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(HorizontalLayoutView::class.java)
     }
 
     @Test
@@ -137,6 +137,6 @@ class NavigatorViewTest {
         }
         val navigator = ui().navigator
         navigator.navigateTo(viewName)
-        assertThat(navigator.currentView).isNotNull().isInstanceOf(CssLayoutView::class.java)
+        assertThat(navigator.currentView).isNotNull.isInstanceOf(CssLayoutView::class.java)
     }
 }

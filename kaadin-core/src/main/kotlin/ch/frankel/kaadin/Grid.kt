@@ -46,26 +46,26 @@ fun Grid.columns(propertyIds: List<Any>, init: Column.() -> Unit = {}): Unit =
         propertyIds.forEach { column(it).apply(init) }
 fun Grid.columns(vararg propertyIds: Any, init: Column.() -> Unit = {}): Unit = columns(propertyIds.toList(), init)
 
-fun Grid.footerRowAtStart(init: Grid.FooterRow.() -> Unit = {}): FooterRow = prependFooterRow().apply(init)
-fun Grid.footerRowAtEnd(init: Grid.FooterRow.() -> Unit = {}): FooterRow = appendFooterRow().apply(init)
-fun Grid.footerRowAt(index: Int, init: Grid.FooterRow.() -> Unit = {}): FooterRow = addFooterRowAt(index).apply(init)
+fun Grid.footerRowAtStart(init: FooterRow.() -> Unit = {}): FooterRow = prependFooterRow().apply(init)
+fun Grid.footerRowAtEnd(init: FooterRow.() -> Unit = {}): FooterRow = appendFooterRow().apply(init)
+fun Grid.footerRowAt(index: Int, init: FooterRow.() -> Unit = {}): FooterRow = addFooterRowAt(index).apply(init)
 
-fun Grid.headerRowAtStart(init: Grid.HeaderRow.() -> Unit = {}): HeaderRow = prependHeaderRow().apply(init)
-fun Grid.headerRowAtEnd(init: Grid.HeaderRow.() -> Unit = {}): HeaderRow = appendHeaderRow().apply(init)
-fun Grid.headerRowAt(index: Int, init: Grid.HeaderRow.() -> Unit = {}): HeaderRow = addHeaderRowAt(index).apply(init)
+fun Grid.headerRowAtStart(init: HeaderRow.() -> Unit = {}): HeaderRow = prependHeaderRow().apply(init)
+fun Grid.headerRowAtEnd(init: HeaderRow.() -> Unit = {}): HeaderRow = appendHeaderRow().apply(init)
+fun Grid.headerRowAt(index: Int, init: HeaderRow.() -> Unit = {}): HeaderRow = addHeaderRowAt(index).apply(init)
 
-fun Grid.cellStyleGenerator(generator: (Grid.CellReference) -> String?) = setCellStyleGenerator(generator)
-fun Grid.cellStyleGenerator(className: String, predicate: (Grid.CellReference) -> Boolean) {
+fun Grid.cellStyleGenerator(generator: (CellReference) -> String?) = setCellStyleGenerator(generator)
+fun Grid.cellStyleGenerator(className: String, predicate: (CellReference) -> Boolean) {
     val computeClassName: (Boolean) -> String? = { if (it) className else null }
     setCellStyleGenerator { computeClassName(predicate(it)) }
 }
-fun Grid.selectionMode(selectionMode: Grid.SelectionMode, init: Grid.SelectionModel.() -> Unit = {}): Unit {
+fun Grid.selectionMode(selectionMode: SelectionMode, init: SelectionModel.() -> Unit = {}): Unit {
     setSelectionMode(selectionMode).apply(init)
 }
 
 // Because StaticRow is not public
-fun Grid.HeaderRow.cell(propertyId: Any, init: Grid.HeaderCell.() -> Unit = {}): HeaderCell = getCell(propertyId).apply(init)
-fun Grid.FooterRow.cell(propertyId: Any, init: Grid.FooterCell.() -> Unit = {}): FooterCell = getCell(propertyId).apply(init)
+fun HeaderRow.cell(propertyId: Any, init: HeaderCell.() -> Unit = {}): HeaderCell = getCell(propertyId).apply(init)
+fun FooterRow.cell(propertyId: Any, init: FooterCell.() -> Unit = {}): FooterCell = getCell(propertyId).apply(init)
 
 private abstract class KaadinAbstractConverter<P, M>(private val modelClass: Class<M>,
                                                      private val presentationClass: Class<P>) : Converter<P, M> {

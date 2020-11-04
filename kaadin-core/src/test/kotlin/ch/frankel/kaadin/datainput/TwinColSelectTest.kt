@@ -30,10 +30,10 @@ class TwinColSelectTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(TwinColSelect::class.java)
+        assertThat(component).isNotNull.isInstanceOf(TwinColSelect::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("twin col select should be added to layout"))
+    @Test(dependsOnMethods = ["twin col select should be added to layout"])
     fun `twin col select elements can be initialized via varargs`() {
         val layout = horizontalLayout {
             twinColSelect("caption", "One", "Two", "Three")
@@ -42,7 +42,7 @@ class TwinColSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("twin col select should be added to layout"))
+    @Test(dependsOnMethods = ["twin col select should be added to layout"])
     fun `twin col select elements can be initialized via collection`() {
         val layout = horizontalLayout {
             twinColSelect(options = arrayListOf("One", "Two", "Three"))
@@ -51,7 +51,7 @@ class TwinColSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("twin col select should be added to layout"))
+    @Test(dependsOnMethods = ["twin col select should be added to layout"])
     fun `twin col select elements can be initialized via property`() {
         val container = BeanItemContainer(String::class.java).apply {
             addAll(arrayListOf("One", "Two", "Three"))
@@ -63,7 +63,7 @@ class TwinColSelectTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("twin col select should be added to layout"))
+    @Test(dependsOnMethods = ["twin col select should be added to layout"])
     fun `twin col select caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -73,7 +73,7 @@ class TwinColSelectTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("twin col select should be added to layout"))
+    @Test(dependsOnMethods = ["twin col select should be added to layout"])
     fun `twin col select should be configurable`() {
         val id = "dummy"
         val layout = horizontalLayout {

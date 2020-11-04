@@ -31,10 +31,10 @@ class CheckBoxTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(CheckBox::class.java)
+        assertThat(component).isNotNull.isInstanceOf(CheckBox::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
+    @Test(dependsOnMethods = ["checkbox should be added to layout"])
     fun `checkbox caption can be initialized `() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -44,26 +44,26 @@ class CheckBoxTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
+    @Test(dependsOnMethods = ["checkbox should be added to layout"])
     fun `checkbox state can be initialized through boolean`() {
         val layout = horizontalLayout {
             checkBox(value = true)
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component.value).isTrue()
+        assertThat(component.value).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
+    @Test(dependsOnMethods = ["checkbox should be added to layout"])
     fun `checkbox state can be initialized through property`() {
-        val property = ObjectProperty<Boolean>(true)
+        val property = ObjectProperty(true)
         val layout = horizontalLayout {
             checkBox(dataSource = property)
         }
         val component = layout.getComponent(0) as CheckBox
-        assertThat(component.value).isTrue()
+        assertThat(component.value).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("checkbox should be added to layout"))
+    @Test(dependsOnMethods = ["checkbox should be added to layout"])
     fun `checkbox should be configurable`() {
         val id = "id"
         val layout = horizontalLayout {

@@ -29,10 +29,10 @@ class CssLayoutTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(CssLayout::class.java)
+        assertThat(component).isNotNull.isInstanceOf(CssLayout::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("css layout should be added to layout"))
+    @Test(dependsOnMethods = ["css layout should be added to layout"])
     fun `css layout should accept one child component`() {
         val layout = cssLayout {
             label()
@@ -40,10 +40,10 @@ class CssLayoutTest {
         assertThat(layout.componentCount).isEqualTo(1)
     }
 
-    @Test(dependsOnMethods = arrayOf("css layout should accept one child component"))
+    @Test(dependsOnMethods = ["css layout should accept one child component"])
     fun `css layout should accept many child components`() {
         val layout = cssLayout {
-            IntRange(0, 9).forEach {
+            repeat(10) {
                 label()
             }
         }

@@ -26,7 +26,7 @@ val changeTheme: (Property.ValueChangeEvent) -> Unit = { //<1>
     ch.frankel.kaadin.theme(it.property.value.toString()) //<2>
 }
 
-class SetThemeUI() : UI() {
+class SetThemeUI : UI() {
     override fun init(request: VaadinRequest) {
         val themes = arrayListOf("valo", "reindeer", "runo", "chameleon", "liferay")
         horizontalLayout(spacing = true, margin = true) {

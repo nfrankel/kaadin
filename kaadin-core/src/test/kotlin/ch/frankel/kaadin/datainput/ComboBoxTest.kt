@@ -30,10 +30,10 @@ class ComboBoxTest {
         }
         assertThat(layout.componentCount).isEqualTo(1)
         val component = layout.getComponent(0)
-        assertThat(component).isNotNull().isInstanceOf(ComboBox::class.java)
+        assertThat(component).isNotNull.isInstanceOf(ComboBox::class.java)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox elements can be initialized via varargs`() {
         val layout = horizontalLayout {
             comboBox("caption", "One", "Two", "Three")
@@ -42,7 +42,7 @@ class ComboBoxTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox elements can be initialized via collection`() {
         val layout = horizontalLayout {
             comboBox(options = arrayListOf("One", "Two", "Three"))
@@ -51,7 +51,7 @@ class ComboBoxTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox elements can be initialized via property`() {
         val container = BeanItemContainer(String::class.java).apply {
             addAll(arrayListOf("One", "Two", "Three"))
@@ -63,7 +63,7 @@ class ComboBoxTest {
         assertThat(component.size()).isEqualTo(3)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox caption can be initialized`() {
         val caption = "caption"
         val layout = horizontalLayout {
@@ -73,7 +73,7 @@ class ComboBoxTest {
         assertThat(component.caption).isEqualTo(caption)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox should be configurable`() {
         val layout = horizontalLayout {
             comboBox {
@@ -83,12 +83,12 @@ class ComboBoxTest {
             }
         }
         val component = layout.getComponent(0) as ComboBox
-        assertThat(component.isTextInputAllowed).isTrue()
-        assertThat(component.isNewItemsAllowed).isTrue()
-        assertThat(component.isNullSelectionAllowed).isTrue()
+        assertThat(component.isTextInputAllowed).isTrue
+        assertThat(component.isNewItemsAllowed).isTrue
+        assertThat(component.isNullSelectionAllowed).isTrue
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox should be added to layout"))
+    @Test(dependsOnMethods = ["combobox should be added to layout"])
     fun `combobox value change listener can be initialized`() {
         val data = "dummy"
         val layout = horizontalLayout {
@@ -100,7 +100,7 @@ class ComboBoxTest {
         assertThat(layout.data).isEqualTo(data)
     }
 
-    @Test(dependsOnMethods = arrayOf("combobox elements can be initialized via varargs", "combobox should be configurable"))
+    @Test(dependsOnMethods = ["combobox elements can be initialized via varargs", "combobox should be configurable"])
     fun `combobox item caption can be set`() {
         val layout = horizontalLayout {
             comboBox("caption", "One", "Two", "Three") {
