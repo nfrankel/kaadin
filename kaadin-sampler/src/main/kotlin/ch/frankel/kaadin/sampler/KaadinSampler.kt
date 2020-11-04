@@ -28,7 +28,7 @@ import com.vaadin.ui.components.calendar.event.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-class KaadinSampler() : UI() {
+class KaadinSampler : UI() {
 
     override fun init(request: VaadinRequest) {
         theme = "valo"

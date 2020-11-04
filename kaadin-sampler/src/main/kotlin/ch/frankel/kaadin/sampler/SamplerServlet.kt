@@ -19,6 +19,6 @@ import com.vaadin.annotations.*
 import com.vaadin.server.*
 import javax.servlet.annotation.*
 
-@WebServlet(value = "/*", asyncSupported = true)
+@WebServlet(value = ["/*"], asyncSupported = true)
 @VaadinServletConfiguration(productionMode = false, ui = KaadinSampler::class)
 class SamplerServlet() : VaadinServlet()
