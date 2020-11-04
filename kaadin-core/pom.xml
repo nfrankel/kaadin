@@ -21,7 +21,7 @@
     <parent>
         <groupId>ch.frankel.kaadin</groupId>
         <artifactId>kaadin-parent</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
     <artifactId>kaadin-core</artifactId>
     <name>Kaadin Core</name>

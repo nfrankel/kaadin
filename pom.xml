@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.frankel.kaadin</groupId>
     <artifactId>kaadin-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>pom</packaging>
     <name>Kaadin parent</name>
     <inceptionYear>2016</inceptionYear>
